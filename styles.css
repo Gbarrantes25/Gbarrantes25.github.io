@@ -1,0 +1,323 @@
+*{
+    margin: 0 ;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+
+.contenedor{
+    width: 95vw;
+    max-width: 940px;
+    height: auto;
+    margin: 0.66em auto;
+    box-sizing: border-box;
+}
+
+/*-----CAJA-----*/
+
+.caja-principal{
+    border-top: 0.13em solid black;
+    border-bottom: 0.13em solid black;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.caja-principal h2{
+    text-align: left;
+    font-size: 1.5em;
+    padding-right: 1em;
+    width: 15%;
+}
+
+.caja-principal .caja{
+    text-align: right;
+    padding-left: 1em;
+    width: 85%;
+}
+
+.caja p{
+    padding: 0.1em;
+}
+
+.linkedin a{
+    color: blue;
+}
+
+.linkedin a:active{
+    color: blue;
+}
+
+/*-----PERFIL-----*/
+
+.perfil{
+    border-bottom: 0.13em solid black;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.perfil h3{
+    text-align: left;
+    width: 15%;
+}
+
+.perfil p{
+    padding-left: 2.5em;
+    text-align: left;
+    width: 85%;
+}
+
+/*-----EXPERIENCIA LABORAL-----*/
+
+.experiencia{
+    border-bottom: 0.13em solid black;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.experiencia h3{
+    text-align: left;
+    width: 15%;
+}
+
+.experiencia .caja2{
+    padding-left: 2.5em;
+    text-align: left;
+    width: 85%;
+   
+}
+
+.caja-cargo{
+    padding-bottom: 0.8em;
+}
+
+.cargo{
+    font-size: 1.1em;
+}
+
+.cargo, .funciones + p{
+    font-weight: bold;
+    padding: 0.2em 0 0 0;
+    text-align: left;
+}
+
+.cargo + .fecha{
+    padding-bottom: 0.3em;
+}
+
+ul{
+    padding-left: 1.5em;
+}
+
+.funciones{
+    list-style-type: circle;
+}
+
+.logros{
+    list-style-type: disc;
+}
+
+/*-----ESTUDIOS-----*/
+
+.formacion{
+    border-bottom: 0.13em solid black;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.formacion h3{
+    text-align: left;
+    width: 15%;
+  
+}
+
+.formacion p{
+    padding-left: 2.5em;
+    text-align: left;
+    width: 85%;
+}
+
+/*-----COMPETENCIAS-----*/
+
+.competencias{
+    border-bottom: 0.13em solid black;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.competencias h3{
+    text-align: left;
+    width: 15%;
+}
+
+.competencias .caja-competencias{
+    padding-left: 2.5em;
+    text-align: left;
+    width: 85%;
+}
+
+.competencias span{
+    font-weight: bold;
+}
+
+.competencias p{
+    padding-bottom: 0.3em;
+}
+
+/*-----FOOTER-----*/
+
+footer{
+    width: 100%;
+    height: calc(100vh * 0.10);
+    background: rgb(42, 41, 41);
+    color: white;
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+.caja-footer{
+
+    height: calc(100vh * 0.10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*-----MEDIA QUERIES-----*/
+
+@media screen and (min-width: 720px) {
+
+
+    /*CAJA PRINCIPAL*/
+    .caja-principal{
+        border-top: 0;
+        border-bottom: 0.2em solid black;
+    }
+    
+    .caja-principal h2{
+        font-size: 2em;
+        width: 50%;
+    }
+    
+    .caja-principal .caja{
+        width: 50%;
+    }
+    
+    .caja p{
+        font-size: 1.6em;
+    }
+    .caja a{
+        font-size: 1em;
+    }
+
+    /*PERFIL*/
+
+    .perfil{
+        border-bottom: 0.2em solid black;
+    }
+    
+    .perfil h3{
+        width: 20%;
+        font-size: 1.5em;
+    }
+    
+    .perfil p{
+        width: 80%;
+        font-size: 1.4em;
+    }
+
+    /*EXPERIENCIA*/
+
+    .experiencia{
+        border-bottom: 0.2em solid black;
+        box-sizing: border-box;
+    }
+    
+    .experiencia h3{
+        width: 20%;
+        font-size: 1.5em;
+    }
+    
+    .experiencia .caja2{
+        width: 80%;
+        padding-left: 3.02em;
+    }
+
+    .cargo{
+        font-size: 1.4em;
+    }
+    
+    .funciones + p{
+        font-size: 1.3em;
+    }
+
+    li{
+        font-size: 1.3em;
+    }
+    
+    .cargo + .fecha{
+        font-size: 1.3em;
+    }
+
+    /*-----ESTUDIOS-----*/
+
+    .formacion{
+        border-bottom: 0.2em solid black;
+        box-sizing: border-box;
+    }
+    
+    .formacion h3{
+        text-align: left;
+        width: 20%;
+        font-size: 1.5em;
+    }
+    
+    .formacion p{
+        padding-left: 2.3em;
+        width: 80%;
+        font-size: 1.4em;
+    }
+
+    /*-----COMPETENCIAS-----*/
+
+    .competencias{
+        border-bottom: 0;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+    
+    .competencias h3{
+        text-align: left;
+        width: 20%;
+        font-size: 1.5em;
+    }
+    
+    .competencias .caja-competencias{
+        padding-left: 3.02em;
+        text-align: left;
+        width: 80%;
+    }
+    
+    .competencias span{
+        font-size: 1em;
+    }
+    
+    .competencias p{
+        padding-bottom: 0.3em;
+        font-size: 1.4em;
+    }
+}
