@@ -6,6 +6,62 @@
     font-size: 10px;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
+/*Barra de navegación*/
+header{
+    padding: 2em 0;
+    background-color: lightgray;
+}
+.navegacion{
+    width: 95vw;
+    max-width: 940px;
+    height: 2em;
+    position: relative;
+    margin: 0 auto;
+    
+    
+}
+
+.nav{
+    position: absolute;
+    display: inline;
+    top: 1em;
+    left: 0;
+    
+}
+
+.nav ul li{
+    display: inline;
+    margin-left: 0.8em;
+    
+}
+
+.nav ul li a{
+    font-size: 1em;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    transition: 0.5s;
+}
+
+.nav ul li a:active{
+    font-size: 1em;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.nav ul li a:hover{
+    text-decoration:underline;
+    font-weight: bold;
+    color: black;
+    font-size: 1.2em;
+}
+
+/*Contenedor de contenido*/
 
 .contenedor{
     width: 95vw;
@@ -53,7 +109,7 @@
 
 /*-----PERFIL-----*/
 
-.perfil{
+#perfil{
     border-bottom: 0.13em solid black;
     padding: 1em;
     display: flex;
@@ -62,20 +118,20 @@
     width: 100%;
 }
 
-.perfil h3{
+#perfil h3{
     text-align: left;
     width: 15%;
 }
 
-.perfil p{
+#perfil p{
     padding-left: 2.5em;
     text-align: left;
     width: 85%;
 }
 
-/*-----EXPERIENCIA LABORAL-----*/
+/*----EXPERIENCIA LABORAL-----*/
 
-.experiencia{
+#experiencia{
     border-bottom: 0.13em solid black;
     padding: 1em;
     display: flex;
@@ -83,12 +139,12 @@
     box-sizing: border-box;
 }
 
-.experiencia h3{
+#experiencia h3{
     text-align: left;
     width: 15%;
 }
 
-.experiencia .caja2{
+#experiencia .caja2{
     padding-left: 2.5em;
     text-align: left;
     width: 85%;
@@ -127,7 +183,7 @@ ul{
 
 /*-----ESTUDIOS-----*/
 
-.formacion{
+#formacion{
     border-bottom: 0.13em solid black;
     padding: 1em;
     display: flex;
@@ -135,13 +191,13 @@ ul{
     box-sizing: border-box;
 }
 
-.formacion h3{
+#formacion h3{
     text-align: left;
     width: 15%;
   
 }
 
-.formacion p{
+#formacion p{
     padding-left: 2.5em;
     text-align: left;
     width: 85%;
@@ -149,7 +205,7 @@ ul{
 
 /*-----COMPETENCIAS-----*/
 
-.competencias{
+#competencias{
     border-bottom: 0.13em solid black;
     padding: 1em;
     display: flex;
@@ -157,22 +213,22 @@ ul{
     box-sizing: border-box;
 }
 
-.competencias h3{
+#competencias h3{
     text-align: left;
     width: 15%;
 }
 
-.competencias .caja-competencias{
+#competencias .caja-competencias{
     padding-left: 2.5em;
     text-align: left;
     width: 85%;
 }
 
-.competencias span{
+#competencias span{
     font-weight: bold;
 }
 
-.competencias p{
+#competencias p{
     padding-bottom: 0.3em;
 }
 
@@ -182,22 +238,23 @@ ul{
 
 .programas li, .idiomas li, .metodologias li{
     list-style: square;
+    padding-bottom: 0.5em;
 }
 
 /*-----FOOTER-----*/
 
 footer{
     width: 100%;
-    height: calc(100vh * 0.10);
+    height: calc(100vh * 0.05);
     background: rgb(42, 41, 41);
     color: white;
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-style: italic;
 }
 
 .caja-footer{
 
-    height: calc(100vh * 0.10);
+    height: calc(100vh * 0.05);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -206,6 +263,30 @@ footer{
 /*-----MEDIA QUERIES-----*/
 
 @media screen and (min-width: 720px) {
+
+        /*Barra de navegación*/
+    header{
+        padding: 3em 0;
+    }
+
+    .nav ul li{
+        display: inline;
+        margin-left: 1.2em;
+        
+    }
+
+    .nav ul li a{
+        font-size: 1.3em;
+        
+    }
+
+    .nav ul li a:active{
+        font-size: 1.3em;
+    }
+
+    .nav ul li a:hover{
+        font-size: 1.5em;
+    }
 
 
     /*CONTENEDOR*/
@@ -256,33 +337,33 @@ footer{
 
     /*PERFIL*/
 
-    .perfil{
+    #perfil{
         border-bottom: 0.2em solid black;
     }
     
-    .perfil h3{
+    #perfil h3{
         width: 20%;
         font-size: 1.5em;
     }
     
-    .perfil p{
+    #perfil p{
         width: 80%;
         font-size: 1.4em;
     }
 
-    /*EXPERIENCIA*/
+    /*experiencia*/
 
-    .experiencia{
+    #experiencia{
         border-bottom: 0.2em solid black;
         box-sizing: border-box;
     }
     
-    .experiencia h3{
+    #experiencia h3{
         width: 20%;
         font-size: 1.5em;
     }
     
-    .experiencia .caja2{
+    #experiencia .caja2{
         width: 80%;
         padding-left: 3.02em;
     }
@@ -305,18 +386,18 @@ footer{
 
     /*-----ESTUDIOS-----*/
 
-    .formacion{
+    #formacion{
         border-bottom: 0.2em solid black;
         box-sizing: border-box;
     }
     
-    .formacion h3{
+    #formacion h3{
         text-align: left;
         width: 20%;
         font-size: 1.5em;
     }
     
-    .formacion p{
+    #formacion p{
         padding-left: 2.3em;
         width: 80%;
         font-size: 1.4em;
@@ -324,7 +405,7 @@ footer{
 
     /*-----COMPETENCIAS-----*/
 
-    .competencias{
+    #competencias{
         border-bottom: 0;
         padding: 1em;
         display: flex;
@@ -332,13 +413,13 @@ footer{
         box-sizing: border-box;
     }
     
-    .competencias h3{
+    #competencias h3{
         text-align: left;
         width: 20%;
         font-size: 1.5em;
     }
     
-    .competencias .caja-competencias{
+    #competencias .caja-competencias{
         padding-left: 3.02em;
         text-align: left;
         width: 80%;
@@ -346,13 +427,28 @@ footer{
         justify-content: space-between;
     }
     
-    .competencias span{
+    #competencias span{
         font-size: 1em;
     }
     
-    .competencias p{
+    #competencias p{
         padding-bottom: 0.3em;
         font-size: 1.4em;
+    }
+
+    .programas  li{
+        padding-bottom: 0.3em;
+    }
+
+    /*FOOTER*/
+
+    footer{
+        width: 100%;
+        height: calc(100vh * 0.20);
+    }
+    
+    .caja-footer{
+        height: calc(100vh * 0.20);
     }
 
 }
