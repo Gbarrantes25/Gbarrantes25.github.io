@@ -450,5 +450,8 @@ footer{
     .caja-footer{
         height: calc(100vh * 0.20);
     }
-
+    
+    .caja-footer p{
+        font-size: 1.3em;
+    }
 }
