@@ -304,6 +304,7 @@ footer{
         border: none;
         background-color: white;
         padding: 2em 0;
+        box-shadow: 20px 20px 15px -10px rgba(0,0,0,0.7);
     }
 
     .contenedor > .contenedor2{
