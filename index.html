@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador de texto</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="imagenes/favicon.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <div class="caja-principal">
+                <img src="imagenes/logo.png" alt="logo de la página" class="logo">
+                <h1>Encriptador/Desencriptador de texto</h1>
+            </div>
+        </header>
+        <main>
+            <div class="caja-contenido">
+                <div class="caja-entrada">
+                    <textarea id="texto-entrada" placeholder="Ingrese texto aquí"></textarea>
+                    <div class="advertencia">
+                        <div class="circulo">
+                            <h2>!</h2>
+                        </div>
+                        <p class="letra"> Solo letras minúsculas y sin tildes</p>
+                    </div>
+                    
+                    <div class="botones">
+                        <button id="btn-encriptar" type="button" onclick="encriptar()">Encriptar</button>
+                        <button id="btn-desencriptar" type="button" onclick="desencriptar()">Desencriptar</button>
+                        <button id="btn-limpiar" type="button" onclick="limpiar()">Limpiar</button>
+                    </div>
+                </div>
+
+                <div class="caja-salida">
+                    <div id="ocultar">
+                        <img src="imagenes/lumalee.gif" alt="Imagen en movimiento de estrella Lumalee">
+                        <p class="mensaje">Ningún mensaje fue encontrado</p>
+                        <p class="mensaje2">Ingresa el texto que desees encriptar o desencriptar</p>
+                    </div>
+                    <textarea id="texto-salida" readonly></textarea>
+                    <button id="btn-copiar" type="button" onclick="copiar()">Copiar</button>
+                </div>
+            </div>
+
+          
+        </main> 
+    </div>
+
+    <footer>
+        <p class="piedepagina">By Giancarlo Barrantes LLanos</p>
+        <p class="piedepagina">© Alura - 2023</p>
+    </footer>
+    <div id="alerta-error">
+        <div class="contenido-alerta-error">
+                <h1 class="titulo-error">¡Error!</h1>
+                <img src="imagenes/imagen-error.png" alt="imagen de error">
+                <p class="mensaje-error">No se aceptan letras mayúsculas, caracteres especiales (excepto los espacios) y tildes...</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="alerta-copiar">
+        <div class="contenido-alerta-copiar">
+                <h1 class="titulo-copiar">Información</h1>
+                <img src="imagenes/imagen-copiar.jpg" alt="imagen de copiado con éxito">
+                <p class="mensaje-copiar">Texto copiado con éxito!...</p>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+</html>
