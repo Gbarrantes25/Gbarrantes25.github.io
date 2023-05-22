@@ -1,6 +1,6 @@
 # Gbarrantes25.github.io
 
-<img src="https://www.oracle.com/a/ocom/img/rh03-one-v-black-lad.png">
+<center><img src="https://itconnect.lat/portal/wp-content/uploads/2023/03/Oracle-Next-Education--e1678304093153.png"></center>
 
 Las "llaves" de encriptación que utilizaremos son las siguientes:
 
