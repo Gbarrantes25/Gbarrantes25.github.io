@@ -1,5 +1,7 @@
 # Gbarrantes25.github.io
 
+<img src="https://www.oracle.com/a/ocom/img/rh03-one-v-black-lad.png">
+
 Las "llaves" de encriptación que utilizaremos son las siguientes:
 
 La letra "e" es convertida para "enter"
