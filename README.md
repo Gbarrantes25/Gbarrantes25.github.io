@@ -1,6 +1,6 @@
 # Gbarrantes25.github.io
 
-<p align="center><img src="https://itconnect.lat/portal/wp-content/uploads/2023/03/Oracle-Next-Education--e1678304093153.png"></p>
+<p align="center"><img src="https://itconnect.lat/portal/wp-content/uploads/2023/03/Oracle-Next-Education--e1678304093153.png"></p>
 
 Las "llaves" de encriptación que utilizaremos son las siguientes:
 
