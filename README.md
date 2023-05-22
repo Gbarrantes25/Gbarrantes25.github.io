@@ -2,7 +2,9 @@
 
 <p align="center"><img src="https://itconnect.lat/portal/wp-content/uploads/2023/03/Oracle-Next-Education--e1678304093153.png"></p>
 
+<hr>
 <h3>📄 Requisitos:</h3>
+<hr>
 
 - Debe funcionar solo con letras minúsculas.
 - No deben ser utilizados letras con acentos ni caracteres especiales.
@@ -10,13 +12,17 @@
 - La página debe tener campos para inserción del texto que será encriptado o desencriptado, y el usuario debe poder escoger entre as dos opciones.
 - El resultado debe ser mostrado en la pantalla.
 
+<hr>
 <h3>➕ Extras:</h3>
+<hr>
 
 - Un botón que copie el texto encriptado/desencriptado para la sección de transferencia, o sea que tenga la misma funcionalidad del ctrl+C o de la opción "copiar" del menú de las aplicaciones.
 - Se agregó un botón que limpia las áreas de texto.
 - Se añadió responsividad para smartphones, tablet y computadoras.
 
+<hr>
 <h3>⚙ Funcionalidad</h3>
+<hr>
 
 - Botón encriptar:
 
@@ -97,7 +103,9 @@
 
   Se encargará de borrar los textos y reiniciará el encriptador.
   
+  <hr>
   <h3>📌 Visualizaciones</h3>
+  <hr>
   
   - Computadora <br><br>
  
