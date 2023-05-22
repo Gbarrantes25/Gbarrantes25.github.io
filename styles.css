@@ -272,7 +272,7 @@ footer p + p{
     font-style: italic;
 }
 
-/*-----Alerta-----*/
+/*-----Alerta error-----*/
 
 #alerta-error{
     width: 100%;
@@ -325,7 +325,8 @@ footer p + p{
     font-weight: bold;
 }
 
-/**/
+/*-----Alerta copiar-----*/
+
 #alerta-copiar{
     width: 100%;
     height: 100vh;
@@ -384,6 +385,7 @@ footer p + p{
 
 /*/////MEDIA QUERIES/////*/
 
+/*-----Responsividad para dispositivos +720px-----*/
 @media screen and (min-width: 720px) {
 
     /*-----HEADER-----*/
@@ -477,7 +479,7 @@ footer p + p{
         align-self: center;
     }
 
-    /*-----Alerta-----*/
+    /*-----Alerta Error-----*/
 
     #alerta-error .contenido-alerta-error{
         width: 30rem;
@@ -503,7 +505,8 @@ footer p + p{
         font-weight:600;
     }
 
-    /**/
+    /*-----Alerta Copiar-----*/
+
     #alerta-copiar .contenido-alerta-copiar{
         width: 30rem;
         height: 30rem;
@@ -529,6 +532,7 @@ footer p + p{
     }
 }
 
+/*-----Responsividad para dispositivos +900px-----*/
 @media screen and (min-width: 900px) {
 
     /*-----HEADER-----*/
@@ -636,7 +640,7 @@ footer p + p{
         margin-top: auto;
     }
 
-    /*-----Alerta-----*/
+    /*-----Alerta Error-----*/
 
     #alerta-error .contenido-alerta-error{
         width: 40rem;
@@ -662,7 +666,7 @@ footer p + p{
         font-weight:600;
     }
 
-    /**/
+    /*-----Alerta Copiar-----*/
 
     #alerta-copiar .contenido-alerta-copiar{
         width: 40rem;

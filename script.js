@@ -56,6 +56,7 @@ function encriptar() {
         mostrar();
 
     } else {
+        // Llamamos a la alerta error.
         alertaError();
     }
     
@@ -80,7 +81,7 @@ function desencriptar() {
         mostrar();
 
     } else {
-        
+        // Llamamos a la alerta error.
         alertaError();
         
     }
@@ -90,21 +91,36 @@ function desencriptar() {
 
 // Creamos una función que nos permita copiar el texto del textarea desencriptado y lo vinculamos añ botón copiar en el HTML con el método "onclick".
 function copiar () {
+
+    // Obtenemos la referencia del área de texto de salida y lo almacenamos en una variable
     textoCopiar = document.getElementById("texto-salida");
+
+    // Seleccionamos todo el texto del área de salida
     textoCopiar.select();
+
+    // Copiamos el contenido al portapapeles
     document.execCommand("copy");
+
+    // Llamamos a la función alerta copiar
     alertaCopiar();
 }
 
 
-//
+// Creamos una función que nos permitirá limpiar y/o reiniciar las áreas de texto del encriptador.
 function limpiar () {
+
+    // Obtenemos el valor del área de texto de entrada en letras minúsuclas y lo almacenamos en una variable.
     var textocaja = document.getElementById("texto-entrada").value.toLowerCase();
 
+    // Si texto de entrada no está vació o lleno...
     if(textocaja != "" || textocaja === ""){
+
+        // Entonces reemplaza con un "" la caja de texto entrada.
         document.getElementById("texto-entrada").value = "";
         
     }
+
+    // Ejecutamos a la función ocultar para que aparezca la imagen y sus párrafos del inicio.
     ocultar();
 }
 
@@ -112,41 +128,70 @@ function limpiar () {
 
 // Creamos una función que muestre el textarea desencriptado y oculte la imagen y textos.
 function mostrar () {
+
+    // Obtenemos la referencia del texto de salida y le cambioamos el css display a visible
     document.getElementById("texto-salida").style.display = "show";
+    // Obtenemos la referencia del texto de salida y le cambioamos el css display a inherit
     document.getElementById("texto-salida").style.display = "inherit";
+    // Obtenemos la referencia del texto de salida y le cambioamos el css tamaño mínimo a 40vh.
     document.getElementById("texto-salida").style.minHeight = "40vh";
+    // Obtenemos la referencia del texto de salida y le cambioamos el css margin a 2rem arriba y auto abajo.
     document.getElementById("texto-salida").style.margin = "2rem 0 auto 0";
+    // Ocultamos por css todo el div ocultar donde está la imagen y textos
     document.getElementById("ocultar").style.display = "none";
+    // Hacemos visible el botón copiar
     document.getElementById("btn-copiar").style.display = "show";
+    // Hacemos que el bot+on copiar tome el valor de pantalla del elemento padre
     document.getElementById("btn-copiar").style.display = "inherit";
+    // Alineamos el texto del botón copiar al centro.
     document.getElementById("btn-copiar").style.justifyContent = "center";
 }
 
 // Creamos una función que oculte el textarea desencriptado y muestre la imagen y textos.
 function ocultar () {
+
+    // Ocultamos el área de texto de salida
     document.getElementById("texto-salida").style.display = "none";
+    // Mostramos el div que contiene la imagen y textos
     document.getElementById("ocultar").style.display = "show";
+    // Hacemos que la pantalla del div herede el atributo del padre
     document.getElementById("ocultar").style.display = "inherit";
+    // Ocultamos el botón copiar
     document.getElementById("btn-copiar").style.display = "none";
 }
 
-//
+// Creamos una función para la alerta error
+// Notar que la alerta está con opacidad "0" y visibilidad "hidden"
 function alertaError() {
 
+    // En la caja alerta error, le cambiamos la propiedad CSS opacity a 1
     document.getElementById("alerta-error").style.opacity = "1";
+    // En la caja alerta error, le cambiamos la propiedad CSS visibility a visible
     document.getElementById("alerta-error").style.visibility = "visible";
+
+    // Establecemos un temporizador de 1 segundo para que la alerta desaparezca
     setTimeout( function() {
+
+        // Obtenemos la referencia de la caja alerta error y lo ocultamos.
         document.getElementById("alerta-error").style.opacity = "0";
         document.getElementById("alerta-error").style.visibility = "hidden";
     }, 1000);
 }
 
-
+// Creamos una función para la alerta copiar
+// Notar que la alerta está con opacidad "0" y visibilidad "hidden"
 function alertaCopiar() {
 
+    // En la caja alerta copiar, le cambiamos la propiedad CSS opacity a 1
     document.getElementById("alerta-copiar").style.opacity = "1";
+
+    // En la caja alerta copiar, le cambiamos la propiedad CSS visibility a visible
     document.getElementById("alerta-copiar").style.visibility = "visible";
+
+    // Establecemos un temporizador de 1 segundo para que la alerta desaparezca
     setTimeout( function() {
+
+        // Obtenemos la referencia de la caja alerta copiar y lo ocultamos.
         document.getElementById("alerta-copiar").style.opacity = "0";
         document.getElementById("alerta-copiar").style.visibility = "hidden";
     }, 1000);
