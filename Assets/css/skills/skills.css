@@ -1,0 +1,26 @@
+#skills{
+    max-width: 1440px;
+    background: var(--color-humo);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10.556%;
+    box-sizing: border-box;
+    margin-bottom: 5.5rem;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #skills{
+        padding: 2rem 2rem;
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 0) and (max-width: 767px) {
+    #skills{
+        padding: 1rem 1rem;
+        margin-bottom: 0;
+    }
+}

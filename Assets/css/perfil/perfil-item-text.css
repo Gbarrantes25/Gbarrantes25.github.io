@@ -1,0 +1,15 @@
+.perfil__item-text{
+    color: #464646;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 19px;
+}
+
+@media (min-width: 0) and (max-width: 767px) {
+    .perfil__item-text{
+        font-weight: 600;
+        font-size: 0.875;
+        line-height: 16px;
+    }
+}

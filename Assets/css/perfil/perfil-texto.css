@@ -1,0 +1,17 @@
+.perfil__texto{
+    display: flex;
+    flex-direction: column;
+    padding: 61px 0;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .perfil__texto{
+        padding: 2rem 0;
+    }
+}
+
+@media (min-width: 0) and (max-width: 767px) {
+    .perfil__texto{
+        padding: 0 0;
+    }
+}

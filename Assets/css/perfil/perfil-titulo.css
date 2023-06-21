@@ -1,0 +1,25 @@
+.perfil__titulo{
+    font-size: 3.25rem;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 61px;
+    color: #464646;
+    margin: 0 0 1.5rem 0;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .perfil__titulo{
+        font-size: 1.5rem;
+        line-height: 26px;
+        margin: 0 0 0.5rem 0;
+    }
+}
+
+@media (min-width: 0) and (max-width: 767px) {
+    .perfil__titulo{
+        font-size: 1.5rem;
+        line-height: 26px;
+        margin: 0 0 1rem 0;
+        text-align: center;
+    }
+}

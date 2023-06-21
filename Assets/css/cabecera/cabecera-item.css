@@ -1,0 +1,14 @@
+.cabecera__item{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 19px;
+    color: #464646;
+    transition: 1s;
+}
+
+.cabecera__item:hover{
+    transform: scale(1.1);
+    text-decoration: underline;
+    font-weight: 500;
+}

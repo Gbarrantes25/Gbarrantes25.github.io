@@ -1,0 +1,10 @@
+:root{
+    font-family: 'Raleway', sans-serif;
+    background: #ffffff;
+    scroll-behavior: smooth;
+    --color-humo: #F5F5F5;
+    --color-celeste: #EAF2FD;
+    --color-celeste-efecto: #bcd8ff;
+    --color-blanco: #FFFFFF;
+    --color-azul-boton: #2A7AE4;
+}

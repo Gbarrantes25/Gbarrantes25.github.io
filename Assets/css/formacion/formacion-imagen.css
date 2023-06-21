@@ -1,0 +1,10 @@
+.formacion__imagen{
+    height: 130px;
+    object-fit: cover;
+}
+
+@media (min-width: 0) and (max-width: 767px) {
+    .formacion__imagen{
+        max-height: 60px;
+    }
+}

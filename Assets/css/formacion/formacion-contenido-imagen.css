@@ -1,0 +1,23 @@
+.formacion__contenido-imagen{
+    background: var(--color-blanco);
+    width: 302.3776px;
+    height: 235px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .formacion__contenido-imagen{
+        width: 205px;
+        height: 154.6651px;
+    }
+}
+
+@media (min-width: 0) and (max-width: 767px) {
+    .formacion__contenido-imagen{
+        width: 296px;
+        height: 118px;
+    }
+}

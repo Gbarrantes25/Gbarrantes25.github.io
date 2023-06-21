@@ -1,0 +1,11 @@
+.cabecera__menu{
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+@media (min-width: 0) and (max-width: 991px) {
+    .cabecera__menu{
+        display: none;
+    }
+}

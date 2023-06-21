@@ -1,0 +1,16 @@
+.perfil__item-imagen{
+    width: 24px;
+    padding-left: 0.25rem;
+    transition: 1s;
+}
+
+.perfil__item-imagen:active{
+    transform: scale(1.2);
+}
+
+@media (min-width: 0) and (max-width: 767px) {
+    .perfil__item-imagen{
+        width: 16px;
+        padding-left: 0.08rem;
+    }
+}

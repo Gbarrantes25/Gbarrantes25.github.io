@@ -1,0 +1,14 @@
+.formacion__descripcion{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 19px;
+    color: #464646;
+}
+
+@media (min-width: 0) and (max-width: 991px) {
+    .formacion__descripcion{
+        font-size: 0.875rem;
+        line-height: 16px;
+    }
+}

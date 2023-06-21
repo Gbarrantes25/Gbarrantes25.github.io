@@ -1,0 +1,35 @@
+.proyectos__imagen{
+    width: 64.47%;
+    object-fit: cover;
+    box-shadow: 2px 2px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    transition: 1.5s;
+}
+
+.proyectos__imagen--derecha{
+    order: 1;
+}
+
+.proyectos__imagen:hover{
+    transform: scale(0.8);
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .proyectos__imagen{
+        width: 704px;
+    }
+    
+    .proyectos__imagen--derecha{
+        order: 0;
+    }
+}
+
+@media (min-width: 0) and (max-width: 767px) {
+    .proyectos__imagen{
+        width: 270px;
+    }
+    
+    .proyectos__imagen--derecha{
+        order: 0;
+    }
+}

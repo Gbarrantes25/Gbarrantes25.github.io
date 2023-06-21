@@ -1,0 +1,5 @@
+.contacto__caja{
+    max-height: 595px;
+    display: flex;
+    flex-direction: column;
+}

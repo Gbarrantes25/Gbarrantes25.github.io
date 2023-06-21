@@ -1,0 +1,11 @@
+.formacion__contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 1.5s;
+}
+
+.formacion__contenido:hover{
+    transform: scale(0.8);
+}

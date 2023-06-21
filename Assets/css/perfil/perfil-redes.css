@@ -1,0 +1,11 @@
+.perfil__redes{
+    display: flex;
+    flex-direction: row;
+}
+
+@media (min-width: 0) and (max-width: 767px) {
+    .perfil__redes{
+        justify-content: center;
+        align-items: center;
+    }
+}
