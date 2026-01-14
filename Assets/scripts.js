@@ -55,6 +55,38 @@
             });
         });
 
+       // Filtrado de proyectos
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Actualizar botones activos
+                const filterValue = button.getAttribute('data-filter');
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                
+                
+                // Filtrar proyectos
+                projectCards.forEach(card => {
+                    const cardDifficulty = card.getAttribute('data-difficulty');
+                    
+                    if (filterValue === 'todos' || filterValue === cardDifficulty) {
+                        card.classList.remove('hidden');
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            card.classList.add('hidden');
+                        }, 400);
+                    }
+                });
+            });
+        });
+
         // Formulario de contacto
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
