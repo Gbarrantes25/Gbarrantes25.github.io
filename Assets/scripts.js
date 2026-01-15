@@ -126,3 +126,26 @@
         document.querySelectorAll('.skill-card, .pricing-card, .project-card, .stat-card').forEach(el => {
             observer.observe(el);
         });
+
+        // NUEVO: Toggle de tema oscuro
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Cargar tema guardado
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Animación del botón
+            themeToggle.style.transform = 'rotate(360deg)';
+            setTimeout(() => {
+                themeToggle.style.transform = 'rotate(0deg)';
+            }, 300);
+        });
