@@ -18,6 +18,15 @@
             --gradient: linear-gradient(135deg, #1e5fd9 0%, #1a6dda 15%, #177bdb 30%, #1489dc 45%, #0e97dd 60%, #09a5be 70%, #6daaf1 80%, #9e8bf8 90%, #b870fb 100%);
         }
 
+        [data-theme="dark"] {
+            --secondary: #f8fafc;
+            --text: #e2e8f0;
+            --text-light: #868d95;
+            --bg: #0f172a;
+            --bg-light: #1e293b;
+            --border: #334155;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             color: var(--text);
@@ -193,6 +202,121 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        /* Tema oscuro */
+        .theme-toggle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-light);
+            border: 2px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            transition: all 0.3s ease;
+            color: var(--text);
+        }
+
+        .sun-icon {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        .moon-icon {
+            opacity: 0;
+            transform: rotate(180deg) scale(0);
+        }
+
+        [data-theme="dark"] .sun-icon {
+            opacity: 0;
+            transform: rotate(-180deg) scale(0);
+        }
+
+        [data-theme="dark"] .moon-icon {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        /* NUEVO: Ajustes para modo oscuro */
+        [data-theme="dark"] body {
+            background: var(--bg);
+        }
+
+        [data-theme="dark"] nav {
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        [data-theme="dark"] .hero {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e293b 100%);
+        }
+
+        [data-theme="dark"] .profile-container {
+            border-color: rgba(255,255,255,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        [data-theme="dark"] .skill-card,
+        [data-theme="dark"] .pricing-card,
+        [data-theme="dark"] .project-card,
+        [data-theme="dark"] .contact-form {
+            background: var(--bg-light);
+            border-color: var(--border);
+        }
+
+        [data-theme="dark"] .stat-card {
+            background: var(--bg-light);
+        }
+
+        [data-theme="dark"] .contact-method {
+            background: var(--bg);
+        }
+
+        [data-theme="dark"] .pricing-card.featured {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+
+        [data-theme="dark"] .form-group input,
+        [data-theme="dark"] .form-group textarea {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        [data-theme="dark"] .tab-btn {
+            background: var(--bg-light);
+            color: var(--text);
+        }
+
+        [data-theme="dark"] .filter-btn {
+            background: var(--bg-light);
+        }
+
+        [data-theme="dark"] .project-image {
+            opacity: 0.9;
+        }
+
+        [data-theme="dark"] footer p {
+            color: var(--bg);
+            font-weight: 400;
+        }
+
+        [data-theme="dark"] .profile-container {
+            background: var(--bg);
         }
 
         /* Secciones */
@@ -815,6 +939,16 @@
 
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .theme-toggle {
+                width: 45px;
+                height: 45px;
+                order: -1; /* Coloca el toggle antes del menú hamburguesa */
+            }
+    
+            .nav-container {
+                gap: 1rem;
             }
         }
 
