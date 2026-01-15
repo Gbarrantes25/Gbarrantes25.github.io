@@ -309,6 +309,7 @@
         [data-theme="dark"] .project-image {
             opacity: 0.8;
             background: var(--bg);
+            
         }
 
 
@@ -1210,5 +1211,4 @@
         .fade-in-up {
             animation: fadeInUp 0.6s ease-out;
         }
-
     
