@@ -682,6 +682,16 @@
             color: rgba(255,255,255,0.3);
         }
 
+        .project-img {
+            border-radius: 3%;
+            box-sizing: border-box;
+            opacity: 0.8;
+        }
+
+        .project-img:hover{
+            opacity: 1;
+        }
+
         .project-content {
             padding: 2rem;
         }
@@ -1211,4 +1221,4 @@
         .fade-in-up {
             animation: fadeInUp 0.6s ease-out;
         }
-    
+
