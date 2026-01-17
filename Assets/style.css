@@ -204,6 +204,11 @@
             object-fit: cover;
         }
 
+        .profile-container:hover {
+            transform: rotate(360deg);
+            transition: transform 0.9s ease-in-out;
+        }
+
         /* Tema oscuro */
         .theme-toggle {
             width: 50px;
@@ -682,17 +687,14 @@
             color: rgba(255,255,255,0.3);
         }
 
-        .project-img {
-            border-radius: 3%;
-            box-sizing: border-box;
-            width: 90%;
-            height: auto;
+        .project-image img{
+            border-radius: 16px;
             opacity: 0.8;
         }
 
-        .project-img:hover{
+        .project-image img:hover{
             opacity: 1;
-        }
+        }        
 
         .project-content {
             padding: 2rem;
@@ -1142,6 +1144,7 @@
                 gap: 4rem;
                 animation: scroll-smooth 35s linear infinite;
             }
+
         }   
 
         @media (max-width: 640px) {
@@ -1196,6 +1199,10 @@
         
             .footer-social {
                 justify-content: center;
+            }
+
+            .project-image img {
+                height: 170px;
             }
         }
 
