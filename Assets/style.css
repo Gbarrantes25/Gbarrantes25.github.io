@@ -685,6 +685,8 @@
         .project-img {
             border-radius: 3%;
             box-sizing: border-box;
+            width: 90%;
+            height: auto;
             opacity: 0.8;
         }
 
