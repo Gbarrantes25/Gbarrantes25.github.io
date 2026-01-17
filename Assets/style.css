@@ -15,7 +15,7 @@
             --bg: #ffffff;
             --bg-light: #f8fafc;
             --border: #e2e8f0;
-            --gradient: linear-gradient(135deg, #1e5fd9 0%, #1a6dda 15%, #177bdb 30%, #1489dc 45%, #0e97dd 60%, #09a5be 70%, #6daaf1 80%, #9e8bf8 90%, #b870fb 100%);
+            --gradient: linear-gradient(135deg, #0d5ba8 0%,#177bdb 10%,#2b8de8 20%,#4a9ef2 30%,#5fa8f5 40%,#7a8ff8 50%,#9178f9 60%,#a96bfa 70%,#b870fb 80%,#d45fb8 90%,#e91e8c 100%);
         }
 
         [data-theme="dark"] {
