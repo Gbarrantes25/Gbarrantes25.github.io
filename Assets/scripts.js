@@ -149,3 +149,11 @@
                 themeToggle.style.transform = 'rotate(0deg)';
             }, 300);
         });
+
+
+        // Protección del logo
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.closest('.logo, .footer-logo, .profile-container')) {
+                e.preventDefault();
+            }
+        });
