@@ -1063,6 +1063,23 @@
             filter: grayscale(0%) brightness(1);
         }
 
+        /**/
+
+        .logo,
+        .footer-logo,
+        .profile-container img,
+        img[src*="Vector-logo.svg"] {
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            -webkit-user-drag: none;
+        }
+
+
+
         /* Responsive */
         @media (max-width: 968px) {
             .nav-links {
