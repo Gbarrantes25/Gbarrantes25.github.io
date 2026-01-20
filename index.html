@@ -6,6 +6,12 @@
     <title>Giancarlo Barrantes</title>
     <link rel="icon" type="image/x-icon" href="./Assets/Img/Vector-logo.svg">
     <link rel="stylesheet" href="Assets/style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("0hVsecDal2VpJNCxz"); // Reemplaza con tu Public Key
+        })();
+    </script>
     <script src="Assets/scripts.js" defer></script>
 </head>
 <body>
@@ -34,6 +40,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#sobre">Sobre mí</a></li>
+                <li><a href="#clientes">Clientes</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
@@ -104,7 +111,7 @@
                 <div class="about-stats">
                     <div class="stat-card">
                         <h3>1200+</h3>
-                        <p>Horas de consultoría brindadas</p>
+                        <p>Horas de consultoría</p>
                     </div>
                     <div class="stat-card">
                         <h3>3+</h3>
@@ -133,6 +140,9 @@
             <div class="clients-carousel-wrapper">
                 <div class="clients-carousel">
                     <div class="client-slide" title="Isynerg" aria-label="Isynerg">
+                        <img src="./Assets/Img/condortravel.svg" alt="Condor Travel">
+                    </div>
+                    <div class="client-slide" title="Isynerg" aria-label="Isynerg">
                         <img src="./Assets/Img/Isynerg.webp" alt="Isynerg">
                     </div>
                     <div class="client-slide" title="Aranwa" aria-label="Aranwa">
@@ -142,6 +152,9 @@
                     <div class="client-spacer"></div>
                     <div class="client-spacer"></div>
                     <!-- Duplicados para loop infinito (quedan fuera de vista) -->
+                    <div class="client-slide" title="Isynerg" aria-label="Isynerg">
+                        <img src="./Assets/Img/condortravel.svg" alt="Condor Travel">
+                    </div>
                     <div class="client-slide" title="Isynerg" aria-label="Isynerg">
                         <img src="./Assets/Img/Isynerg.webp" alt="Isynerg">
                     </div>
@@ -164,23 +177,23 @@
             </div>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <div class="skill-icon">📊</div>
+                    <div class="skill-icon"><img src="./Assets/Img/Excel.svg" width="auto" height="60"></div>
                     <h3>Excel</h3>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon">🗄️</div>
+                    <div class="skill-icon"><img src="./Assets/Img/sql.png" width="auto" height="60"></div>
                     <h3>SQL</h3>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon">📈</div>
+                    <div class="skill-icon"><img src="./Assets/Img/PowerBI.png" width="auto" height="60"></div>
                     <h3>Power BI</h3>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon">📉</div>
+                    <div class="skill-icon"><img src="./Assets/Img/LookerStudio.png" width="auto" height="60"></div>
                     <h3>Looker Studio</h3>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon">🐍</div>
+                    <div class="skill-icon"><img src="./Assets/Img/Python.png" width="auto" height="60"></div>
                     <h3>Python</h3>
                 </div>
             </div>
@@ -777,8 +790,8 @@
                         </div>
                     </div>
                 </div>
-
-                <form class="contact-form" id="contactForm" action="mailto:gbarrantes250689@gmail.com" method="post" enctype="text/plain">
+                
+                <form class="contact-form" id="contactForm">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <input type="text" id="nombre" name="nombre" required>
@@ -796,7 +809,8 @@
                         <textarea id="mensaje" name="mensaje" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar</button>
-                </form>
+                </form> 
+
             </div>
         </div>
     </section>
