@@ -678,6 +678,8 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             transition: all 0.3s;
             border: 2px solid transparent;
+            display: flex; /**/
+            flex-direction: column; /**/
         }
 
         .project-card.hidden {
@@ -712,6 +714,9 @@
 
         .project-content {
             padding: 2rem;
+            display: flex; /**/
+            flex-direction: column; /**/
+            flex-grow: 1; /**/
         }
 
         .difficulty-badge {
@@ -723,6 +728,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 1rem;
+            align-self: flex-start; /**/
         }
 
         .difficulty-badge.basico {
@@ -751,11 +757,13 @@
             font-size: 0.875rem;
             margin-bottom: 1rem;
         }
+ 
 
         .project-links {
             display: flex;
             gap: 1rem;
-            margin-top: 1.5rem;
+            padding-top: 1rem;
+            margin-top: auto;
         }
 
         .project-links a {
@@ -1269,7 +1277,7 @@
             }
 
             .project-image img {
-                height: 70%;
+                height: 80%;
             }
 
             section {
