@@ -523,6 +523,8 @@
             position: relative;
             overflow: hidden;
             transform: scale(1);
+            display: flex;
+            flex-direction: column; /**/
         }
 
         .pricing-card::before {
@@ -556,6 +558,10 @@
             opacity: 1;
         }
 
+        .pricing-card .btn-primary {
+            margin-top: auto; /* Agregar esta línea */
+        }
+
         .badge {
             background: var(--primary);
             color: white;
@@ -565,6 +571,7 @@
             font-weight: 600;
             display: inline-block;
             margin-bottom: 1rem;
+            align-self: center;
         }
 
         .pricing-card h3 {
@@ -578,6 +585,7 @@
             font-size: 0.875rem;
             margin-bottom: 1.5rem;
         }
+
 
         .price {
             font-size: 2.5rem;
