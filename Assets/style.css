@@ -53,7 +53,7 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -122,7 +122,7 @@
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 4rem 1rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
@@ -149,6 +149,11 @@
             flex-wrap: wrap;
         }
 
+        .cta-buttons .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
         .btn {
             padding: 0.875rem 2rem;
             border-radius: 8px;
@@ -162,8 +167,8 @@
         }
 
         .btn-primary {
-            background: white;
-            color: var(--primary);
+            background: var(--primary);
+            color: white;
         }
 
         .btn-primary:hover {
@@ -317,11 +322,6 @@
             
         }
 
-        [data-theme="dark"] .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-
 
         [data-theme="dark"] .profile-container {
             background: var(--bg);
@@ -329,7 +329,8 @@
 
         /* Secciones */
         section {
-            padding: 5rem 2rem;
+            padding: 5rem 1rem;
+
         }
 
         .section-header {
@@ -358,7 +359,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .about-text p {
@@ -851,7 +852,7 @@
 
         .contact-form {
             background: white;
-            padding: 2.5rem;
+            padding: 1.5rem;
             border-radius: 16px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.08);
         }
@@ -920,7 +921,7 @@
         footer {
             background: var(--secondary);
             color: white;
-            padding: 3rem 2rem 1.5rem;
+            padding: 3rem 1rem 1.5rem;
         }
 
         .footer-content {
@@ -1194,6 +1195,15 @@
                 animation: scroll-smooth 35s linear infinite;
             }
 
+            .contact-info h3,p{
+                text-align: center;
+            }
+
+
+            .social-links {
+                justify-content: center;
+            }
+
         }   
 
         @media (max-width: 640px) {
@@ -1251,7 +1261,35 @@
             }
 
             .project-image img {
-                height: 170px;
+                height: 70%;
+            }
+
+            section {
+                padding: 3rem 0.75rem; /* Reduce aún más el padding en pantallas muy pequeñas */
+            }
+            
+            .contact-form {
+                padding: 1rem;
+            }
+            
+            .contact-method {
+                padding: 1rem;
+            }
+            
+            .stat-card {
+                padding: 1.5rem;
+            }
+            
+            .skill-card {
+                padding: 1.5rem;
+            }
+            
+            .pricing-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .project-content {
+                padding: 1.5rem;
             }
         }
 
@@ -1290,8 +1328,6 @@
                 transform: translateY(0);
             }
         }
-
-
 
 
 
