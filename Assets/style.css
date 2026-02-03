@@ -1,4 +1,4 @@
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -1307,6 +1307,13 @@
             .project-content {
                 padding: 1.5rem;
             }
+        }
+
+        /* Reveal suave sinced con el scroll */
+        section:not(#inicio) {
+            opacity: var(--s-opacity, 0);
+            transform: translateY(var(--s-y, 40px));
+            will-change: transform, opacity;
         }
 
         /* Animaciones */

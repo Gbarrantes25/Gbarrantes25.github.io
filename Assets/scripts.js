@@ -1,4 +1,4 @@
-        // Navegación responsive
+// Navegación responsive
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -222,6 +222,104 @@
             observer.observe(el);
         });
 
+        // Reveal suave sincronizado con scroll (rAF)
+        const sections = Array.from(document.querySelectorAll('section:not(#inicio)'));
+        const DIST_ENTRADA = 60;   // px de desplazamiento máximo al entrar
+        const DIST_SALIDA  = 30;   // px de desplazamiento máximo al salir por arriba
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        // Valores actuales suavizados por sección
+        const state = sections.map(() => ({ y: DIST_ENTRADA, o: 0 }));
+
+        function updateSections() {
+            const wh = window.innerHeight;
+
+            sections.forEach((section, i) => {
+                const rect   = section.getBoundingClientRect();
+                const top    = rect.top;
+                const bottom = rect.bottom;
+
+                // --- calcular targets según posición relativa al viewport ---
+                let targetY, targetO;
+
+                if (top >= wh) {
+                    // Aún por debajo del viewport → oculta abajo
+                    targetY = DIST_ENTRADA;
+                    targetO = 0;
+                } else if (bottom <= 0) {
+                    // Ya pasó por encima del viewport → oculta arriba
+                    targetY = -DIST_SALIDA;
+                    targetO = 0;
+                } else {
+                    // Dentro o parcialmente visible
+                    // Progreso de entrada: 0 cuando el borde superior está en el fondo,
+                    // 1 cuando el borde superior llega a 30% de la pantalla
+                    const entryStart = wh;
+                    const entryEnd   = wh * 0.30;
+                    const progress   = Math.min(1, Math.max(0, (entryStart - top) / (entryStart - entryEnd)));
+
+                    targetO = progress;
+                    targetY = lerp(DIST_ENTRADA, 0, progress);
+                }
+
+                // Suavizar con lerp frame a frame (factor 0.08 = muy fluido)
+                state[i].y = lerp(state[i].y, targetY, 0.08);
+                state[i].o = lerp(state[i].o, targetO, 0.08);
+
+                // Aplicar al DOM via custom properties
+                section.style.setProperty('--s-y',       state[i].y + 'px');
+                section.style.setProperty('--s-opacity', state[i].o);
+            });
+
+            requestAnimationFrame(updateSections);
+        }
+
+        requestAnimationFrame(updateSections);
+
+        // Contador animado en .stat-card h3
+        const statCards = document.querySelectorAll('.stat-card h3');
+
+        // Parsear cada h3: extraer número y sufijo (+ o %)
+        const statData = Array.from(statCards).map(h3 => {
+            const text   = h3.textContent.trim();
+            const num    = parseInt(text.replace(/[^0-9]/g, ''), 10);
+            const suffix = text.replace(/[0-9]/g, '');   // "+" o "%"
+            h3.textContent = '0' + suffix;               // reset visual
+            return { el: num, suffix, target: num, started: false };
+        });
+
+        function animateCounter(h3, target, suffix, duration) {
+            const start = performance.now();
+            function step(now) {
+                const elapsed  = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                // easing: ease-out cúbica
+                const eased    = 1 - Math.pow(1 - progress, 3);
+                const current  = Math.round(eased * target);
+                h3.textContent = current + suffix;
+                if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+
+        // Observer exclusivo para las stat-cards
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const h3   = entry.target.querySelector('h3');
+                const idx  = Array.from(statCards).indexOf(h3);
+                if (idx === -1 || statData[idx].started) return;
+                statData[idx].started = true;
+                animateCounter(h3, statData[idx].target, statData[idx].suffix, 1200);
+                statObserver.unobserve(entry.target);
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            statObserver.observe(card);
+        });
+
         // NUEVO: Toggle de tema oscuro
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
@@ -291,6 +389,4 @@
                     contactForm.style.pointerEvents = 'auto';
                 }, 300);
             }, 4000);
-        }   
-
-
+        }
