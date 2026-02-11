@@ -1,842 +1,1977 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giancarlo Barrantes</title>
-    <link rel="icon" type="image/x-icon" href="./Assets/Img/Vector-logo.svg">
-    <link rel="stylesheet" href="Assets/style.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+        Giancarlo Barrantes
+    </title>
+    <link href="./Assets/Img/Vector-logo.svg" rel="icon" type="image/x-icon" />
+    <link href="Assets/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" type="text/javascript">
+    </script>
     <script type="text/javascript">
-        (function(){
+        (function () {
             emailjs.init("0hVsecDal2VpJNCxz"); // Reemplaza con tu Public Key
         })();
     </script>
-    <script src="Assets/scripts.js" defer></script>
+    <script defer="" src="Assets/scripts.js">
+    </script>
 </head>
+
 <body>
     <!-- Navegación -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">GB</div>
-        <!--Nuevo-->
-            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
-                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"/>
-                    <line x1="12" y1="1" x2="12" y2="3"/>
-                    <line x1="12" y1="21" x2="12" y2="23"/>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                    <line x1="1" y1="12" x2="3" y2="12"/>
-                    <line x1="21" y1="12" x2="23" y2="12"/>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            <div class="logo">
+                GB
+            </div>
+            <!--Nuevo-->
+            <button aria-label="Cambiar tema" class="theme-toggle" id="themeToggle">
+                <svg class="sun-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="5">
+                    </circle>
+                    <line x1="12" x2="12" y1="1" y2="3">
+                    </line>
+                    <line x1="12" x2="12" y1="21" y2="23">
+                    </line>
+                    <line x1="4.22" x2="5.64" y1="4.22" y2="5.64">
+                    </line>
+                    <line x1="18.36" x2="19.78" y1="18.36" y2="19.78">
+                    </line>
+                    <line x1="1" x2="3" y1="12" y2="12">
+                    </line>
+                    <line x1="21" x2="23" y1="12" y2="12">
+                    </line>
+                    <line x1="4.22" x2="5.64" y1="19.78" y2="18.36">
+                    </line>
+                    <line x1="18.36" x2="19.78" y1="5.64" y2="4.22">
+                    </line>
                 </svg>
-                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                <svg class="moon-icon" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z">
+                    </path>
                 </svg>
             </button>
-        <!--Final -->
+            <!--Final -->
             <ul class="nav-links" id="navLinks">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#sobre">Sobre mí</a></li>
-                <li><a href="#clientes">Clientes</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li>
+                    <a href="#inicio">
+                        Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="#sobre">
+                        Sobre mí
+                    </a>
+                </li>
+                <li>
+                    <a href="#clientes">
+                        Clientes
+                    </a>
+                </li>
+                <li>
+                    <a href="#skills">
+                        Skills
+                    </a>
+                </li>
+                <li>
+                    <a href="#servicios">
+                        Servicios
+                    </a>
+                </li>
+                <li>
+                    <a href="#proyectos">
+                        Proyectos
+                    </a>
+                </li>
+                <li>
+                    <a href="#contacto">
+                        Contacto
+                    </a>
+                </li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span>
+                </span>
+                <span>
+                </span>
+                <span>
+                </span>
             </div>
         </div>
     </nav>
-
     <!-- Hero -->
-    <section id="inicio" class="hero">
+    <section class="hero" id="inicio">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Consultoría de Inteligencia de Negocios</h1>
-                <p>Transformo datos en decisiones estratégicas.<br>Especialista en Excel, Power BI y análisis de datos para impulsar el crecimiento de tu negocio.</p>
+                <h1>
+                    Consultoría de Inteligencia de Negocios
+                </h1>
+                <p>
+                    Transformo datos en decisiones estratégicas.
+                    <br />
+                    Especialista en Excel, Power BI y análisis de datos para impulsar el crecimiento de tu negocio.
+                </p>
                 <div class="cta-buttons">
-                    <a href="#servicios" class="btn btn-primary">Ver Servicios</a>
-                    <a href="#contacto" class="btn btn-secondary">Contactar</a>
+                    <a class="btn btn-primary" href="#servicios">
+                        Ver Servicios
+                    </a>
+                    <a class="btn btn-secondary" href="#contacto">
+                        Contactar
+                    </a>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="profile-container">
-                    <img src="./Assets/Img/Vector-logo.svg" alt="Giancarlo Barrantes">
+                    <img alt="Giancarlo Barrantes" src="./Assets/Img/Vector-logo.svg" />
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Sobre mí -->
     <section id="sobre">
         <div class="container">
             <div class="section-header">
-                <h2>Sobre mí</h2>
-                <p>Consultor especializado en Inteligencia de Negocios</p>
+                <h2>
+                    Sobre mí
+                </h2>
+                <p>
+                    Consultor especializado en Inteligencia de Negocios
+                </p>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Soy Giancarlo Barrantes, consultor especializado en Inteligencia de Negocios con amplia experiencia en la transformación de datos en información accionable que impulsa el crecimiento empresarial.</p>
-                    <p>Mi enfoque combina conocimientos técnicos en Excel, Power BI, SQL y Python con una comprensión profunda de las necesidades del negocio, permitiéndome crear soluciones personalizadas que generan un impacto real y medible.</p>
-                    <p>He ayudado a empresas de diversos sectores como hotelería, consultoría y turismo, optimizando el análisis de datos y automatizando reportes estratégicos para facilitar una toma de decisiones precisa y basado en datos.</p>
+                    <p>
+                        Soy Giancarlo Barrantes, consultor especializado en Inteligencia de Negocios con amplia
+                        experiencia en la transformación de datos en información accionable que impulsa el crecimiento
+                        empresarial.
+                    </p>
+                    <p>
+                        Mi enfoque combina conocimientos técnicos en Excel, Power BI, SQL y Python con una comprensión
+                        profunda de las necesidades del negocio, permitiéndome crear soluciones personalizadas que
+                        generan un impacto real y medible.
+                    </p>
+                    <p>
+                        He ayudado a empresas de diversos sectores como hotelería, consultoría y turismo, optimizando el
+                        análisis de datos y automatizando reportes estratégicos para facilitar una toma de decisiones
+                        precisa y basado en datos.
+                    </p>
                     <div class="social-links">
                         <a href="https://github.com/Gbarrantes25" target="_blank" title="Github">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            <svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                                </path>
                             </svg>
                         </a>
                         <a href="https://www.linkedin.com/in/gb25/" target="_blank" title="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            <svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
+                                </path>
                             </svg>
                         </a>
                         <a href="https://www.youtube.com/@gbarrantes25" target="_blank" title="YouTube">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.016 3.016 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            <svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.016 3.016 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z">
+                                </path>
                             </svg>
                         </a>
                         <a href="#contacto" title="Contacto">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                                <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
+                            <svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z">
+                                </path>
                             </svg>
                         </a>
                     </div>
                 </div>
                 <div class="about-stats">
                     <div class="stat-card">
-                        <h3>1200+</h3>
-                        <p>Horas de consultoría</p>
+                        <h3>
+                            1200+
+                        </h3>
+                        <p>
+                            Horas de consultoría
+                        </p>
                     </div>
                     <div class="stat-card">
-                        <h3>3+</h3>
-                        <p>Clientes Satisfechos</p>
+                        <h3>
+                            3+
+                        </h3>
+                        <p>
+                            Clientes Satisfechos
+                        </p>
                     </div>
                     <div class="stat-card">
-                        <h3>2+</h3>
-                        <p>Años de Experiencia</p>
+                        <h3>
+                            2+
+                        </h3>
+                        <p>
+                            Años de Experiencia
+                        </p>
                     </div>
                     <div class="stat-card">
-                        <h3>100%</h3>
-                        <p>Dedicación</p>
+                        <h3>
+                            100%
+                        </h3>
+                        <p>
+                            Dedicación
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Clientes -->
     <section id="clientes">
         <div class="container">
             <div class="section-header">
-                <h2>Clientes</h2>
-                <p>Empresas que confían en mis servicios</p>
+                <h2>
+                    Clientes
+                </h2>
+                <p>
+                    Empresas que confían en mis servicios
+                </p>
             </div>
             <div class="clients-carousel-wrapper">
                 <div class="clients-carousel">
-                    <div class="client-slide" title="Isynerg" aria-label="Isynerg">
-                        <img src="./Assets/Img/condortravel.svg" alt="Condor Travel">
+                    <div aria-label="Isynerg" class="client-slide" title="Isynerg">
+                        <img alt="Condor Travel" src="./Assets/Img/condortravel.svg" />
                     </div>
-                    <div class="client-slide" title="Isynerg" aria-label="Isynerg">
-                        <img src="./Assets/Img/Isynerg.webp" alt="Isynerg">
+                    <div aria-label="Isynerg" class="client-slide" title="Isynerg">
+                        <img alt="Isynerg" src="./Assets/Img/Isynerg.webp" />
                     </div>
-                    <div class="client-slide" title="Aranwa" aria-label="Aranwa">
-                        <img src="./Assets/Img/aranwa.png" alt="Aranwa">
+                    <div aria-label="Aranwa" class="client-slide" title="Aranwa">
+                        <img alt="Aranwa" src="./Assets/Img/aranwa.png" />
                     </div>
                     <!-- Espaciadores invisibles -->
-                    <div class="client-spacer"></div>
-                    <div class="client-spacer"></div>
+                    <div class="client-spacer">
+                    </div>
+                    <div class="client-spacer">
+                    </div>
                     <!-- Duplicados para loop infinito (quedan fuera de vista) -->
-                    <div class="client-slide" title="Isynerg" aria-label="Isynerg">
-                        <img src="./Assets/Img/condortravel.svg" alt="Condor Travel">
+                    <div aria-label="Isynerg" class="client-slide" title="Isynerg">
+                        <img alt="Condor Travel" src="./Assets/Img/condortravel.svg" />
                     </div>
-                    <div class="client-slide" title="Isynerg" aria-label="Isynerg">
-                        <img src="./Assets/Img/Isynerg.webp" alt="Isynerg">
+                    <div aria-label="Isynerg" class="client-slide" title="Isynerg">
+                        <img alt="Isynerg" src="./Assets/Img/Isynerg.webp" />
                     </div>
-                    <div class="client-slide" title="Aranwa" aria-label="Aranwa">
-                        <img src="./Assets/Img/aranwa.png" alt="Aranwa">
+                    <div aria-label="Aranwa" class="client-slide" title="Aranwa">
+                        <img alt="Aranwa" src="./Assets/Img/aranwa.png" />
                     </div>
-                    <div class="client-spacer"></div>
-                    <div class="client-spacer"></div>
+                    <div class="client-spacer">
+                    </div>
+                    <div class="client-spacer">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
     <!-- Skills -->
     <section id="skills">
         <div class="container">
             <div class="section-header">
-                <h2>Skills</h2>
-                <p>Herramientas y tecnologías que domino</p>
+                <h2>
+                    Skills
+                </h2>
+                <p>
+                    Herramientas y tecnologías que domino
+                </p>
             </div>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <div class="skill-icon"><img src="./Assets/Img/Excel.svg" width="auto" height="60"></div>
-                    <h3>Excel</h3>
+                    <div class="skill-icon">
+                        <img height="60" src="./Assets/Img/Excel.svg" width="auto" />
+                    </div>
+                    <h3>
+                        Excel
+                    </h3>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon"><img src="./Assets/Img/sql.png" width="auto" height="60"></div>
-                    <h3>SQL</h3>
+                    <div class="skill-icon">
+                        <img height="60" src="./Assets/Img/sql.png" width="auto" />
+                    </div>
+                    <h3>
+                        SQL
+                    </h3>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon"><img src="./Assets/Img/PowerBI.png" width="auto" height="60"></div>
-                    <h3>Power BI</h3>
+                    <div class="skill-icon">
+                        <img height="60" src="./Assets/Img/PowerBI.png" width="auto" />
+                    </div>
+                    <h3>
+                        Power BI
+                    </h3>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon"><img src="./Assets/Img/lookerstudio.png" width="auto" height="60"></div>
-                    <h3>Looker Studio</h3>
+                    <div class="skill-icon">
+                        <img height="60" src="./Assets/Img/lookerstudio.png" width="auto" />
+                    </div>
+                    <h3>
+                        Looker Studio
+                    </h3>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon"><img src="./Assets/Img/python.png" width="auto" height="60"></div>
-                    <h3>Python</h3>
+                    <div class="skill-icon">
+                        <img height="60" src="./Assets/Img/python.png" width="auto" />
+                    </div>
+                    <h3>
+                        Python
+                    </h3>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Servicios -->
     <section id="servicios">
         <div class="container">
             <div class="section-header">
-                <h2>Servicios de Consultoría</h2>
-                <p>Soluciones personalizadas para cada necesidad</p>
+                <h2>
+                    Servicios de Consultoría
+                </h2>
+                <p>
+                    Soluciones personalizadas para cada necesidad
+                </p>
             </div>
-
             <div class="services-tabs">
-                <button class="tab-btn active" data-tab="excel">Consultoría Excel</button>
-                <button class="tab-btn" data-tab="powerbi">Consultoría Power BI</button>
-                <button class="tab-btn" data-tab="hibrida">Consultoría Híbrida</button>
+                <button class="tab-btn active" data-tab="excel">
+                    Consultoría Excel
+                </button>
+                <button class="tab-btn" data-tab="powerbi">
+                    Consultoría Power BI
+                </button>
+                <button class="tab-btn" data-tab="hibrida">
+                    Consultoría Híbrida
+                </button>
             </div>
-
             <!-- Tab Excel -->
             <div class="tab-content active" id="excel">
                 <div class="pricing-grid">
                     <div class="pricing-card">
-                        <h3>Hora</h3>
-                        <p class="subtitle">Consultoría puntual</p>
-                        <div class="price">Consultar</div>
-                        <ul class="features">
-                            <li>Soporte técnico inmediato</li>
-                            <li>Diagnóstico y resolución de problemas</li>
-                            <li>Asesoría personalizada</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Hora
+                        </h3>
+                        <p class="subtitle">
+                            Consultoría puntual
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Soporte técnico inmediato
+                                </li>
+                                <li>
+                                    Diagnóstico y resolución de problemas
+                                </li>
+                                <li>
+                                    Asesoría personalizada
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
                     <div class="pricing-card">
-                        <h3>Pack Express</h3>
-                        <p class="subtitle">10 horas de soporte para proyecto existente</p>
-                        <div class="price">Consultar</div>
-                        <ul class="features">
-                            <li>10 horas de consultoría</li>
-                            <li>Soporte prioritario </li>
-                            <li>Actualización y ajustes</li>
-                            <li>Diagnóstico y resolución de problemas</li>
-                            <li>Asesoría personalizada</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Pack Express
+                        </h3>
+                        <p class="subtitle">
+                            10 horas de soporte para proyecto existente
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    10 horas de consultoría
+                                </li>
+                                <li>
+                                    Soporte prioritario
+                                </li>
+                                <li>
+                                    Actualización y ajustes
+                                </li>
+                                <li>
+                                    Diagnóstico y resolución de problemas
+                                </li>
+                                <li>
+                                    Asesoría personalizada
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
                     <div class="pricing-card">
-                        <h3>Pack Pro</h3>
-                        <p class="subtitle">20 horas de soporte para proyecto existente</p>
-                        <div class="price">Consultar</div>
-                        <ul class="features">
-                            <li>20 horas de consultoría</li>
-                            <li>Soporte prioritario</li>
-                            <li>Optimización de procesos</li>
-                            <li>Actualización y ajustes</li>
-                            <li>Diagnóstico y resolución de problemas</li>
-                            <li>Asesoría personalizada</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Pack Pro
+                        </h3>
+                        <p class="subtitle">
+                            20 horas de soporte para proyecto existente
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    20 horas de consultoría
+                                </li>
+                                <li>
+                                    Soporte prioritario
+                                </li>
+                                <li>
+                                    Optimización de procesos
+                                </li>
+                                <li>
+                                    Actualización y ajustes
+                                </li>
+                                <li>
+                                    Diagnóstico y resolución de problemas
+                                </li>
+                                <li>
+                                    Asesoría personalizada
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
                     <div class="pricing-card">
-                        <h3>Pack Premium</h3>
-                        <p class="subtitle">30 horas de soporte para proyecto existente</p>
-                        <div class="price">Consultar</div>
-                        <ul class="features">
-                            <li>30 horas de consultoría</li>
-                            <li>Soporte dedicado</li>
-                            <li>Optimización de procesos</li>
-                            <li>Actualización y ajustes</li>
-                            <li>Diagnóstico y resolución de problemas</li>
-                            <li>Asesoría personalizada</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Pack Premium
+                        </h3>
+                        <p class="subtitle">
+                            30 horas de soporte para proyecto existente
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    30 horas de consultoría
+                                </li>
+                                <li>
+                                    Soporte dedicado
+                                </li>
+                                <li>
+                                    Optimización de procesos
+                                </li>
+                                <li>
+                                    Actualización y ajustes
+                                </li>
+                                <li>
+                                    Diagnóstico y resolución de problemas
+                                </li>
+                                <li>
+                                    Asesoría personalizada
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
                     <div class="pricing-card">
-                        <h3>Dashboard Express</h3>
-                        <p class="subtitle">Proyecto estándar desde 0</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>Hasta 10 horas de proyecto</li>
-                            <li>Modelado plano</li>
-                            <li>1 Informe con UI estándar</li>
-                            <li>Fórmulas básicas</li>
-                            <li>Gráficos/tablas dinámicas</li>
-                            <li>1 sesión de ajuste</li>
-                            <li>Grabación de proyecto</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Dashboard Express
+                        </h3>
+                        <p class="subtitle">
+                            Proyecto estándar desde 0
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Hasta 10 horas de proyecto
+                                </li>
+                                <li>
+                                    Modelado plano
+                                </li>
+                                <li>
+                                    1 Informe con UI estándar
+                                </li>
+                                <li>
+                                    Fórmulas básicas
+                                </li>
+                                <li>
+                                    Gráficos/tablas dinámicas
+                                </li>
+                                <li>
+                                    1 sesión de ajuste
+                                </li>
+                                <li>
+                                    Grabación de proyecto
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
                     <div class="pricing-card">
-                        <h3>Dashboard Custom</h3>
-                        <p class="subtitle">Proyecto personalizado desde 0</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>Hasta 20 horas de proyecto</li>
-                            <li>Modelado estrella</li>
-                            <li>1 Informe con UI personalizado</li>
-                            <li>Fórmulas avanzadas</li>
-                            <li>Medidas DAX básicas</li>
-                            <li>Gráficos/tablas dinámicas</li>
-                            <li>2 sesiones de ajuste</li>
-                            <li>Manual PDF</li>
-                            <li>Capacitación</li>
-                            <li>Soporte post-proyecto</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Dashboard Custom
+                        </h3>
+                        <p class="subtitle">
+                            Proyecto personalizado desde 0
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Hasta 20 horas de proyecto
+                                </li>
+                                <li>
+                                    Modelado estrella
+                                </li>
+                                <li>
+                                    1 Informe con UI personalizado
+                                </li>
+                                <li>
+                                    Fórmulas avanzadas
+                                </li>
+                                <li>
+                                    Medidas DAX básicas
+                                </li>
+                                <li>
+                                    Gráficos/tablas dinámicas
+                                </li>
+                                <li>
+                                    2 sesiones de ajuste
+                                </li>
+                                <li>
+                                    Manual PDF
+                                </li>
+                                <li>
+                                    Capacitación
+                                </li>
+                                <li>
+                                    Soporte post-proyecto
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
-                    <div class="pricing-card featured">
-                        <span class="badge">Popular</span>
-                        <h3>Dashboard Enterprise</h3>
-                        <p class="subtitle">Proyecto corporativo desde 0</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>Hasta 40 horas de proyecto</li>
-                            <li>Modelado estrella</li>
-                            <li>1 Informe con UI corporativo</li>
-                            <li>Fórmulas avanzadas</li>
-                            <li>Funciones CUBO</li>
-                            <li>Medidas DAX intermedias</li>
-                            <li>Gráficos/tablas dinámicas</li>
-                            <li>Macros VBA básicas</li>
-                            <li>2 sesiones de ajuste</li>
-                            <li>Manual PDF</li>
-                            <li>Capacitación</li>
-                            <li>Soporte post-proyecto</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
-                    </div>
-
                     <div class="pricing-card">
-                        <h3>Full-Time BI Partner</h3>
-                        <p class="subtitle">Consultor dedicado mensual</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>Modelado</li>
-                            <li>2 Informes</li>
-                            <li>1 sesión de ajuste semanal</li>
-                            <li>Manual PDF</li>
-                            <li>Capacitación</li>
-                            <li>Soporte post-proyecto</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <!--<span class="badge">
+                            Popular
+                        </span>-->
+                        <h3>
+                            Dashboard Enterprise
+                        </h3>
+                        <p class="subtitle">
+                            Proyecto corporativo desde 0
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Hasta 40 horas de proyecto
+                                </li>
+                                <li>
+                                    Modelado estrella
+                                </li>
+                                <li>
+                                    1 Informe con UI corporativo
+                                </li>
+                                <li>
+                                    Fórmulas avanzadas
+                                </li>
+                                <li>
+                                    Funciones CUBO
+                                </li>
+                                <li>
+                                    Medidas DAX intermedias
+                                </li>
+                                <li>
+                                    Gráficos/tablas dinámicas
+                                </li>
+                                <li>
+                                    Macros VBA básicas
+                                </li>
+                                <li>
+                                    2 sesiones de ajuste
+                                </li>
+                                <li>
+                                    Manual PDF
+                                </li>
+                                <li>
+                                    Capacitación
+                                </li>
+                                <li>
+                                    Soporte post-proyecto
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>
+                            Full-Time BI Partner
+                        </h3>
+                        <p class="subtitle">
+                            Consultor dedicado mensual
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Modelado
+                                </li>
+                                <li>
+                                    2 Informes
+                                </li>
+                                <li>
+                                    1 sesión de ajuste semanal
+                                </li>
+                                <li>
+                                    Manual PDF
+                                </li>
+                                <li>
+                                    Capacitación
+                                </li>
+                                <li>
+                                    Soporte post-proyecto
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
                 </div>
             </div>
-
             <!-- Tab Power BI -->
             <div class="tab-content" id="powerbi">
                 <div class="pricing-grid">
                     <div class="pricing-card">
-                        <h3>Hora</h3>
-                        <p class="subtitle">Consultoría puntual</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>Soporte técnico inmediato</li>
-                            <li>Diagnóstico y resolución de problemas</li>
-                            <li>Asesoría personalizada</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
-                    </div>
-
-                    <div class="pricing-card">
-                        <h3>Pack Express</h3>
-                        <p class="subtitle">10 horas de soporte para proyecto existente</p>
-                        <div class="price">Consultar</div>
+                        <h3>
+                            Hora
+                        </h3>
+                        <p class="subtitle">
+                            Consultoría puntual
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
                         <span class="price-period">
-
                         </span>
-                        <ul class="features">
-                            <li>10 horas de consultoría</li>
-                            <li>Soporte prioritario </li>
-                            <li>Actualización y ajustes</li>
-                            <li>Diagnóstico y resolución de problemas</li>
-                            <li>Asesoría personalizada</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Soporte técnico inmediato
+                                </li>
+                                <li>
+                                    Diagnóstico y resolución de problemas
+                                </li>
+                                <li>
+                                    Asesoría personalizada
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
                     <div class="pricing-card">
-                        <h3>Pack Pro</h3>
-                        <p class="subtitle">20 horas de soporte para proyecto existente</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>20 horas de consultoría</li>
-                            <li>Soporte prioritario</li>
-                            <li>Optimización de procesos</li>
-                            <li>Actualización y ajustes</li>
-                            <li>Diagnóstico y resolución de problemas</li>
-                            <li>Asesoría personalizada</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Pack Express
+                        </h3>
+                        <p class="subtitle">
+                            10 horas de soporte para proyecto existente
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    10 horas de consultoría
+                                </li>
+                                <li>
+                                    Soporte prioritario
+                                </li>
+                                <li>
+                                    Actualización y ajustes
+                                </li>
+                                <li>
+                                    Diagnóstico y resolución de problemas
+                                </li>
+                                <li>
+                                    Asesoría personalizada
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
                     <div class="pricing-card">
-                        <h3>Pack Premium</h3>
-                        <p class="subtitle">30 horas de soporte para proyecto existente</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>30 horas de consultoría</li>
-                            <li>Soporte dedicado</li>
-                            <li>Optimización de procesos</li>
-                            <li>Actualización y ajustes</li>
-                            <li>Diagnóstico y resolución de problemas</li>
-                            <li>Asesoría personalizada</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Pack Pro
+                        </h3>
+                        <p class="subtitle">
+                            20 horas de soporte para proyecto existente
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    20 horas de consultoría
+                                </li>
+                                <li>
+                                    Soporte prioritario
+                                </li>
+                                <li>
+                                    Optimización de procesos
+                                </li>
+                                <li>
+                                    Actualización y ajustes
+                                </li>
+                                <li>
+                                    Diagnóstico y resolución de problemas
+                                </li>
+                                <li>
+                                    Asesoría personalizada
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
                     <div class="pricing-card">
-                        <h3>Dashboard Express</h3>
-                        <p class="subtitle">Proyecto estándar desde 0</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>Hasta 10 horas de proyecto</li>
-                            <li>1 sesión de ajuste</li>
-                            <li>Conexión a fuente de datos plana</li>
-                            <li>ETL</li>
-                            <li>Modelado plano</li>
-                            <li>1 informe con UI estándar</li>
-                            <li>Visuales básicos</li>
-                            <li>Medidas DAX básicas</li>
-                            <li>Grabación de proyecto</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Pack Premium
+                        </h3>
+                        <p class="subtitle">
+                            30 horas de soporte para proyecto existente
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    30 horas de consultoría
+                                </li>
+                                <li>
+                                    Soporte dedicado
+                                </li>
+                                <li>
+                                    Optimización de procesos
+                                </li>
+                                <li>
+                                    Actualización y ajustes
+                                </li>
+                                <li>
+                                    Diagnóstico y resolución de problemas
+                                </li>
+                                <li>
+                                    Asesoría personalizada
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
-                    <div class="pricing-card featured">
-                        <span class="badge">Popular</span>
-                        <h3>Dashboard Custom</h3>
-                        <p class="subtitle">Proyecto personalizado desde 0</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>Hasta 20 horas de proyecto</li>
-                            <li>2 sesiones de ajuste</li>
-                            <li>Conexión a fuentes de datos planas</li>
-                            <li>ETL</li>
-                            <li>Modelado estrella</li>
-                            <li>1 informe con UI custom</li>
-                            <li>Visuales básicos y drill-down</li>
-                            <li>Medidas DAX intermedias</li>
-                            <li>Manual PDF</li>
-                            <li>Capacitación</li>
-                            <li>Soporte post-proyecto</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
-                    </div>
-
                     <div class="pricing-card">
-                        <h3>Dashboard Enterprise</h3>
-                        <p class="subtitle">Proyecto corporativo desde 0</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>Hasta 40 horas de proyecto</li>
-                            <li>3 sesiones de ajuste</li>
-                            <li>Conexión a fuentes heterogéneas de datos</li>
-                            <li>ETL</li>
-                            <li>Modelado avanzado</li>
-                            <li>1 informe con UI corporativo</li>
-                            <li>Visuales básicos, drill-down y custom</li>
-                            <li>Medidas DAX avanzado</li>
-                            <li>RLS</li>
-                            <li>Manuel PDF</li>
-                            <li>Capacitación</li>
-                            <li>Soporte post-proyecto</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Dashboard Express
+                        </h3>
+                        <p class="subtitle">
+                            Proyecto estándar desde 0
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Hasta 10 horas de proyecto
+                                </li>
+                                <li>
+                                    1 sesión de ajuste
+                                </li>
+                                <li>
+                                    Conexión a fuente de datos plana
+                                </li>
+                                <li>
+                                    ETL
+                                </li>
+                                <li>
+                                    Modelado plano
+                                </li>
+                                <li>
+                                    1 informe con UI estándar
+                                </li>
+                                <li>
+                                    Visuales básicos
+                                </li>
+                                <li>
+                                    Medidas DAX básicas
+                                </li>
+                                <li>
+                                    Grabación de proyecto
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
                     <div class="pricing-card">
-                        <h3>Full-Time BI Partner</h3>
-                        <p class="subtitle">Consultor dedicado mensual</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>Modelado</li>
-                            <li>2 Informes</li>
-                            <li>1 sesión de ajuste semanal</li>
-                            <li>Manual PDF</li>
-                            <li>Capacitación</li>
-                            <li>Soporte post-proyecto</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <!--<span class="badge">
+                            Popular
+                        </span>-->
+                        <h3>
+                            Dashboard Custom
+                        </h3>
+                        <p class="subtitle">
+                            Proyecto personalizado desde 0
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Hasta 20 horas de proyecto
+                                </li>
+                                <li>
+                                    2 sesiones de ajuste
+                                </li>
+                                <li>
+                                    Conexión a fuentes de datos planas
+                                </li>
+                                <li>
+                                    ETL
+                                </li>
+                                <li>
+                                    Modelado estrella
+                                </li>
+                                <li>
+                                    1 informe con UI custom
+                                </li>
+                                <li>
+                                    Visuales básicos y drill-down
+                                </li>
+                                <li>
+                                    Medidas DAX intermedias
+                                </li>
+                                <li>
+                                    Manual PDF
+                                </li>
+                                <li>
+                                    Capacitación
+                                </li>
+                                <li>
+                                    Soporte post-proyecto
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>
+                            Dashboard Enterprise
+                        </h3>
+                        <p class="subtitle">
+                            Proyecto corporativo desde 0
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Hasta 40 horas de proyecto
+                                </li>
+                                <li>
+                                    3 sesiones de ajuste
+                                </li>
+                                <li>
+                                    Conexión a fuentes heterogéneas de datos
+                                </li>
+                                <li>
+                                    ETL
+                                </li>
+                                <li>
+                                    Modelado avanzado
+                                </li>
+                                <li>
+                                    1 informe con UI corporativo
+                                </li>
+                                <li>
+                                    Visuales básicos, drill-down y custom
+                                </li>
+                                <li>
+                                    Medidas DAX avanzado
+                                </li>
+                                <li>
+                                    RLS
+                                </li>
+                                <li>
+                                    Manuel PDF
+                                </li>
+                                <li>
+                                    Capacitación
+                                </li>
+                                <li>
+                                    Soporte post-proyecto
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>
+                            Full-Time BI Partner
+                        </h3>
+                        <p class="subtitle">
+                            Consultor dedicado mensual
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Modelado
+                                </li>
+                                <li>
+                                    2 Informes
+                                </li>
+                                <li>
+                                    1 sesión de ajuste semanal
+                                </li>
+                                <li>
+                                    Manual PDF
+                                </li>
+                                <li>
+                                    Capacitación
+                                </li>
+                                <li>
+                                    Soporte post-proyecto
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
                 </div>
             </div>
-
             <!-- Tab Híbrida -->
             <div class="tab-content" id="hibrida">
                 <div class="pricing-grid">
                     <div class="pricing-card">
-                        <h3>Hora</h3>
-                        <p class="subtitle">Consultoría puntual</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>Soporte técnico inmediato</li>
-                            <li>Diagnóstico y resolución de problemas</li>
-                            <li>Asesoría personalizada</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Hora
+                        </h3>
+                        <p class="subtitle">
+                            Consultoría puntual
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Soporte técnico inmediato
+                                </li>
+                                <li>
+                                    Diagnóstico y resolución de problemas
+                                </li>
+                                <li>
+                                    Asesoría personalizada
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
                     <div class="pricing-card">
-                        <h3>Pack Express</h3>
-                        <p class="subtitle">10 horas de soporte para proyecto existente</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>10 horas de consultoría</li>
-                            <li>Soporte prioritario </li>
-                            <li>Actualización y ajustes</li>
-                            <li>Diagnóstico y resolución de problemas</li>
-                            <li>Asesoría personalizada</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Pack Express
+                        </h3>
+                        <p class="subtitle">
+                            10 horas de soporte para proyecto existente
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    10 horas de consultoría
+                                </li>
+                                <li>
+                                    Soporte prioritario
+                                </li>
+                                <li>
+                                    Actualización y ajustes
+                                </li>
+                                <li>
+                                    Diagnóstico y resolución de problemas
+                                </li>
+                                <li>
+                                    Asesoría personalizada
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
                     <div class="pricing-card">
-                        <h3>Pack Pro</h3>
-                        <p class="subtitle">20 horas de soporte para proyecto existente</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>20 horas de consultoría</li>
-                            <li>Soporte prioritario</li>
-                            <li>Optimización de procesos</li>
-                            <li>Actualización y ajustes</li>
-                            <li>Diagnóstico y resolución de problemas</li>
-                            <li>Asesoría personalizada</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Pack Pro
+                        </h3>
+                        <p class="subtitle">
+                            20 horas de soporte para proyecto existente
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    20 horas de consultoría
+                                </li>
+                                <li>
+                                    Soporte prioritario
+                                </li>
+                                <li>
+                                    Optimización de procesos
+                                </li>
+                                <li>
+                                    Actualización y ajustes
+                                </li>
+                                <li>
+                                    Diagnóstico y resolución de problemas
+                                </li>
+                                <li>
+                                    Asesoría personalizada
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
                     <div class="pricing-card">
-                        <h3>Pack Premium</h3>
-                        <p class="subtitle">30 horas de soporte para proyecto existente</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>30 horas de consultoría</li>
-                            <li>Soporte dedicado</li>
-                            <li>Optimización de procesos</li>
-                            <li>Actualización y ajustes</li>
-                            <li>Diagnóstico y resolución de problemas</li>
-                            <li>Asesoría personalizada</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Pack Premium
+                        </h3>
+                        <p class="subtitle">
+                            30 horas de soporte para proyecto existente
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    30 horas de consultoría
+                                </li>
+                                <li>
+                                    Soporte dedicado
+                                </li>
+                                <li>
+                                    Optimización de procesos
+                                </li>
+                                <li>
+                                    Actualización y ajustes
+                                </li>
+                                <li>
+                                    Diagnóstico y resolución de problemas
+                                </li>
+                                <li>
+                                    Asesoría personalizada
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
                     <div class="pricing-card">
-                        <h3>Dashboard Express</h3>
-                        <p class="subtitle">Proyecto estándar desde 0</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>Hasta 10 horas de proyecto</li>
-                            <li>1 sesión de ajuste</li>
-                            <li>Conexión a fuente de datos plana</li>
-                            <li>ETL</li>
-                            <li>Modelado plano</li>
-                            <li>1 informe con UI estándar</li>
-                            <li>Visuales básicos</li>
-                            <li>Medidas DAX básicas</li>
-                            <li>1 plantilla básica - Excel</li>
-                            <li>Grabación de proyecto</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Dashboard Express
+                        </h3>
+                        <p class="subtitle">
+                            Proyecto estándar desde 0
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Hasta 10 horas de proyecto
+                                </li>
+                                <li>
+                                    1 sesión de ajuste
+                                </li>
+                                <li>
+                                    Conexión a fuente de datos plana
+                                </li>
+                                <li>
+                                    ETL
+                                </li>
+                                <li>
+                                    Modelado plano
+                                </li>
+                                <li>
+                                    1 informe con UI estándar
+                                </li>
+                                <li>
+                                    Visuales básicos
+                                </li>
+                                <li>
+                                    Medidas DAX básicas
+                                </li>
+                                <li>
+                                    1 plantilla básica - Excel
+                                </li>
+                                <li>
+                                    Grabación de proyecto
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
-                    <div class="pricing-card featured">
-                        <span class="badge">Popular</span>
-                        <h3>Dashboard Custom</h3>
-                        <p class="subtitle">Proyecto personalizado desde 0</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>Hasta 20 horas de proyecto</li>
-                            <li>2 sesiones de ajuste</li>
-                            <li>Conexión a fuentes de datos planas</li>
-                            <li>ETL</li>
-                            <li>Modelado estrella</li>
-                            <li>1 informe con UI custom</li>
-                            <li>Visuales básicos y drill-down</li>
-                            <li>Medidas DAX intermedias</li>
-                            <li>Manual PDF</li>
-                            <li>Capacitación</li>
-                            <li>1 plantilla básica - Excel</li>
-                            <li>Soporte post-proyecto</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
-                    </div>
-
                     <div class="pricing-card">
-                        <h3>Dashboard Enterprise</h3>
-                        <p class="subtitle">Proyecto corporativo desde 0</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>Hasta 40 horas de proyecto</li>
-                            <li>3 sesiones de ajuste</li>
-                            <li>Conexión a fuentes heterogéneas de datos</li>
-                            <li>ETL</li>
-                            <li>Modelado avanzado</li>
-                            <li>1 informe con UI corporativo</li>
-                            <li>Visuales básicos, drill-down y custom</li>
-                            <li>Medidas DAX avanzado</li>
-                            <li>RLS</li>
-                            <li>Manuel PDF</li>
-                            <li>Capacitación</li>
-                            <li>1 plantilla corporativa - Excel</li>
-                            <li>Soporte post-proyecto</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <!--<span class="badge">
+                            Popular
+                        </span>-->
+                        <h3>
+                            Dashboard Custom
+                        </h3>
+                        <p class="subtitle">
+                            Proyecto personalizado desde 0
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Hasta 20 horas de proyecto
+                                </li>
+                                <li>
+                                    2 sesiones de ajuste
+                                </li>
+                                <li>
+                                    Conexión a fuentes de datos planas
+                                </li>
+                                <li>
+                                    ETL
+                                </li>
+                                <li>
+                                    Modelado estrella
+                                </li>
+                                <li>
+                                    1 informe con UI custom
+                                </li>
+                                <li>
+                                    Visuales básicos y drill-down
+                                </li>
+                                <li>
+                                    Medidas DAX intermedias
+                                </li>
+                                <li>
+                                    Manual PDF
+                                </li>
+                                <li>
+                                    Capacitación
+                                </li>
+                                <li>
+                                    1 plantilla básica - Excel
+                                </li>
+                                <li>
+                                    Soporte post-proyecto
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
-
                     <div class="pricing-card">
-                        <h3>Full-Time BI Partner</h3>
-                        <p class="subtitle">Consultor dedicado mensual</p>
-                        <div class="price">Consultar</div>
-                        <span class="price-period"></span>
-                        <ul class="features">
-                            <li>Modelado</li>
-                            <li>2 Informes</li>
-                            <li>1 sesión de ajuste semanal</li>
-                            <li>Manual PDF</li>
-                            <li>Capacitación</li>
-                            <li>Soporte post-proyecto</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Contactar</a>
+                        <h3>
+                            Dashboard Enterprise
+                        </h3>
+                        <p class="subtitle">
+                            Proyecto corporativo desde 0
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Hasta 40 horas de proyecto
+                                </li>
+                                <li>
+                                    3 sesiones de ajuste
+                                </li>
+                                <li>
+                                    Conexión a fuentes heterogéneas de datos
+                                </li>
+                                <li>
+                                    ETL
+                                </li>
+                                <li>
+                                    Modelado avanzado
+                                </li>
+                                <li>
+                                    1 informe con UI corporativo
+                                </li>
+                                <li>
+                                    Visuales básicos, drill-down y custom
+                                </li>
+                                <li>
+                                    Medidas DAX avanzado
+                                </li>
+                                <li>
+                                    RLS
+                                </li>
+                                <li>
+                                    Manuel PDF
+                                </li>
+                                <li>
+                                    Capacitación
+                                </li>
+                                <li>
+                                    1 plantilla corporativa - Excel
+                                </li>
+                                <li>
+                                    Soporte post-proyecto
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>
+                            Full-Time BI Partner
+                        </h3>
+                        <p class="subtitle">
+                            Consultor dedicado mensual
+                        </p>
+                        <div class="price">
+                            Consultar
+                        </div>
+                        <span class="price-period">
+                        </span>
+                        <button class="features-toggle">
+                            <span>
+                                Ver detalles
+                            </span>
+                            <svg class="accordion-icon" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="6 9 12 15 18 9">
+                                </polyline>
+                            </svg>
+                        </button>
+                        <div class="features-wrapper">
+                            <ul class="features">
+                                <li>
+                                    Modelado
+                                </li>
+                                <li>
+                                    2 Informes
+                                </li>
+                                <li>
+                                    1 sesión de ajuste semanal
+                                </li>
+                                <li>
+                                    Manual PDF
+                                </li>
+                                <li>
+                                    Capacitación
+                                </li>
+                                <li>
+                                    Soporte post-proyecto
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" style="width: 100%;">
+                            Contactar
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Proyectos -->
     <section id="proyectos">
         <div class="container">
             <div class="section-header">
-                <h2>Proyectos</h2>
-                <p>Algunos de mis trabajos destacados</p>
+                <h2>
+                    Proyectos
+                </h2>
+                <p>
+                    Algunos de mis trabajos destacados
+                </p>
             </div>
-            
             <div class="project-filters">
-                <button class="filter-btn active" data-filter="todos">🚀 Todos</button>
-                <button class="filter-btn" data-filter="basico">🟢 Básico</button>
-                <button class="filter-btn" data-filter="intermedio">🟠 Intermedio</button>
-                <button class="filter-btn" data-filter="avanzado">🔴 Avanzado</button>
+                <button class="filter-btn active" data-filter="todos">
+                    🚀 Todos
+                </button>
+                <button class="filter-btn" data-filter="basico">
+                    🟢 Básico
+                </button>
+                <button class="filter-btn" data-filter="intermedio">
+                    🟠 Intermedio
+                </button>
+                <button class="filter-btn" data-filter="avanzado">
+                    🔴 Avanzado
+                </button>
             </div>
-
             <div class="projects-grid">
                 <div class="project-card" data-difficulty="basico">
                     <div class="project-image">
-                        <img src="./Assets/Img/Simple Sales.PNG" alt="Simple Sales" height="200" object-fit="cover">
+                        <img alt="Simple Sales" height="200" object-fit="cover" src="./Assets/Img/Simple Sales.PNG" />
                     </div>
                     <div class="project-content">
-                        <span class="difficulty-badge basico">Básico</span>
-                        <h3>Simple Sales</h3>
-                        <p class="tech">Power BI</p>
-                        <p>Análisis de ventas por vendedor.</p>
+                        <span class="difficulty-badge basico">
+                            Básico
+                        </span>
+                        <h3>
+                            Simple Sales
+                        </h3>
+                        <p class="tech">
+                            Power BI
+                        </p>
+                        <p>
+                            Análisis de ventas por vendedor.
+                        </p>
                         <div class="project-links">
-                            <a href="https://github.com/Gbarrantes25/Simple-Sales-Dashboard-PowerBI/tree/main" class="repo-link" target="_blank">Repositorio</a>
-                            <a href="https://raw.githubusercontent.com/Gbarrantes25/Simple-Sales-Dashboard-PowerBI/refs/heads/main/Demo.gif" class="demo-link" target="_blank">Ver Demo</a>
+                            <a class="repo-link"
+                                href="https://github.com/Gbarrantes25/Simple-Sales-Dashboard-PowerBI/tree/main"
+                                target="_blank">
+                                Repositorio
+                            </a>
+                            <a class="demo-link"
+                                href="https://raw.githubusercontent.com/Gbarrantes25/Simple-Sales-Dashboard-PowerBI/refs/heads/main/Demo.gif"
+                                target="_blank">
+                                Ver Demo
+                            </a>
                         </div>
                     </div>
                 </div>
-
                 <div class="project-card" data-difficulty="intermedio">
                     <div class="project-image">
-                        <img src="./Assets/Img/Employee.PNG" alt="Employee" height="200" object-fit="cover">
+                        <img alt="Employee" height="200" object-fit="cover" src="./Assets/Img/Employee.PNG" />
                     </div>
                     <div class="project-content">
-                        <span class="difficulty-badge intermedio">Intermedio</span>
-                        <h3>Employee Dashboard</h3>
-                        <p class="tech">Power BI</p>
-                        <p>Dashboard con diseño personalizado para análisis de empleados con métricas edad, evaluación y salario.</p>
+                        <span class="difficulty-badge intermedio">
+                            Intermedio
+                        </span>
+                        <h3>
+                            Employee Dashboard
+                        </h3>
+                        <p class="tech">
+                            Power BI
+                        </p>
+                        <p>
+                            Dashboard con diseño personalizado para análisis de empleados con métricas edad, evaluación
+                            y salario.
+                        </p>
                         <div class="project-links">
-                            <a href="https://github.com/Gbarrantes25/Employee-Dashboard-PowerBI/blob/main/" class="repo-link" target="_blank">Repositorio</a>
-                            <a href="https://raw.githubusercontent.com/Gbarrantes25/Employee-Dashboard-PowerBI/refs/heads/main/Demo.gif" class="demo-link" target="_blank">Ver Demo</a>
+                            <a class="repo-link"
+                                href="https://github.com/Gbarrantes25/Employee-Dashboard-PowerBI/blob/main/"
+                                target="_blank">
+                                Repositorio
+                            </a>
+                            <a class="demo-link"
+                                href="https://raw.githubusercontent.com/Gbarrantes25/Employee-Dashboard-PowerBI/refs/heads/main/Demo.gif"
+                                target="_blank">
+                                Ver Demo
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card" data-difficulty="intermedio">
                     <div class="project-image">
-                        <img src="./Assets/Img/Revenue Management.PNG" alt="Revenue" height="200" object-fit="cover">
+                        <img alt="Revenue" height="200" object-fit="cover" src="./Assets/Img/Revenue Management.PNG" />
                     </div>
                     <div class="project-content">
-                        <span class="difficulty-badge intermedio">Intermedio</span>
-                        <h3>Revenue Management</h3>
-                        <p class="tech">Power BI + parámetros</p>
-                        <p>Dashboard con parámetros dinámicos y menú de navegación.</p>
+                        <span class="difficulty-badge intermedio">
+                            Intermedio
+                        </span>
+                        <h3>
+                            Revenue Management
+                        </h3>
+                        <p class="tech">
+                            Power BI + parámetros
+                        </p>
+                        <p>
+                            Dashboard con parámetros dinámicos y menú de navegación.
+                        </p>
                         <div class="project-links">
-                            <a href="https://github.com/Gbarrantes25/RevenueManagement-Dashboard-PowerBI" class="repo-link" target="_blank">Repositorio</a>
-                            <a href="https://www.youtube.com/watch?v=TMqiaGSsMXk" class="demo-link" target="_blank">Ver Demo</a>
+                            <a class="repo-link"
+                                href="https://github.com/Gbarrantes25/RevenueManagement-Dashboard-PowerBI"
+                                target="_blank">
+                                Repositorio
+                            </a>
+                            <a class="demo-link" href="https://www.youtube.com/watch?v=TMqiaGSsMXk" target="_blank">
+                                Ver Demo
+                            </a>
                         </div>
                     </div>
                 </div>
-
                 <div class="project-card" data-difficulty="avanzado">
                     <div class="project-image">
-                        <img src="https://raw.githubusercontent.com/Gbarrantes25/Gbarrantes25.github.io/refs/heads/main/Assets/Img/SupermarketSales.png" alt="Dashboard Financiero" height="200" object-fit="cover">
+                        <img alt="Dashboard Financiero" height="200" object-fit="cover"
+                            src="https://raw.githubusercontent.com/Gbarrantes25/Gbarrantes25.github.io/refs/heads/main/Assets/Img/SupermarketSales.png" />
                     </div>
                     <div class="project-content">
-                        <span class="difficulty-badge avanzado">Avanzado</span>
-                        <h3>Supermarket Sales</h3>
-                        <p class="tech">Power BI • SQL • DAX</p>
-                        <p>Dashboard avanzado de análisis de ventas de supermercado con modo oscuro, menú interactivo y tooltops. Conectada a base de datos SQL remota alojada en Supabase.</p>
+                        <span class="difficulty-badge avanzado">
+                            Avanzado
+                        </span>
+                        <h3>
+                            Supermarket Sales
+                        </h3>
+                        <p class="tech">
+                            Power BI • SQL • DAX
+                        </p>
+                        <p>
+                            Dashboard avanzado de análisis de ventas de supermercado con modo oscuro, menú interactivo y
+                            tooltops. Conectada a base de datos SQL remota alojada en Supabase.
+                        </p>
                         <div class="project-links">
-                            <a href="https://github.com/Gbarrantes25/Supermarket-Sales-Dashboard-PowerBI" class="repo-link" target="_blank">Repositorio</a>
-                            <a href="https://youtu.be/NiG0zqzfKKQ?si=KqO9DkIukfFloHaU" class="demo-link" target="_blank" >Ver Demo</a>
+                            <a class="repo-link"
+                                href="https://github.com/Gbarrantes25/Supermarket-Sales-Dashboard-PowerBI"
+                                target="_blank">
+                                Repositorio
+                            </a>
+                            <a class="demo-link" href="https://youtu.be/NiG0zqzfKKQ?si=KqO9DkIukfFloHaU"
+                                target="_blank">
+                                Ver Demo
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card" data-difficulty="avanzado">
                     <div class="project-image">
-                        <img src="https://triskellsoftware.com/wp-content/uploads/2025/02/dashboard-portfolio-overview.png" alt="Dashboard Financiero" height="200" object-fit="cover">
+                        <img alt="Dashboard Financiero" height="200" object-fit="cover"
+                            src="https://triskellsoftware.com/wp-content/uploads/2025/02/dashboard-portfolio-overview.png" />
                     </div>
                     <div class="project-content">
-                        <span class="difficulty-badge avanzado">Avanzado</span>
-                        <h3>Sistema Predictivo de Ventas</h3>
-                        <p class="tech">Python • Machine Learning • Power BI</p>
-                        <p>Modelo de predicción de ventas usando algoritmos de ML con visualización en Power BI.</p>
+                        <span class="difficulty-badge avanzado">
+                            Avanzado
+                        </span>
+                        <h3>
+                            Sistema Predictivo de Ventas
+                        </h3>
+                        <p class="tech">
+                            Python • Machine Learning • Power BI
+                        </p>
+                        <p>
+                            Modelo de predicción de ventas usando algoritmos de ML con visualización en Power BI.
+                        </p>
                         <div class="project-links">
-                            <a href="#" class="repo-link" target="_blank">Repositorio</a>
-                            <a href="#" class="demo-link" target="_blank">Ver Demo</a>
+                            <a class="repo-link" href="#" target="_blank">
+                                Repositorio
+                            </a>
+                            <a class="demo-link" href="#" target="_blank">
+                                Ver Demo
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Contacto -->
     <section id="contacto">
         <div class="container">
             <div class="section-header">
-                <h2>Contacto</h2>
-                <p>¿Listo para transformar tus datos en decisiones?</p>
+                <h2>
+                    Contacto
+                </h2>
+                <p>
+                    ¿Listo para transformar tus datos en decisiones?
+                </p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>¿Quieres trabajar conmigo?</h3>
-                    <p>Completa el formulario y me pondré en contacto contigo lo antes posible para discutir cómo puedo ayudarte a alcanzar tus objetivos de negocio.</p>
+                    <h3>
+                        ¿Quieres trabajar conmigo?
+                    </h3>
+                    <p>
+                        Completa el formulario y me pondré en contacto contigo lo antes posible para discutir cómo puedo
+                        ayudarte a alcanzar tus objetivos de negocio.
+                    </p>
                     <div class="contact-methods">
                         <div class="contact-method">
-                            <div class="contact-method-icon" title="Email" aria-label="Email">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
+                            <div aria-label="Email" class="contact-method-icon" title="Email">
+                                <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z">
+                                    </path>
                                 </svg>
                             </div>
                             <div>
-                                <strong>Email</strong>
-                                <p><a href="mailto:gbarrantes250689@gmail.com">gbarrantes250689@gmail.com</a></p>
+                                <strong>
+                                    Email
+                                </strong>
+                                <p>
+                                    <a href="mailto:gbarrantes250689@gmail.com">
+                                        gbarrantes250689@gmail.com
+                                    </a>
+                                </p>
                             </div>
                         </div>
                         <div class="contact-method">
-                            <div class="contact-method-icon" title="LinkedIn" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            <div aria-label="LinkedIn" class="contact-method-icon" title="LinkedIn">
+                                <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
+                                    </path>
                                 </svg>
                             </div>
                             <div>
-                                <strong>LinkedIn</strong>
-                                <p><a href="https://www.linkedin.com/in/gb25" target="_blank">/in/gb25</a></p>
+                                <strong>
+                                    LinkedIn
+                                </strong>
+                                <p>
+                                    <a href="https://www.linkedin.com/in/gb25" target="_blank">
+                                        /in/gb25
+                                    </a>
+                                </p>
                             </div>
                         </div>
                         <div class="contact-method">
-                            <div class="contact-method-icon" title="Ubicación" aria-label="Ubicación">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/>
+                            <div aria-label="Ubicación" class="contact-method-icon" title="Ubicación">
+                                <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z">
+                                    </path>
                                 </svg>
                             </div>
                             <div>
-                                <strong>Ubicación</strong>
-                                <p>Lima, Perú</p>
+                                <strong>
+                                    Ubicación
+                                </strong>
+                                <p>
+                                    Lima, Perú
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" required placeholder="Mínimo 3 caracteres">
+                        <label for="nombre">
+                            Nombre
+                        </label>
+                        <input id="nombre" name="nombre" placeholder="Mínimo 3 caracteres" required="" type="text" />
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="Ingresa un email válido">
+                        <label for="email">
+                            Email
+                        </label>
+                        <input id="email" name="email" placeholder="Ingresa un email válido" required="" type="email" />
                     </div>
                     <div class="form-group">
-                        <label for="asunto">Asunto</label>
-                        <input type="text" id="asunto" name="asunto" required placeholder="Mínimo 5 caracteres">
+                        <label for="asunto">
+                            Asunto
+                        </label>
+                        <input id="asunto" name="asunto" placeholder="Mínimo 5 caracteres" required="" type="text" />
                     </div>
                     <div class="form-group">
-                        <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" required placeholder="Mínimo 10 caracteres"></textarea>
+                        <label for="mensaje">
+                            Mensaje
+                        </label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Mínimo 10 caracteres" required=""></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar</button>
-                </form> 
-
+                    <button class="btn btn-primary" style="width: 100%;" type="submit">
+                        Enviar
+                    </button>
+                </form>
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
-                    <div class="footer-logo">GB</div>
-                    <p>Transformando datos en decisiones estratégicas</p>
+                    <div class="footer-logo">
+                        GB
+                    </div>
+                    <p>
+                        Transformando datos en decisiones estratégicas
+                    </p>
                 </div>
                 <div class="footer-social">
-                    <a href="https://github.com/Gbarrantes25" target="_blank" title="Github" aria-label="Github">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    <a aria-label="Github" href="https://github.com/Gbarrantes25" target="_blank" title="Github">
+                        <svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                            </path>
                         </svg>
                     </a>
-                    <a href="https://www.linkedin.com/in/gb25/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    <a aria-label="LinkedIn" href="https://www.linkedin.com/in/gb25/" target="_blank" title="LinkedIn">
+                        <svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
+                            </path>
                         </svg>
                     </a>
-                    <a href="https://www.youtube.com/@gbarrantes25" target="_blank" title="YouTube" aria-label="YouTube">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.016 3.016 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    <a aria-label="YouTube" href="https://www.youtube.com/@gbarrantes25" target="_blank"
+                        title="YouTube">
+                        <svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.016 3.016 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z">
+                            </path>
                         </svg>
                     </a>
                 </div>
@@ -847,4 +1982,5 @@
         </div>
     </footer>
 </body>
+
 </html>
