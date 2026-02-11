@@ -390,3 +390,40 @@
                 }, 300);
             }, 4000);
         }
+
+        // Acordeón de Features en Pricing Cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const featureToggles = document.querySelectorAll('.features-toggle');
+            
+            featureToggles.forEach(toggle => {
+                toggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const wrapper = toggle.nextElementSibling;
+                    const isActive = toggle.classList.contains('active');
+                    
+                    // Cerrar todos los demás acordeones
+                    featureToggles.forEach(otherToggle => {
+                        if (otherToggle !== toggle) {
+                            otherToggle.classList.remove('active');
+                            otherToggle.nextElementSibling.classList.remove('active');
+                            
+                            const otherButtonText = otherToggle.querySelector('span');
+                            otherButtonText.textContent = 'Ver detalles';
+                        }
+                    });
+                    
+                    // Toggle del acordeón actual
+                    toggle.classList.toggle('active');
+                    wrapper.classList.toggle('active');
+                    
+                    // Cambiar texto del botón
+                    const buttonText = toggle.querySelector('span');
+                    if (isActive) {
+                        buttonText.textContent = 'Ver detalles';
+                    } else {
+                        buttonText.textContent = 'Ocultar detalles';
+                    }
+                });
+            });
+        });
