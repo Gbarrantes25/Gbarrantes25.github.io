@@ -426,4 +426,9 @@
                     }
                 });
             });
+
         });
+
+        // Texto de footer
+        let añoActual = new Date().getFullYear();
+        document.querySelector('.footer-text').textContent = `© ${añoActual} Giancarlo Barrantes. Todos los derechos reservados.`;
