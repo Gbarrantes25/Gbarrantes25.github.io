@@ -989,8 +989,8 @@
             margin-bottom: 20px;
             border-radius: 8px;
             font-size: 14px;
-            transition: opacity 0.3s ease;
-            animation: slideDown 0.3s ease;
+            transition: opacity 0.2s ease;
+            animation: slideDown 0.2s ease;
             text-align: center;
             font-weight: 500;
         }
@@ -1365,7 +1365,11 @@
             }
             
             .contact-method {
-                padding: 1rem;
+                padding: 1rem 0.875rem;
+            }
+
+            .contact-method:hover {
+                transform: none; /* Evita que translateX(10px) empuje el elemento fuera del viewport */
             }
             
             .stat-card {
@@ -1435,4 +1439,24 @@
         button:disabled {
             opacity: 0.6;
             cursor: not-allowed;
+        }
+
+        /* Ajuste fino para pantallas muy pequeñas (360px) */
+        @media (max-width: 390px) {
+            .contact-method {
+                gap: 0.75rem;
+                padding: 0.875rem 0.75rem;
+            }
+
+            .contact-method-icon {
+                width: 42px;
+                height: 42px;
+                min-width: 42px;
+                font-size: 1rem;
+            }
+
+            .contact-method-icon svg {
+                width: 20px;
+                height: 20px;
+            }
         }
