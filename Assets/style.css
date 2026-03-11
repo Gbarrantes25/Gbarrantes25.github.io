@@ -397,6 +397,11 @@ section { padding: 5rem 1.5rem; }
   animation: pulse 2s infinite;
 }
 
+.hero-eyebrow.no-disponible::before {
+  background: #ff4d4d;
+  box-shadow: 0 0 6px #ff4d4d;
+}
+
 @keyframes pulse {
   0%,100% { opacity: 1; transform: scale(1); }
   50%      { opacity: .5; transform: scale(1.4); }
@@ -1571,6 +1576,7 @@ button:disabled {
   section { padding: 4rem 1rem; }
 
   .hero-text h1 { font-size: 2rem; }
+  .hero-text h1 > span { font-size: 1.25rem; }
   .hero-text > p { font-size: 1rem; }
 
   .cta-buttons { flex-direction: column; }
@@ -1601,5 +1607,4 @@ button:disabled {
 @media (max-width: 390px) {
   .contact-method-icon { width: 40px; height: 40px; }
   .contact-method-icon svg { width: 18px; height: 18px; }
-
 }

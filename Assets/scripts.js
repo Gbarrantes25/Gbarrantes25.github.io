@@ -1,3 +1,54 @@
+// ── Disponibilidad del Consultor BI ──────────────────────────────────────────
+(function actualizarDisponibilidad() {
+    // Feriados de Perú (mes es 1-12 para mayor claridad)
+    const feriados = [
+        '01-01', // Año Nuevo
+        '05-01', // Día del Trabajo
+        '06-29', // San Pedro y San Pablo
+        '07-28', // Fiestas Patrias
+        '07-29', // Fiestas Patrias
+        '08-30', // Santa Rosa de Lima
+        '11-01', // Día de Todos los Santos
+        '12-08', // Inmaculada Concepción
+        '12-25', // Navidad
+    ];
+
+    function esFeriado(fecha) {
+        const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+        const dia = String(fecha.getDate()).padStart(2, '0');
+        return feriados.includes(mes + '-' + dia);
+    }
+
+    function consultorDisponible() {
+        // Hora de Lima (UTC-5)
+        const ahora = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Lima' }));
+        const diaSemana = ahora.getDay(); // 0=Dom, 1=Lun ... 6=Sáb
+        const hora = ahora.getHours();
+
+        const esFinDeSemana = diaSemana === 0 || diaSemana === 6;
+        const enHorario = hora >= 9 && hora < 18; // 9am-6pm
+
+        return !esFinDeSemana && !esFeriado(ahora) && enHorario;
+    }
+
+    function renderizarEstado() {
+        const eyebrow = document.querySelector('.hero-eyebrow');
+        if (!eyebrow) return;
+
+        if (consultorDisponible()) {
+            eyebrow.classList.remove('no-disponible');
+            eyebrow.textContent = 'Consultor BI disponible';
+        } else {
+            eyebrow.classList.add('no-disponible');
+            eyebrow.textContent = 'Consultor BI no disponible';
+        }
+    }
+
+    // Ejecutar al cargar y cada minuto
+    document.addEventListener('DOMContentLoaded', renderizarEstado);
+    setInterval(renderizarEstado, 60000);
+})();
+
 // Navegación responsive
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
@@ -426,7 +477,6 @@
                     }
                 });
             });
-
         });
 
         // Texto de footer
