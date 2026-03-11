@@ -1085,7 +1085,7 @@ section { padding: 5rem 1.5rem; }
   background: var(--bg-light);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1.5px solid var(--border);
+  border: 2px solid var(--border);
   display: flex;
   flex-direction: column;
   transition: all var(--transition);
@@ -1608,4 +1608,5 @@ button:disabled {
 @media (max-width: 390px) {
   .contact-method-icon { width: 40px; height: 40px; }
   .contact-method-icon svg { width: 18px; height: 18px; }
+
 }
