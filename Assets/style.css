@@ -159,6 +159,7 @@ nav.scrolled {
 .nav-links a:hover {
   color: var(--primary);
   background: rgba(23,123,219,0.07);
+  font-weight: 600;
 }
 
 /* Dark-mode toggle */
