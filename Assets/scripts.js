@@ -371,22 +371,64 @@
             statObserver.observe(card);
         });
 
-        // NUEVO: Toggle de tema oscuro
+        // ── Toggle de tema oscuro / claro ────────────────────────────────────────
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
 
-        // Cargar tema guardado
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', currentTheme);
+        /**
+         * Devuelve el tema que corresponde según la hora de Lima (UTC-5).
+         * Oscuro : 18:30 – 04:29
+         * Claro  : 04:30 – 18:29
+         */
+        function temaSegunHora() {
+            const ahora = new Date(
+                new Date().toLocaleString('en-US', { timeZone: 'America/Lima' })
+            );
+            const mins = ahora.getHours() * 60 + ahora.getMinutes();
+            // Oscuro entre 18:30 (1110 min) y fin del día, o desde 00:00 hasta 04:29 (269 min)
+            return (mins >= 18 * 60 + 30 || mins < 4 * 60 + 30) ? 'dark' : 'light';
+        }
 
-        // Toggle theme
+        /**
+         * Aplica el tema indicado y actualiza localStorage.
+         * Si `porUsuario` es true se marca la preferencia manual;
+         * si es false se borra la preferencia (modo automático).
+         */
+        function aplicarTema(tema, porUsuario = false) {
+            html.setAttribute('data-theme', tema);
+            if (porUsuario) {
+                localStorage.setItem('theme', tema);
+                localStorage.setItem('themeManual', '1');
+            } else {
+                localStorage.removeItem('theme');
+                localStorage.removeItem('themeManual');
+            }
+        }
+
+        // Al cargar: respetar preferencia manual si existe, si no usar hora
+        (function iniciarTema() {
+            const manual = localStorage.getItem('themeManual');
+            const guardado = localStorage.getItem('theme');
+            if (manual && guardado) {
+                html.setAttribute('data-theme', guardado);
+            } else {
+                html.setAttribute('data-theme', temaSegunHora());
+            }
+        })();
+
+        // Revisar cada minuto si el tema automático debe cambiar
+        setInterval(() => {
+            if (!localStorage.getItem('themeManual')) {
+                html.setAttribute('data-theme', temaSegunHora());
+            }
+        }, 60000);
+
+        // Click del usuario: alterna y marca preferencia manual
         themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
+            const actual = html.getAttribute('data-theme');
+            const nuevo  = actual === 'light' ? 'dark' : 'light';
+            aplicarTema(nuevo, true);
+
             // Animación del botón
             themeToggle.style.transform = 'rotate(360deg)';
             setTimeout(() => {
