@@ -1174,13 +1174,14 @@ section { padding: 5rem 1.5rem; }
   color: var(--primary);
   font-weight: 600;
   margin-bottom: 0.65rem;
+  min-height: 2.5rem;
 }
 
 .project-content > p {
   font-size: 0.92rem;
   color: var(--text-light);
   line-height: 1.65;
-  flex-grow: 1;
+  /*flex-grow: 1;*/
 }
 
 .project-links {
@@ -1608,5 +1609,4 @@ button:disabled {
 @media (max-width: 390px) {
   .contact-method-icon { width: 40px; height: 40px; }
   .contact-method-icon svg { width: 18px; height: 18px; }
-
 }
