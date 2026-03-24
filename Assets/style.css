@@ -154,12 +154,56 @@ nav.scrolled {
   font-weight: 500;
   font-size: 0.9rem;
   transition: color var(--transition), background var(--transition);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.2rem;
+}
+
+/* Texto normal */
+.nav-links a .nav-label {
+  display: inline-block;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+/* Ícono SVG oculto por defecto */
+.nav-links a .nav-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0;
+  width: 18px;
+  height: 18px;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover / active: ocultar texto, mostrar ícono */
+.nav-links a:hover .nav-label,
+.nav-links a.nav-clicked .nav-label {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.nav-links a:hover .nav-icon,
+.nav-links a.nav-clicked .nav-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .nav-links a:hover {
   color: var(--primary);
   background: rgba(23,123,219,0.07);
   font-weight: 600;
+}
+
+.nav-links a.nav-clicked {
+  color: var(--primary);
+  background: rgba(23,123,219,0.12);
 }
 
 /* Dark-mode toggle */
@@ -1535,9 +1579,43 @@ button:disabled {
   .nav-links.active { left: 0; }
 
   .nav-links a {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 0.75rem 1rem;
     font-size: 1rem;
+    min-width: unset;
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+
+  /* En móvil: ícono visible a la izquierda, texto siempre visible */
+  .nav-links a .nav-icon {
+    position: static;
+    transform: none;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+
+  .nav-links a .nav-label {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  /* Hover / clic en móvil: mostrar ícono sin ocultar texto */
+  .nav-links a:hover .nav-label,
+  .nav-links a.nav-clicked .nav-label {
+    opacity: 1;
+    transform: none;
+  }
+
+  .nav-links a:hover .nav-icon,
+  .nav-links a.nav-clicked .nav-icon {
+    opacity: 1;
+    transform: scale(1);
   }
 
   .menu-toggle { display: flex; }
