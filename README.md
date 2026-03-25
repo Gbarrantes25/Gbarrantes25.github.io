@@ -7,7 +7,7 @@ Este proyecto sirve como presencia digital personal para mostrar experiencia, ha
 - 🔗 Hub de Proyectos: Enlaces a dashboards de Power BI, Excel y más.
 - 📇 Perfil Profesional: Información de contacto y experiencia.
 
-🔍 ¿Qué pu👤 Sobre Mí – Perfil profesional y trayectoria
+🔍👤 Sobre Mí – Perfil profesional y trayectoria
 - 💼 Proyectos Destacados – Dashboards de Power BI y Excel.
 - 🛠️ Habilidades Técnicas – Herramientas y tecnologías dominadas.
 - 📜 Experiencia Laboral – Historial profesional relevante.
