@@ -24,6 +24,7 @@ Este proyecto sirve como presencia digital personal para mostrar experiencia, ha
 ```
 Gbarrantes25.github.io/
 ├── index.html        # Página principal
+├── terminos.html     # Página secundaria
 ├── styles.css        # Hoja de estilos (si aplica)
 └── script.js         # Funcionalidades JavaScript (si aplica)
 ```
