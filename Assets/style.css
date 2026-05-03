@@ -1242,7 +1242,7 @@ section { padding: 5rem 1.5rem; }
   color: var(--primary);
   font-weight: 600;
   padding: 0.25rem 0.65rem;
-  border: 1px solid var(--primary);
+  border: 0.2px solid var(--primary-light);
   border-radius: 999px;
   background: color-mix(in srgb, var(--primary) 10%, transparent);
   line-height: 1.4;
