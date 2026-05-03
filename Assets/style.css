@@ -1106,6 +1106,22 @@ section { padding: 5rem 1.5rem; }
   transition: all var(--transition);
 }
 
+.filter-btn[data-filter="basico"].active {
+  background: linear-gradient(135deg,#10b981,#059669); 
+  color:white;
+}
+
+.filter-btn[data-filter="intermedio"].active {
+  background: linear-gradient(135deg,#f59e0b,#d97706); 
+  color:white;
+}
+
+.filter-btn[data-filter="avanzado"].active {
+  background: linear-gradient(135deg,#ef4444,#dc2626); 
+  color:white;
+}
+
+
 .filter-btn.active {
   background: var(--primary);
   color: white;
@@ -1214,11 +1230,29 @@ section { padding: 5rem 1.5rem; }
 }
 
 .project-content .tech {
-  font-size: 0.82rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.65rem;
+}
+
+.project-content .tech-badge {
+  display: inline-block;
+  font-size: 0.75rem;
   color: var(--primary);
   font-weight: 600;
-  margin-bottom: 0.65rem;
-  min-height: 2.5rem;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--primary);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.project-content .tech-badge:hover{
+  background: var(--primary-light);
+  color: white;
+  box-shadow: var(--shadow-glow);
 }
 
 .project-content > p {
@@ -1273,6 +1307,7 @@ section { padding: 5rem 1.5rem; }
 [data-theme="dark"] .project-image  { opacity: 0.85; background: var(--bg); }
 [data-theme="dark"] .repo-link      { background: var(--bg); }
 [data-theme="dark"] .filter-btn     { background: var(--bg-light); }
+[data-theme="dark"] .project-content .tech-badge:hover{background: var(--primary-dark);color: white;}
 
 /* =========================================================
    CONTACTO
