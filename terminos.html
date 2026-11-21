@@ -1,1242 +1,436 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="no-js">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Términos &amp; Condiciones — Giancarlo Barrantes</title>
-    <link href="./Assets/Img/Vector-logo.svg" rel="icon" type="image/x-icon" />
+    <title>Términos y Condiciones — Giancarlo Barrantes</title>
+    <link href="./Assets/Img/Vector-logo.svg" rel="icon" type="image/svg+xml" />
+    <meta name="description"
+        content="Términos y Condiciones de los servicios de consultoría en Excel, Power BI y análisis de datos de Giancarlo Barrantes." />
+    <meta name="robots" content="noindex, follow" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link href="Assets/style.css" rel="stylesheet" />
+    <script>document.documentElement.classList.remove('no-js');</script>
     <style>
-        /* =========================================================
-   RESET & VARIABLES  (idéntico al index)
-========================================================= */
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box
-        }
-
-        :root {
-            --primary: #177bdb;
-            --primary-dark: #1e5fd9;
-            --primary-light: #4a9ef2;
-            --secondary: #0f172a;
-            --accent: #06a3bf;
-            --purple: #b870fb;
-            --text: #1e293b;
-            --text-light: #64748b;
-            --bg: #ffffff;
-            --bg-light: #f8fafc;
-            --bg-mid: #f1f5f9;
-            --border: #e2e8f0;
-            --border-strong: #cbd5e1;
-            --gradient: linear-gradient(135deg, #0d5ba8 0%, #177bdb 10%, #2b8de8 20%, #4a9ef2 30%, #5fa8f5 40%, #7a8ff8 50%, #9178f9 60%, #a96bfa 70%, #b870fb 80%, #d45fb8 90%, #e91e8c 100%);
-            --gradient-soft: linear-gradient(135deg, rgba(13, 91, 168, 0.08) 0%, rgba(232, 30, 140, 0.08) 100%);
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, .08), 0 1px 2px rgba(0, 0, 0, .05);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, .10);
-            --shadow-lg: 0 12px 40px rgba(0, 0, 0, .14);
-            --shadow-glow: 0 8px 32px rgba(23, 123, 219, .25);
-            --radius-sm: 8px;
-            --radius-md: 14px;
-            --radius-lg: 20px;
-            --radius-full: 9999px;
-            --transition: 0.3s cubic-bezier(.4, 0, .2, 1);
-        }
-
-        [data-theme="dark"] {
-            --secondary: #f1f5f9;
-            --text: #e2e8f0;
-            --text-light: #94a3b8;
-            --bg: #0b1120;
-            --bg-light: #131e33;
-            --bg-mid: #1a2742;
-            --border: #1e3050;
-            --border-strong: #2a3f60;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, .4);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, .35);
-            --shadow-lg: 0 12px 40px rgba(0, 0, 0, .5);
-            --shadow-glow: 0 8px 32px rgba(23, 123, 219, .4);
-        }
-
-        /* =========================================================
-   BASE
-========================================================= */
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px
-        }
-
-        body {
-            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.65;
-            overflow-x: hidden;
-            transition: background var(--transition), color var(--transition);
-        }
-
-        img {
-            display: block;
-            max-width: 100%
-        }
-
-        a {
-            color: inherit
-        }
-
-        /* =========================================================
-   TYPOGRAPHY HELPERS
-========================================================= */
-        .gradient-text {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* =========================================================
-   NAVBAR  (exacto del index)
-========================================================= */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid var(--border);
-            transition: background var(--transition), box-shadow var(--transition), border-color var(--transition);
-        }
-
-        nav.scrolled {
-            background: rgba(255, 255, 255, 0.97);
-            box-shadow: var(--shadow-md)
-        }
-
-        [data-theme="dark"] nav {
-            background: rgba(11, 17, 32, 0.85)
-        }
-
-        [data-theme="dark"] nav.scrolled {
-            background: rgba(11, 17, 32, 0.97)
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            height: 72px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            user-select: none;
-            -webkit-user-drag: none;
-            flex-shrink: 0;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .theme-toggle {
-            flex-shrink: 0;
-            width: 44px;
-            height: 44px;
-            border-radius: var(--radius-full);
-            border: 1.5px solid var(--border-strong);
-            background: var(--bg-light);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            transition: border-color var(--transition), transform var(--transition), background var(--transition);
-        }
-
-        .theme-toggle:hover {
-            border-color: var(--primary);
-            transform: scale(1.08)
-        }
-
-        .theme-toggle svg {
-            width: 20px;
-            height: 20px;
-            position: absolute;
-            transition: opacity .3s, transform .3s;
-            color: var(--text);
-        }
-
-        .sun-icon {
-            opacity: 1;
-            transform: rotate(0deg) scale(1)
-        }
-
-        .moon-icon {
-            opacity: 0;
-            transform: rotate(180deg) scale(0)
-        }
-
-        [data-theme="dark"] .sun-icon {
-            opacity: 0;
-            transform: rotate(-180deg) scale(0)
-        }
-
-        [data-theme="dark"] .moon-icon {
-            opacity: 1;
-            transform: rotate(0deg) scale(1)
-        }
-
-        /* Back button in navbar area */
-        .nav-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            padding: 0.45rem 0.9rem;
-            border-radius: var(--radius-sm);
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.88rem;
-            transition: color var(--transition), background var(--transition);
-        }
-
-        .nav-back:hover {
-            color: var(--primary);
-            background: rgba(23, 123, 219, 0.07)
-        }
-
-        .nav-back svg {
-            flex-shrink: 0;
-            transition: transform var(--transition)
-        }
-
-        .nav-back:hover svg {
-            transform: translateX(-3px)
-        }
-
-        /* =========================================================
-   BUTTONS
-========================================================= */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            padding: .8rem 1.75rem;
-            border-radius: var(--radius-md);
-            font-size: .95rem;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: all var(--transition);
-            white-space: nowrap;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: #fff;
-            box-shadow: var(--shadow-glow)
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 14px 40px rgba(23, 123, 219, .35);
-        }
-
-        /* =========================================================
-   SECTION PILL  (idéntico al index)
-========================================================= */
-        .section-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: .4rem;
-            padding: .35rem 1rem;
-            border-radius: var(--radius-full);
-            background: rgba(23, 123, 219, 0.1);
-            color: var(--primary);
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            margin-bottom: .9rem;
-            border: 1px solid rgba(23, 123, 219, 0.2);
-            color: #f1f5f9;
-        }
-
-        /* =========================================================
-   HERO  (mini, sólo para esta página)
-========================================================= */
+        /* ── Estilos específicos de la página legal ── */
         .tc-hero {
-            margin-top: 72px;
-            background: var(--gradient);
-            color: white;
             position: relative;
+            padding: 9.5rem 0 4rem;
+            border-bottom: 1px solid var(--stroke);
+            background:
+                radial-gradient(600px 300px at 15% 0%, rgba(76, 141, 255, .14), transparent 65%),
+                radial-gradient(600px 300px at 85% 10%, rgba(255, 92, 173, .10), transparent 65%),
+                var(--bg-1);
             overflow: hidden;
-            padding: 4rem 1.5rem 3.5rem;
         }
 
-        .tc-hero::before,
-        .tc-hero::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.35;
-            animation: blobFloat 8s ease-in-out infinite alternate;
-        }
-
-        .tc-hero::before {
-            width: 400px;
-            height: 400px;
-            background: rgba(255, 255, 255, 0.18);
-            top: -100px;
-            right: -60px
-        }
-
-        .tc-hero::after {
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.12);
-            bottom: -60px;
-            left: -40px;
-            animation-delay: -4s
-        }
-
-        @keyframes blobFloat {
-            from {
-                transform: translate(0, 0) scale(1)
-            }
-
-            to {
-                transform: translate(30px, 20px) scale(1.12)
-            }
-        }
-
-        .tc-hero-grid {
-            position: absolute;
-            inset: 0;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-            background-size: 56px 56px;
-            pointer-events: none;
-        }
-
-        .tc-hero-inner {
-            max-width: 900px;
-            margin: 0 auto;
+        .tc-hero .container {
             position: relative;
             z-index: 1;
         }
 
         .tc-hero h1 {
+            margin-top: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(2rem, 4.5vw, 3.2rem);
-            font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
-        }
-
-        .tc-hero p {
-            font-size: 1.05rem;
-            line-height: 1.75;
-            opacity: 0.88;
-            max-width: 580px;
-            margin-bottom: 1.75rem;
-        }
-
-        .tc-hero-meta {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-            font-size: .82rem;
-            opacity: .75;
-            font-weight: 500;
-        }
-
-        .tc-hero-meta span {
-            display: flex;
-            align-items: center;
-            gap: .35rem
-        }
-
-        [data-theme="dark"] .tc-hero {
-            background: linear-gradient(135deg, #0d1a2e 0%, #131e33 50%, #1a1430 100%)
-        }
-
-        /* =========================================================
-   LAYOUT: Sidebar + Content
-========================================================= */
-        .tc-layout {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem 5rem;
-            display: grid;
-            grid-template-columns: 240px 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-
-        /* ── Sidebar index ── */
-        .tc-sidebar {
-            position: sticky;
-            top: 92px;
-        }
-
-        .tc-sidebar-label {
-            font-size: .7rem;
             font-weight: 700;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            color: var(--text-light);
-            margin-bottom: .75rem;
-            padding-left: .5rem;
+            line-height: 1.1;
+            letter-spacing: -.015em;
         }
 
-        .tc-nav {
+        .tc-hero .lead {
+            margin-top: 1.1rem;
+            max-width: 62ch;
+            color: var(--muted);
+        }
+
+        .tc-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .6rem;
+            margin-top: 1.6rem;
+        }
+
+        .tc-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .42rem 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .68rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            background: var(--panel);
+            border: 1px solid var(--stroke);
+            border-radius: var(--r-full);
+        }
+
+        .tc-meta span:first-child { color: var(--turq); border-color: rgba(46, 230, 200, .35); }
+        .tc-meta span:nth-child(3) { color: var(--purp); border-color: rgba(167, 139, 250, .35); }
+
+        /* ── Layout principal: índice + contenido ── */
+        .tc-layout {
+            display: grid;
+            grid-template-columns: 290px 1fr;
+            gap: 2.4rem;
+            padding: 3.2rem 0 5rem;
+        }
+
+        /* Sin esto, el ancho mínimo del contenido (p. ej. una tabla) obliga
+           al track del grid a crecer y distorsiona la página en móvil. */
+        .tc-layout > * {
+            min-width: 0;
+        }
+
+        .tc-index {
+            position: sticky;
+            top: 108px;
+            align-self: start;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+            padding: 1.2rem;
+            background: var(--panel);
+            border: 1px solid var(--stroke);
+            border-radius: var(--r-lg);
+            scrollbar-width: thin;
+        }
+
+        .tc-index-title {
+            display: flex;
+            align-items: center;
+            gap: .55rem;
+            margin-bottom: .8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .66rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--faint);
+        }
+
+        .tc-index-title::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--grad);
+        }
+
+        .tc-index ul {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 2px
+            gap: .15rem;
         }
 
-        .tc-nav a {
+        .tc-index a {
             display: flex;
-            align-items: center;
-            gap: .5rem;
-            padding: .38rem .65rem;
-            border-radius: var(--radius-sm);
-            font-size: .82rem;
-            color: var(--text-light);
-            text-decoration: none;
+            align-items: baseline;
+            gap: .6rem;
+            padding: .42rem .6rem;
+            font-size: .8rem;
+            color: var(--muted);
+            border-radius: var(--r-sm);
             border-left: 2px solid transparent;
-            transition: color var(--transition), background var(--transition), border-color var(--transition);
+            transition: color var(--tr), background var(--tr), border-color var(--tr);
         }
 
-        .tc-nav a:hover,
-        .tc-nav a.active {
-            color: var(--primary);
-            background: rgba(23, 123, 219, 0.07);
-            border-left-color: var(--primary);
+        .tc-index a:hover {
+            color: var(--text);
+            background: var(--panel-2);
         }
 
-        .tc-nav-divider {
-            margin: .6rem .5rem;
-            border: none;
-            border-top: 1px solid var(--border);
+        .tc-index a.active {
+            color: var(--text);
+            background: var(--panel-2);
+            border-left-color: var(--magenta);
         }
 
-        /* ── Main content ── */
-        .tc-content {
-            min-width: 0
+        .tc-index .ix-num {
+            flex-shrink: 0;
+            width: 1.6em;
+            font-size: .64rem;
+            color: var(--faint);
         }
 
-        /* ── Scroll reveal on clauses (same as section reveal in index) ── */
+        .tc-index a.active .ix-num { color: var(--magenta); }
+
+        .tc-index li[data-general="1"] {
+            margin-top: .8rem;
+            padding-top: .8rem;
+            border-top: 1px dashed var(--stroke-2);
+        }
+
+        /* ── Cláusulas ── */
         .tc-clause {
-            opacity: var(--s-opacity, 0);
-            transform: translateY(var(--s-y, 40px));
-            will-change: transform, opacity;
-            margin-bottom: 1.75rem;
-            background: var(--bg);
-            border: 1.5px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 2rem 2rem 1.5rem;
-            transition: box-shadow var(--transition), border-color var(--transition);
-            scroll-margin-top: 90px;
+            position: relative;
+            margin-bottom: 1.1rem;
+            padding: 1.8rem 1.9rem;
+            background: var(--panel);
+            border: 1px solid var(--stroke);
+            border-radius: var(--r-lg);
+            scroll-margin-top: 110px;
+            transition: border-color var(--tr);
         }
 
-        .tc-clause:hover {
-            box-shadow: var(--shadow-md);
-            border-color: var(--border-strong)
-        }
+        .tc-clause:hover { border-color: var(--stroke-2); }
 
-        /* Clause number badge */
         .clause-header {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1.25rem
+            margin-bottom: 1.1rem;
         }
 
         .clause-num {
+            display: grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
             flex-shrink: 0;
-            width: 38px;
-            height: 38px;
-            border-radius: var(--radius-sm);
-            background: var(--gradient);
-            color: white;
-            font-size: .78rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: .1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--turq);
+            background: rgba(46, 230, 200, .08);
+            border: 1px solid rgba(46, 230, 200, .35);
+            border-radius: 13px;
         }
 
         .clause-title {
-            font-size: 1.05rem;
-            font-weight: 800;
-            letter-spacing: -.02em;
-            color: var(--secondary);
-            line-height: 1.3;
-            margin: 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.22rem;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .tc-clause p,
+        .tc-clause li {
+            font-size: .88rem;
+            color: var(--muted);
         }
 
         .clause-intro {
-            font-size: .92rem;
-            color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 1rem;
+            margin-bottom: .85rem;
         }
 
-        /* Sub-clauses */
-        .sub-clause {
-            margin-top: 1.25rem
+        .tc-clause ul {
+            margin: .5rem 0 .9rem 1.1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .35rem;
         }
+
+        .tc-clause li { margin-bottom: .1rem; }
 
         .sub-title {
-            font-size: .85rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: .5rem;
-            display: flex;
-            align-items: center;
-            gap: .4rem;
+            margin: 1.2rem 0 .6rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: .98rem;
+            font-weight: 600;
+            color: var(--text) !important;
         }
 
         .sub-title::before {
-            content: '';
-            display: block;
-            width: 3px;
-            height: 13px;
-            background: var(--gradient);
-            border-radius: 2px;
-            flex-shrink: 0;
+            content: '// ';
+            color: var(--purp);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .85em;
         }
 
-        /* Lists */
-        .tc-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: .45rem
+        .sub-clause { margin: .9rem 0; }
+
+        .tc-note {
+            margin-top: 1rem;
+            padding: .9rem 1.1rem;
+            font-size: .8rem !important;
+            color: var(--muted);
+            background: rgba(76, 141, 255, .06);
+            border: 1px dashed rgba(76, 141, 255, .35);
+            border-radius: var(--r-md);
         }
 
-        .tc-list li {
-            font-size: .9rem;
+        /* Tabla de modalidades: legible en desktop y con scroll horizontal
+           PROPIO en móvil (no distorsiona el layout de la página). */
+        .table-wrap {
+            overflow-x: auto;
+            margin: .8rem 0;
+            border: 1px solid var(--stroke);
+            border-radius: var(--r-md);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tc-table {
+            width: 100%;
+            min-width: 560px;
+            border-collapse: collapse;
+            font-size: .82rem;
+        }
+
+        .tc-table th {
+            padding: .6rem .9rem;
+            text-align: left;
+            font-weight: 600;
             color: var(--text);
-            line-height: 1.65;
-            padding-left: 1.15rem;
-            position: relative;
+            background: var(--panel-2);
+            border: 1px solid var(--stroke);
+            white-space: nowrap;
         }
 
-        .tc-list li::before {
-            content: '–';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: 700;
+        .tc-table td {
+            padding: .55rem .9rem;
+            color: var(--muted);
+            border: 1px solid var(--stroke);
+            vertical-align: top;
         }
 
-        /* General clauses divider */
+        .tc-table tbody tr:nth-child(even) {
+            background: rgba(255, 255, 255, .025);
+        }
+
         .tc-general-sep {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin: 2.5rem 0 1.75rem;
-        }
-
-        .tc-general-sep span {
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: .12em;
+            gap: 1.1rem;
+            margin: 2.2rem 0 1.4rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .7rem;
+            letter-spacing: .24em;
             text-transform: uppercase;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            white-space: nowrap;
+            color: var(--purp);
         }
 
         .tc-general-sep::before,
         .tc-general-sep::after {
             content: '';
             flex: 1;
-            height: 1.5px;
-            background: var(--border);
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(167, 139, 250, .4), transparent);
         }
 
-        /* Note/callout */
-        .tc-note {
-            margin-top: 1rem;
-            padding: .75rem 1rem;
-            background: rgba(23, 123, 219, .06);
-            border-left: 3px solid var(--primary);
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-            font-size: .85rem;
-            color: var(--text-light);
-            font-style: italic;
-        }
-
-        /* Acceptance highlight */
         .tc-accept {
-            margin-top: 1rem;
-            padding: 1rem 1.25rem;
-            background: var(--primary);
-            border-radius: var(--radius-sm);
-            font-size: .88rem;
-            color: white;
-            font-weight: 500;
-            line-height: 1.6;
-        }
-
-        /* Dark mode cards */
-        [data-theme="dark"] .tc-clause {
-            background: var(--bg-light)
-        }
-
-        /*Tamaño letra de tabla*/
-        td {
-            font-size: .75rem;
-        }
-
-        /* =========================================================
-   FOOTER  (idéntico al index)
-========================================================= */
-        footer {
-            background: var(--secondary);
-            color: white;
-            padding: 3rem 1.5rem 1.75rem
-        }
-
-        [data-theme="dark"] footer {
-            background: #060c17
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-logo {
-            font-size: 1.75rem;
-            font-weight: 900;
-            letter-spacing: -.03em;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: .4rem;
-            user-select: none;
-        }
-
-        .footer-info p {
-            opacity: .65;
-            font-size: .9rem
-        }
-
-        .footer-info a {
-            opacity: .65;
+            margin-top: 1.6rem;
+            padding: 1.5rem 1.8rem;
             font-size: .9rem;
-            color: white;
-            text-decoration: underline;
-            transition: opacity var(--transition)
-        }
-
-        .footer-info a:hover {
-            opacity: 1
-        }
-
-        .footer-social {
-            display: flex;
-            gap: .75rem
-        }
-
-        .footer-social a {
-            width: 42px;
-            height: 42px;
-            border-radius: var(--radius-full);
-            background: rgba(255, 255, 255, 0.08);
-            border: 1.5px solid rgba(255, 255, 255, 0.12);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all var(--transition);
-        }
-
-        .footer-social a:hover {
-            background: var(--gradient);
-            border-color: transparent;
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center
-        }
-
-        .footer-bottom p {
-            opacity: .5;
-            font-size: .85rem
-        }
-
-        /* =========================================================
-   ANIMATIONS  (mismas del index)
-========================================================= */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(28px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp .6s ease-out both
-        }
-
-        /* =========================================================
-   SIDEBAR COLLAPSIBLE (móvil)
-========================================================= */
-        .tc-sidebar-toggle {
-            display: none;
-            width: 100%;
-            padding: .65rem 1rem;
-            background: var(--bg-mid);
-            border: 1.5px solid var(--border);
-            border-radius: var(--radius-md);
             color: var(--text);
-            font-size: .85rem;
-            font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            align-items: center;
-            justify-content: space-between;
-            gap: .5rem;
-            transition: background var(--transition), border-color var(--transition);
+            background: linear-gradient(120deg, rgba(76, 141, 255, .10), rgba(255, 92, 173, .10));
+            border: 1px solid rgba(167, 139, 250, .35);
+            border-radius: var(--r-lg);
         }
 
-        .tc-sidebar-toggle:hover {
-            background: var(--bg);
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .tc-sidebar-toggle svg {
-            flex-shrink: 0;
-            transition: transform var(--transition);
-        }
-
-        .tc-sidebar-toggle[aria-expanded="true"] svg {
-            transform: rotate(180deg);
-        }
-
-        .tc-sidebar-toggle[aria-expanded="true"] {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-            border-bottom-color: transparent;
-        }
-
-        /* Panel colapsable */
-        .tc-nav-panel {
-            overflow: hidden;
-            transition: max-height .35s cubic-bezier(.4, 0, .2, 1), opacity .3s ease;
-        }
-
-        /* =========================================================
-   RESPONSIVE — 968 px (tablet)
-========================================================= */
-        @media(max-width: 968px) {
+        /* ── Responsive ── */
+        @media (max-width: 940px) {
             .tc-layout {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
-                padding: 2rem 1.25rem 4rem;
             }
 
-            .tc-sidebar {
-                position: relative;
-                top: 0;
-            }
-
-            /* Mostrar botón toggle en tablet y móvil */
-            .tc-sidebar-toggle {
-                display: flex;
-            }
-
-            /* Ocultar label suelto — se muestra dentro del botón */
-            .tc-sidebar-label {
-                display: none;
-            }
-
-            /* El panel en tablet/móvil empieza cerrado */
-            .tc-nav-panel {
-                max-height: 0;
-                opacity: 0;
-            }
-
-            .tc-nav-panel.is-open {
-                max-height: 800px;
-                opacity: 1;
-            }
-
-            /* Nav dentro del panel: estilo "acordeón horizontal" */
-            .tc-nav {
-                background: var(--bg-mid);
-                border: 1.5px solid var(--border);
-                border-top: none;
-                border-radius: 0 0 var(--radius-md) var(--radius-md);
-                padding: .5rem;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 3px;
-            }
-
-            .tc-nav li {
-                flex: 0 0 auto;
-            }
-
-            .tc-nav a {
-                border-left: none;
-                border-bottom: 2px solid transparent;
-                font-size: .78rem;
-                padding: .3rem .55rem;
-                white-space: nowrap;
-            }
-
-            .tc-nav a:hover,
-            .tc-nav a.active {
-                border-left: none;
-                border-bottom-color: var(--primary);
-            }
-
-            .tc-nav-divider {
-                display: none;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 1.5rem;
-            }
-
-            .footer-social {
-                justify-content: center;
+            .tc-index {
+                position: static;
+                max-height: 260px;
             }
         }
 
-        /* =========================================================
-   RESPONSIVE — 640 px (mobile)
-========================================================= */
-        @media(max-width: 640px) {
-            .tc-hero {
-                padding: 2.75rem 1rem 2.25rem;
-            }
-
-            .tc-hero h1 {
-                font-size: clamp(1.65rem, 7vw, 2rem);
-            }
-
-            .tc-hero p {
-                font-size: .95rem;
-            }
-
-            .tc-hero-meta {
-                gap: .9rem;
-                font-size: .78rem;
-            }
-
-            .tc-layout {
-                padding: 1.5rem .85rem 3.5rem;
-                gap: 1.25rem;
-            }
-
+        @media (max-width: 600px) {
             .tc-clause {
-                padding: 1.25rem 1rem 1rem;
-                border-radius: var(--radius-md);
+                padding: 1.4rem 1.2rem;
             }
 
             .clause-header {
-                gap: .75rem;
-                margin-bottom: 1rem;
+                gap: .8rem;
             }
 
             .clause-num {
-                width: 32px;
-                height: 32px;
-                font-size: .72rem;
-                border-radius: 6px;
+                width: 38px;
+                height: 38px;
+                font-size: .78rem;
             }
 
             .clause-title {
-                font-size: .95rem;
-            }
-
-            .clause-intro {
-                font-size: .87rem;
-            }
-
-            .sub-title {
-                font-size: .82rem;
-            }
-
-            .tc-list li {
-                font-size: .86rem;
-                padding-left: 1rem;
-            }
-
-            .tc-note {
-                font-size: .82rem;
-                padding: .65rem .85rem;
-            }
-
-            .tc-accept {
-                font-size: .84rem;
-                padding: .85rem 1rem;
-            }
-
-            .tc-general-sep {
-                margin: 1.75rem 0 1.25rem;
-            }
-
-            .tc-general-sep span {
-                font-size: .85rem;
-            }
-
-            footer {
-                padding: 2.25rem 1rem 1.5rem;
-            }
-
-            .nav-container {
-                padding: 0 1rem;
-            }
-
-            .logo {
-                font-size: 1.3rem;
-            }
-
-            .nav-back {
-                font-size: .78rem;
-                padding: .35rem .6rem;
-            }
-        }
-
-        /* =========================================================
-   RESPONSIVE — 400 px y menos (móviles muy pequeños, 360 px)
-========================================================= */
-        @media(max-width: 400px) {
-            .nav-container {
-                padding: 0 .75rem;
-                gap: .5rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            .nav-back span {
-                display: none;
-                /* ocultar texto, dejar solo flecha */
-            }
-
-            .nav-back {
-                padding: .35rem .5rem;
-            }
-
-            .theme-toggle {
-                width: 38px;
-                height: 38px;
-            }
-
-            .tc-hero {
-                padding: 2.25rem .85rem 1.85rem;
-            }
-
-            .tc-hero h1 {
-                font-size: 1.5rem;
-                letter-spacing: -.02em;
-            }
-
-            .tc-hero p {
-                font-size: .88rem;
-                line-height: 1.65;
-            }
-
-            .tc-hero-meta {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: .5rem;
-                font-size: .76rem;
-            }
-
-            .tc-layout {
-                padding: 1.25rem .75rem 3rem;
-                gap: 1rem;
-            }
-
-            .tc-clause {
-                padding: 1rem .85rem .9rem;
-                border-radius: var(--radius-sm);
-                margin-bottom: 1.25rem;
-            }
-
-            .clause-header {
-                gap: .6rem;
-                margin-bottom: .85rem;
-            }
-
-            .clause-num {
-                width: 28px;
-                height: 28px;
-                font-size: .68rem;
-            }
-
-            .clause-title {
-                font-size: .88rem;
-                line-height: 1.2;
-            }
-
-            .clause-intro {
-                font-size: .83rem;
-                line-height: 1.6;
-            }
-
-            .sub-clause {
-                margin-top: 1rem;
-            }
-
-            .sub-title {
-                font-size: .79rem;
-            }
-
-            .tc-list li {
-                font-size: .82rem;
-                line-height: 1.55;
-            }
-
-            /* Tablas: scroll horizontal con ancho mínimo razonable */
-            table {
-                font-size: .72rem !important;
-                min-width: 480px;
-            }
-
-            td,
-            th {
-                padding: .45rem .6rem !important;
-                font-size: .72rem !important;
-            }
-
-            .tc-note {
-                font-size: .79rem;
-                padding: .55rem .75rem;
-            }
-
-            .tc-accept {
-                font-size: .8rem;
-                padding: .75rem .9rem;
-            }
-
-            .tc-general-sep {
-                margin: 1.25rem 0 1rem;
-            }
-
-            .tc-general-sep span {
-                font-size: .78rem;
-                letter-spacing: .08em;
-            }
-
-            /* Nav chips más compactos */
-            .tc-nav {
-                gap: 2px;
-                padding: .4rem;
-            }
-
-            .tc-nav a {
-                font-size: .73rem;
-                padding: .28rem .45rem;
-            }
-
-            .tc-sidebar-toggle {
-                font-size: .8rem;
-                padding: .55rem .85rem;
-            }
-
-            footer {
-                padding: 2rem .85rem 1.25rem;
-            }
-
-            .footer-logo {
-                font-size: 1.4rem;
-            }
-
-            .footer-info p,
-            .footer-info a {
-                font-size: .82rem;
-            }
-
-            .footer-social a {
-                width: 38px;
-                height: 38px;
-            }
-
-            .footer-bottom p {
-                font-size: .78rem;
+                font-size: 1.05rem;
             }
         }
     </style>
 </head>
 
 <body>
+    <a class="skip-link" href="#tc-main">Saltar al contenido</a>
 
-    <!-- ═══ NAVBAR ══════════════════════════════════════════════════════════════ -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a class="logo" href="index.html">GB</a>
+    <div class="bg-decor" aria-hidden="true"></div>
 
-            <a class="nav-back" href="index.html">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="15 18 9 12 15 6" />
-                </svg>
-                <span>Volver al inicio</span>
+    <!-- NAVBAR minimal -->
+    <header class="nav scrolled" id="navbar">
+        <div class="nav-inner">
+            <a class="brand" href="index.html" aria-label="Volver al inicio">
+                <span class="brand-logo"><img src="./Assets/Img/Vector-logo.svg" alt="Logo de Giancarlo Barrantes" /></span>
+                <span class="brand-name">
+                    <strong>Giancarlo Barrantes</strong>
+                    <span>BI &amp; Data Consulting</span>
+                </span>
             </a>
 
-            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
-                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5" />
-                    <line x1="12" y1="1" x2="12" y2="3" />
-                    <line x1="12" y1="21" x2="12" y2="23" />
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                    <line x1="1" y1="12" x2="3" y2="12" />
-                    <line x1="21" y1="12" x2="23" y2="12" />
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            <a class="nav-cta" href="index.html">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="15 18 9 12 15 6" />
                 </svg>
-                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                </svg>
-            </button>
+                <span class="cta-label">Volver al inicio</span>
+            </a>
         </div>
-    </nav>
+    </header>
 
-    <!-- ═══ HERO ════════════════════════════════════════════════════════════════ -->
+    <!-- Banda hero -->
     <div class="tc-hero">
-        <div class="tc-hero-grid"></div>
-        <div class="tc-hero-inner">
-            <div class="section-pill">Legal</div>
-            <h1>Términos &amp; <span class="gradient-text"
-                    style="-webkit-text-fill-color:rgba(255,255,255,0.85);background:none;">Condiciones</span></h1>
-            <p>Estos términos regulan la prestación de servicios de consultoría en Excel y Power BI. Al confirmar la
-                cotización, el Cliente declara haber leído, comprendido y aceptado íntegramente este documento.</p>
-            <div class="tc-hero-meta">
-                <span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    Versión 2026
-                </span>
-                <span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                    </svg>
-                    Lima, Perú
-                </span>
+        <div class="container">
+            <span class="sec-kicker">Legal</span>
+            <h1>Términos &amp; <span class="grad-text">Condiciones</span></h1>
+            <p class="lead">Estos términos regulan la prestación de servicios de consultoría en Excel, Power BI y
+                análisis de datos. Al confirmar la cotización, el Cliente declara haber leído, comprendido y aceptado
+                íntegramente este documento.</p>
+            <div class="tc-meta">
+                <span></span>
+                <span>Lima, Perú · UTC-5</span>
                 <span>24 cláusulas</span>
             </div>
         </div>
     </div>
 
-    <!-- ═══ LAYOUT ══════════════════════════════════════════════════════════════ -->
-    <div class="tc-layout">
+    <!-- Índice + contenido -->
+    <div class="container tc-layout">
+        <nav class="tc-index" aria-label="Índice de cláusulas">
+            <p class="tc-index-title">Índice</p>
+            <ul id="tcIndexList">
+                <li><a href="#cl1"><span class="ix-num mono">1</span><span>Objeto y Alcance de Servicios</span></a></li>
+                <li><a href="#cl2"><span class="ix-num mono">2</span><span>Inclusiones, Alcances y Exclusiones</span></a></li>
+                <li><a href="#cl3"><span class="ix-num mono">3</span><span>Modalidades de Servicio</span></a></li>
+                <li><a href="#cl4"><span class="ix-num mono">4</span><span>Proyectos Cerrados (10, 20 y 30 Horas)</span></a></li>
+                <li><a href="#cl5"><span class="ix-num mono">5</span><span>Paquetes de Soporte y Mantenimiento</span></a></li>
+                <li><a href="#cl6"><span class="ix-num mono">6</span><span>Servicio Full-time BI Partner Mensual</span></a></li>
+                <li><a href="#cl7"><span class="ix-num mono">7</span><span>Horas Individuales</span></a></li>
+                <li><a href="#cl8"><span class="ix-num mono">8</span><span>Evaluación y Diagnóstico</span></a></li>
+                <li><a href="#cl9" data-general="1"><span class="ix-num mono">9</span><span>Obligaciones del Consultor</span></a></li>
+                <li><a href="#cl10"><span class="ix-num mono">10</span><span>Obligaciones del Cliente</span></a></li>
+                <li><a href="#cl11"><span class="ix-num mono">11</span><span>Horas Adicionales</span></a></li>
+                <li><a href="#cl12"><span class="ix-num mono">12</span><span>Cambios y/o Ajustes al Alcance</span></a></li>
+                <li><a href="#cl13"><span class="ix-num mono">13</span><span>Soporte Post-proyecto</span></a></li>
+                <li><a href="#cl14"><span class="ix-num mono">14</span><span>Pausas, Abandono y Cancelación</span></a></li>
+                <li><a href="#cl15"><span class="ix-num mono">15</span><span>Fuerza Mayor</span></a></li>
+                <li><a href="#cl16"><span class="ix-num mono">16</span><span>Horario de Atención</span></a></li>
+                <li><a href="#cl17"><span class="ix-num mono">17</span><span>Entregables y Transferencia de Archivos</span></a></li>
+                <li><a href="#cl18"><span class="ix-num mono">18</span><span>Emisión de Documento</span></a></li>
+                <li><a href="#cl19"><span class="ix-num mono">19</span><span>Privacidad y Confidencialidad</span></a></li>
+                <li><a href="#cl20"><span class="ix-num mono">20</span><span>Propiedad Intelectual</span></a></li>
+                <li><a href="#cl21"><span class="ix-num mono">21</span><span>Limitación de Responsabilidad</span></a></li>
+                <li><a href="#cl22"><span class="ix-num mono">22</span><span>Vigencia de la Propuesta</span></a></li>
+                <li><a href="#cl23"><span class="ix-num mono">23</span><span>Resolución de Controversias y Ley Aplicable</span></a></li>
+                <li><a href="#cl24"><span class="ix-num mono">24</span><span>Aceptación e Inicio</span></a></li>
+            </ul>
+        </nav>
 
-        <!-- Sidebar índice -->
-        <aside class="tc-sidebar">
-            <p class="tc-sidebar-label">Índice</p>
-
-            <!-- Botón toggle (visible solo en móvil/tablet) -->
-            <button class="tc-sidebar-toggle" id="sidebarToggle" aria-expanded="false" aria-controls="tcNavPanel">
-                <span>📋 Índice de cláusulas</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                </svg>
-            </button>
-
-            <!-- Panel colapsable -->
-            <div class="tc-nav-panel" id="tcNavPanel">
-                <ul class="tc-nav" id="tcNav">
-                    <li><a href="#cl1">1. Objeto y partes</a></li>
-                    <li><a href="#cl2">2. Inclusiones</a></li>
-                    <li><a href="#cl3">3. Modalidades</a></li>
-                    <li><a href="#cl4">4. Proyectos cerrados</a></li>
-                    <li><a href="#cl5">5. Paquetes soporte</a></li>
-                    <li><a href="#cl6">6. Full-time Partner</a></li>
-                    <li><a href="#cl7">7. Horas individuales</a></li>
-                    <li><a href="#cl8">8. Evaluación y diagnóstico</a></li>
-                    <hr class="tc-nav-divider">
-                    <li><a href="#cl9">9. Oblig. Consultor</a></li>
-                    <li><a href="#cl10">10. Oblig. Cliente</a></li>
-                    <li><a href="#cl11">11. Horas adicionales</a></li>
-                    <li><a href="#cl12">12. Cambios al alcance</a></li>
-                    <li><a href="#cl13">13. Soporte post-proyecto</a></li>
-                    <li><a href="#cl14">14. Pausas y abandono</a></li>
-                    <li><a href="#cl15">15. Fuerza mayor</a></li>
-                    <li><a href="#cl16">16. Horario de atención</a></li>
-                    <li><a href="#cl17">17. Entregables</a></li>
-                    <li><a href="#cl18">18. Emisión de documento</a></li>
-                    <li><a href="#cl19">19. Privacidad</a></li>
-                    <li><a href="#cl20">20. Propiedad intelectual</a></li>
-                    <li><a href="#cl21">21. Limitación de resp.</a></li>
-                    <li><a href="#cl22">22. Vigencia</a></li>
-                    <li><a href="#cl23">23. Controversias</a></li>
-                    <li><a href="#cl24">24. Aceptación e inicio</a></li>
-                </ul>
-            </div>
-        </aside>
-
-        <!-- Contenido -->
-        <main class="tc-content">
-
+        <main class="tc-content" id="tc-main">
             <!-- 1 -->
             <div class="tc-clause" id="cl1">
                 <div class="clause-header">
@@ -1278,70 +472,48 @@
                 </div>
                 <p class="clause-intro">El Consultor ofrece cinco modalidades de servicio. La cotización especificará
                     cuál aplica en cada encargo.</p>
-                <div style="overflow-x:auto;margin-top:.75rem">
-                    <table style="width:100%;border-collapse:collapse;font-size:.88rem">
+                <div class="table-wrap"><table class="tc-table">
                         <thead>
-                            <tr style="background:var(--bg-mid)">
-                                <th
-                                    style="padding:.6rem .9rem;text-align:left;border:1px solid var(--border);font-weight:700;color:var(--secondary)">
-                                    Modalidad</th>
-                                <th
-                                    style="padding:.6rem .9rem;text-align:left;border:1px solid var(--border);font-weight:700;color:var(--secondary)">
-                                    Pago</th>
-                                <th
-                                    style="padding:.6rem .9rem;text-align:left;border:1px solid var(--border);font-weight:700;color:var(--secondary)">
-                                    Duración</th>
-                                <th
-                                    style="padding:.6rem .9rem;text-align:left;border:1px solid var(--border);font-weight:700;color:var(--secondary)">
-                                    Canal</th>
+                            <tr>
+                                <th>Modalidad</th>
+                                <th>Pago</th>
+                                <th>Duración</th>
+                                <th>Canal</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">Proyectos cerrados</td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">50% anticipo + 50%
-                                    contra entrega</td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">10, 20 o 30 horas</td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">Correo + reunión semanal
-                                </td>
-                            </tr>
-                            <tr style="background:var(--bg-light)">
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">Paquetes soporte</td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">100% por adelantado</td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">Según paquete</td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">Correo / Teams / Meet
-                                </td>
+                                <td>Proyectos cerrados</td>
+                                <td>50% anticipo + 50% contra entrega</td>
+                                <td>10, 20 o 30 horas</td>
+                                <td>Correo + reunión semanal</td>
                             </tr>
                             <tr>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">Full-time BI Partner
-                                </td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">50% anticipo + 50% fin
-                                    de mes</td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">Lun–Vie 9 a.m.–6 p.m.
-                                </td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">Correo + canal acordado
-                                </td>
-                            </tr>
-                            <tr style="background:var(--bg-light)">
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">Horas individuales</td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">100% por adelantado</td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">Mín. 1 h, frac. 15 min
-                                </td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">Correo / Teams / Meet
-                                </td>
+                                <td>Paquetes soporte</td>
+                                <td>100% por adelantado</td>
+                                <td>Según paquete</td>
+                                <td>Correo / Teams / Meet</td>
                             </tr>
                             <tr>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">Evaluación y diagnóstico
-                                </td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">100% por adelantado</td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">2–3 horas + informe
-                                    48–96 h</td>
-                                <td style="padding:.55rem .9rem;border:1px solid var(--border)">Correo / Teams / Meet
-                                </td>
+                                <td>Full-time BI Partner</td>
+                                <td>50% anticipo + 50% fin de mes</td>
+                                <td>Lun–Vie 9 a.m.–6 p.m.</td>
+                                <td>Correo + canal acordado</td>
+                            </tr>
+                            <tr>
+                                <td>Horas individuales</td>
+                                <td>100% por adelantado</td>
+                                <td>Mín. 1 h, frac. 15 min</td>
+                                <td>Correo / Teams / Meet</td>
+                            </tr>
+                            <tr>
+                                <td>Evaluación y diagnóstico</td>
+                                <td>100% por adelantado</td>
+                                <td>2–3 horas + informe 48–96 h</td>
+                                <td>Correo / Teams / Meet</td>
                             </tr>
                         </tbody>
-                    </table>
-                </div>
+                    </table></div>
             </div>
 
             <!-- 4 -->
@@ -1860,211 +1032,42 @@
                 <div class="tc-accept">Al confirmar la cotización, el Cliente declara haber leído, comprendido y
                     aceptado íntegramente los presentes Términos y Condiciones.</div>
             </div>
-
         </main>
     </div>
 
-    <!-- ═══ FOOTER  (idéntico al index) ═══════════════════════════════════════════ -->
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-info">
-                <div class="footer-logo">GB</div>
-                <p>Horario de atención: lunes a viernes, de 9:00 a 18:00 h.</p>
-                <p>Lima, Perú</p>
-                <p><a href="index.html">Inicio</a></p>
+        <div class="container">
+            <div class="footer-bottom" style="border-top:none">
+                <span>© <span id="year">2026</span> Giancarlo Barrantes. Todos los derechos reservados.</span>
+                <div class="f-legal">
+                    <a href="index.html">Inicio</a>
+                    <!--<span class="made">HTML · CSS · JS — sin frameworks</span>-->
+                </div>
             </div>
-            <div class="footer-social">
-                <a href="https://github.com/Gbarrantes25" target="_blank" aria-label="Github" title="Github">
-                    <svg fill="currentColor" width="20" height="20" viewBox="0 0 24 24">
-                        <path
-                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                    </svg>
-                </a>
-                <a href="https://gitlab.com/Gbarrantes25" target="_blank" aria-label="Gitlab" title="Gitlab">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0,0,256,256"
-                        fill="currentColor">
-                        <g fill-rule="nonzero">
-                            <g transform="scale(5.12,5.12)">
-                                <path
-                                    d="M38.01172,4c-0.4375,-0.00391-0.82812,0.27344-0.96484,0.69141l-4.97266,15.30859h-14.14844l-4.97266,-15.30859c-0.13281,-0.40234-0.50391,-0.67969-0.92969,-0.69141c-0.42578,-0.00781-0.80859,0.25-0.96094,0.64844l-5.99219,15.99219c-0.00391,0-0.00391,0.00391-0.00781,0.00781l-3,8c-0.15625,0.42188-0.01562,0.89453 0.35156,1.16016l21.99219,15.99219l0.00391,0.00781c0.01172,0.00781 0.02734,0.01563 0.03906,0.02344c0.01563,0.00781 0.02734,0.01953 0.04297,0.02734c0.00391,0 0.00391,0.00391 0.00781,0.00391c0.00391,0.00391 0.00781,0.00781 0.01563,0.00781c0.01953,0.00781 0.04297,0.01953 0.06641,0.02734c0.02344,0.00781 0.04688,0.01563 0.06641,0.02344c0.01563,0.00391 0.03125,0.00781 0.05078,0.01563c0.01953,0.00781 0.03906,0.01172 0.05859,0.01563c0.02734,0.00391 0.05078,0.00781 0.07813,0.01172c0.03906,0 0.08203,0.00391 0.12109,0.00391c0.03906,-0.00391 0.07422,-0.00391 0.10938,-0.01172c0.01563,0 0.02734,0 0.04297,-0.00391c0.00781,-0.00391 0.01172,-0.00391 0.01953,-0.00391c0.00391,0 0.00781,-0.00391 0.01563,-0.00391c0.00781,-0.00391 0.01953,-0.00391 0.02734,-0.00781c0.01563,-0.00391 0.02734,-0.00781 0.03906,-0.01172c0.01563,-0.00781 0.03516,-0.01562 0.05078,-0.01953c0.01953,-0.00781 0.03516,-0.01562 0.05078,-0.02344c0.00391,0 0.00391,0 0.00781,-0.00391c0.00781,-0.00391 0.01563,-0.00781 0.02344,-0.01172c0.02344,-0.01172 0.04297,-0.02344 0.0625,-0.03516c0.01563,-0.01172 0.03125,-0.01953 0.04688,-0.03125l0.00781,-0.01172l21.99219,-15.98828c0.36328,-0.26562 0.50391,-0.73828 0.34766,-1.16016l-2.99219,-7.97266c-0.00391,-0.00781-0.00781,-0.01953-0.00781,-0.02734l-6,-16c-0.14844,-0.38672-0.51172,-0.64453-0.92578,-0.64844zM8.06641,22h8.40625l5.85547,18.01563zM33.52734,22h8.40625l-14.26172,18.01563zM6.3125,23.00781l13.375,16.89453l-15.48437,-11.26172zM43.6875,23.00781l2.10938,5.63281l-15.48437,11.26172z" />
-                            </g>
-                        </g>
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/gb25/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
-                    <svg fill="currentColor" width="20" height="20" viewBox="0 0 24 24">
-                        <path
-                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                    </svg>
-                </a>
-                <a href="https://www.youtube.com/@gbarrantes25" target="_blank" aria-label="YouTube" title="YouTube">
-                    <svg fill="currentColor" width="20" height="20" viewBox="0 0 24 24">
-                        <path
-                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.016 3.016 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                    </svg>
-                </a>
-                <a href="https://www.tiktok.com/@gbarrantes25" target="_blank" title="Tiktok">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512">
-                        <path fill="rgb(255, 255, 255)" d="M448.5 209.9c-44 .1-87-13.6-122.8-39.2l0 178.7c0 33.1-10.1 65.4-29 92.6s-45.6 48-76.6 59.6-64.8 13.5-96.9 5.3-60.9-25.9-82.7-50.8-35.3-56-39-88.9 2.9-66.1 18.6-95.2 40-52.7 69.6-67.7 62.9-20.5 95.7-16l0 89.9c-15-4.7-31.1-4.6-46 .4s-27.9 14.6-37 27.3-14 28.1-13.9 43.9 5.2 31 14.5 43.7 22.4 22.1 37.4 26.9 31.1 4.8 46-.1 28-14.4 37.2-27.1 14.2-28.1 14.2-43.8l0-349.4 88 0c-.1 7.4 .6 14.9 1.9 22.2 3.1 16.3 9.4 31.9 18.7 45.7s21.3 25.6 35.2 34.6c19.9 13.1 43.2 20.1 67 20.1l0 87.4z"/>
-                    </svg>
-                </a>
-                <a href="https://www.instagram.com/gbarrantes25/" target="_blank" title="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="25">
-                        <path fill="rgb(255, 255, 255)" d="M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p class="footer-text"></p>
         </div>
     </footer>
 
-    <!-- ═══ SCRIPT (autocontenido, sin depender de scripts.js) ═══════════════════ -->
     <script>
+        // Año actual + resaltado de cláusula activa en el índice
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.querySelector('.tc-meta span:first-of-type').textContent = `Versión ${new Date().getFullYear()}`;
+
         (function () {
-            'use strict';
+            var links = Array.from(document.querySelectorAll('#tcIndexList a'));
+            if (!links.length || !('IntersectionObserver' in window)) return;
 
-            /* ── Tema oscuro/claro — idéntica lógica al index ─────────────── */
-            const html = document.documentElement;
-            const themeToggle = document.getElementById('themeToggle');
-
-            function temaSegunHora() {
-                const ahora = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Lima' }));
-                const mins = ahora.getHours() * 60 + ahora.getMinutes();
-                return (mins >= 18 * 60 + 30 || mins < 4 * 60 + 30) ? 'dark' : 'light';
-            }
-
-            function aplicarTema(tema, porUsuario = false) {
-                html.setAttribute('data-theme', tema);
-                if (porUsuario) {
-                    localStorage.setItem('theme', tema);
-                    localStorage.setItem('themeManual', '1');
-                } else {
-                    localStorage.removeItem('theme');
-                    localStorage.removeItem('themeManual');
-                }
-            }
-
-            // Cargar tema al inicio
-            (function iniciarTema() {
-                const manual = localStorage.getItem('themeManual');
-                const guardado = localStorage.getItem('theme');
-                html.setAttribute('data-theme', (manual && guardado) ? guardado : temaSegunHora());
-            })();
-
-            // Actualizar automáticamente si no hay preferencia manual
-            setInterval(() => {
-                if (!localStorage.getItem('themeManual')) {
-                    html.setAttribute('data-theme', temaSegunHora());
-                }
-            }, 60000);
-
-            // Clic del usuario
-            themeToggle.addEventListener('click', () => {
-                const nuevo = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-                aplicarTema(nuevo, true);
-                themeToggle.style.transform = 'rotate(360deg)';
-                setTimeout(() => { themeToggle.style.transform = ''; }, 300);
-            });
-
-            /* ── Navbar scroll effect ──────────────────────────────────────── */
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                navbar.classList.toggle('scrolled', window.scrollY > 50);
-            }, { passive: true });
-
-            /* ── Scroll-reveal suavizado en cláusulas (igual que sections en index) ── */
-            const clauses = Array.from(document.querySelectorAll('.tc-clause'));
-            const DIST_ENTRADA = 50, DIST_SALIDA = 25;
-            const state = clauses.map(() => ({ y: DIST_ENTRADA, o: 0 }));
-
-            function lerp(a, b, t) { return a + (b - a) * t; }
-
-            function updateClauses() {
-                const wh = window.innerHeight;
-                clauses.forEach((el, i) => {
-                    const rect = el.getBoundingClientRect();
-                    const top = rect.top;
-                    const bottom = rect.bottom;
-                    let targetY, targetO;
-
-                    if (top >= wh) {
-                        targetY = DIST_ENTRADA; targetO = 0;
-                    } else if (bottom <= 0) {
-                        targetY = -DIST_SALIDA; targetO = 0;
-                    } else {
-                        const progress = Math.min(1, Math.max(0, (wh - top) / (wh - wh * 0.25)));
-                        targetO = progress;
-                        targetY = lerp(DIST_ENTRADA, 0, progress);
-                    }
-
-                    state[i].y = lerp(state[i].y, targetY, 0.08);
-                    state[i].o = lerp(state[i].o, targetO, 0.08);
-                    el.style.setProperty('--s-y', state[i].y + 'px');
-                    el.style.setProperty('--s-opacity', state[i].o);
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (!e.isIntersecting) return;
+                    var id = '#' + e.target.id;
+                    links.forEach(function (a) {
+                        a.classList.toggle('active', a.getAttribute('href') === id);
+                    });
                 });
-                requestAnimationFrame(updateClauses);
-            }
-            requestAnimationFrame(updateClauses);
+            }, { rootMargin: '-30% 0px -60% 0px' });
 
-            /* ── Sidebar toggle (móvil/tablet) ─────────────────────────────── */
-            const sidebarToggle = document.getElementById('sidebarToggle');
-            const navPanel = document.getElementById('tcNavPanel');
-
-            if (sidebarToggle && navPanel) {
-                sidebarToggle.addEventListener('click', () => {
-                    const isOpen = navPanel.classList.toggle('is-open');
-                    sidebarToggle.setAttribute('aria-expanded', isOpen);
-                });
-            }
-
-            /* Al hacer clic en un link del nav en móvil, cerrar el panel */
-            document.querySelectorAll('.tc-nav a').forEach(a => {
-                a.addEventListener('click', () => {
-                    if (window.innerWidth < 968 && navPanel) {
-                        navPanel.classList.remove('is-open');
-                        sidebarToggle && sidebarToggle.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            });
-
-            /* ── Sidebar active link on scroll ──────────────────────────────── */
-            const navLinks = document.querySelectorAll('.tc-nav a');
-            const io = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        navLinks.forEach(a => a.classList.remove('active'));
-                        const active = document.querySelector(`.tc-nav a[href="#${entry.target.id}"]`);
-                        if (active) active.classList.add('active');
-                    }
-                });
-            }, { rootMargin: '-15% 0px -75% 0px' });
-
-            clauses.forEach(c => io.observe(c));
-
-            /* ── Smooth scroll for sidebar links ────────────────────────────── */
-            navLinks.forEach(a => {
-                a.addEventListener('click', e => {
-                    e.preventDefault();
-                    const target = document.querySelector(a.getAttribute('href'));
-                    if (target) {
-                        window.scrollTo({ top: target.offsetTop - 90, behavior: 'smooth' });
-                    }
-                });
-            });
-
-            /* ── Footer copyright ────────────────────────────────────────────── */
-            const footerText = document.querySelector('.footer-text');
-            if (footerText) {
-                footerText.textContent = `© ${new Date().getFullYear()} Giancarlo Barrantes. Todos los derechos reservados.`;
-            }
-
-            /* ── Protección logo ─────────────────────────────────────────────── */
-            document.addEventListener('contextmenu', e => {
-                if (e.target.closest('.logo, .footer-logo')) e.preventDefault();
-            });
-
+            document.querySelectorAll('.tc-clause[id]').forEach(function (c) { io.observe(c); });
         })();
     </script>
 </body>

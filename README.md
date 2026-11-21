@@ -1,30 +1,52 @@
-Portfolio Profesional de Gian Barrantes, desarrollado como sitio web estático con HTML, CSS y JavaScript, alojado en GitHub Pages.
-Este proyecto sirve como presencia digital personal para mostrar experiencia, habilidades y proyectos en el área de Business Intelligence y Análisis de Datos:
+# Gbarrantes25.github.io — Portafolio "BI Operations"
 
-- 🌐 Sitio Web Estático: HTML5 + CSS3 + JavaScript vanilla
-- 🎨 Diseño Responsive: Adaptable a dispositivos móviles y escritorio.
-- 📂 Alojamiento Gratuito: GitHub Pages (gbarrantes25.github.io)
-- 🔗 Hub de Proyectos: Enlaces a dashboards de Power BI, Excel y más.
-- 📇 Perfil Profesional: Información de contacto y experiencia.
+Portafolio profesional de **Giancarlo Barrantes**, consultor de Business
+Intelligence y Data Analytics (Lima, Perú). Sitio estático publicado en
+GitHub Pages, construido **100% con HTML, CSS y JavaScript puro** (sin
+frameworks ni librerías de UI).
 
-🔍👤 Sobre Mí – Perfil profesional y trayectoria
-- 💼 Proyectos Destacados – Dashboards de Power BI y Excel.
-- 🛠️ Habilidades Técnicas – Herramientas y tecnologías dominadas.
-- 📜 Experiencia Laboral – Historial profesional relevante.
-- 📫 Contacto – Enlaces a LinkedIn, GitHub y correo.
-- 🔗 Repositorios – Acceso directo a proyectos en GitHub.
+## Identidad visual
 
-🛠️ Stack Tecnológico
-- HTML5 → Estructura del sitio
-- CSS3 → Estilos y diseño responsive
-- JavaScript → Interactividad y funcionalidades
-- GitHub Pages → Hosting y despliegue continuo
+- **Concepto**: "centro de mando de datos" — tema oscuro premium con acentos
+  neón en azul, turquesa, púrpura y magenta.
+- **Tipografías**: Space Grotesk (títulos) · Inter (texto) · JetBrains Mono
+  (datos, etiquetas y consola).
+- **Firma visual**: consola SQL interactiva en el hero que consulta el propio
+  portafolio, fondo de partículas de datos en canvas, ticker infinito de
+  tecnologías y grid bento en "Sobre mí".
 
-📂 Estructura del Proyecto
+## Funcionalidades
+
+- Consola SQL con efecto de tipeo, resaltado de sintaxis y gráfico de barras
+  animado (datos reales del portafolio: 6 Power BI · 4 Python · 2 Excel · 1 Looker).
+- Estado de disponibilidad en vivo según hora de Lima (UTC-5) y feriados del Perú.
+- Contadores animados, revelado al hacer scroll y scrollspy en la navegación.
+- Servicios con selector de modalidad (Excel / Power BI / Híbrida) que
+  intercambia los alcances de los planes dashboard.
+- Filtros de proyectos por dificultad (Básico / Intermedio / Avanzado).
+- Formulario de contacto con **EmailJS** (validación y notificaciones toast).
+- Previsualizaciones de proyectos **solo en dispositivos > 600px**.
+- Accesibilidad: skip-link, `aria-*`, foco visible, `prefers-reduced-motion`
+  y respaldo sin JavaScript (contenido siempre visible).
+
+## Estructura
+
 ```
 Gbarrantes25.github.io/
-├── index.html        # Página principal
-├── terminos.html     # Página secundaria
-├── styles.css        # Hoja de estilos (si aplica)
-└── script.js         # Funcionalidades JavaScript (si aplica)
+├── index.html                # Página principal
+├── terminos.html             # Términos y Condiciones (24 cláusulas + índice)
+├── sitemap.xml               # Mapa del sitio
+├── README.md
+└── Assets/
+    ├── style.css             # Hoja de estilos (identidad + responsive)
+    ├── scripts.js            # Interactividad (canvas, consola, EmailJS, UI)
+    └── Img/                  # Logo, iconos de stack, capturas y og-image
 ```
+
+## Stack
+
+- HTML5 → estructura semántica
+- CSS3 → diseño responsive (mobile-first), degradados y glassmorphism
+- JavaScript (vanilla) → canvas, animaciones, EmailJS e interacciones
+- EmailJS → envío del formulario sin backend
+- GitHub Pages → hosting y despliegue continuo

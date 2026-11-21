@@ -1,566 +1,536 @@
-// ── Disponibilidad del Consultor BI ──────────────────────────────────────────
-(function actualizarDisponibilidad() {
-    // Feriados de Perú (mes es 1-12 para mayor claridad)
-    const feriados = [
-        '01-01', // Año Nuevo
-        '05-01', // Día del Trabajo
-        '06-29', // San Pedro y San Pablo
-        '07-28', // Fiestas Patrias
-        '07-29', // Fiestas Patrias
-        '08-30', // Santa Rosa de Lima
-        '11-01', // Día de Todos los Santos
-        '12-08', // Inmaculada Concepción
-        '12-25', // Navidad
-    ];
+/* ═══════════════════════════════════════════════════════════════════════
+   GIANCARLO BARRANTES — BI OPERATIONS · scripts.js
+   Partículas de datos · consola SQL · scrollspy · EmailJS · UI
+   ═══════════════════════════════════════════════════════════════════════ */
+(() => {
+    'use strict';
 
-    function esFeriado(fecha) {
-        const mes = String(fecha.getMonth() + 1).padStart(2, '0');
-        const dia = String(fecha.getDate()).padStart(2, '0');
-        return feriados.includes(mes + '-' + dia);
+    const $ = (sel, ctx = document) => ctx.querySelector(sel);
+    const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ── 1 · Disponibilidad (hora de Lima) ─────────────────────────────── */
+    const FERIADOS = ['01-01', '05-01', '06-29', '07-28', '07-29', '08-30', '11-01', '12-08', '12-25'];
+
+    function horaLima() {
+        return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Lima' }));
     }
 
     function consultorDisponible() {
-        // Hora de Lima (UTC-5)
-        const ahora = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Lima' }));
-        const diaSemana = ahora.getDay(); // 0=Dom, 1=Lun ... 6=Sáb
+        const ahora = horaLima();
+        const dia = ahora.getDay();            // 0=Dom, 6=Sáb
         const hora = ahora.getHours();
-
-        const esFinDeSemana = diaSemana === 0 || diaSemana === 6;
-        const enHorario = hora >= 9 && hora < 18; // 9am-6pm
-
-        return !esFinDeSemana && !esFeriado(ahora) && enHorario;
+        const mmdd = String(ahora.getMonth() + 1).padStart(2, '0') + '-' + String(ahora.getDate()).padStart(2, '0');
+        return dia !== 0 && dia !== 6 && !FERIADOS.includes(mmdd) && hora >= 9 && hora < 18;
     }
 
-    function renderizarEstado() {
-        const eyebrow = document.querySelector('.hero-eyebrow');
-        if (!eyebrow) return;
-
+    function pintarDisponibilidad() {
+        const pill = $('#statusPill');
+        const txt = $('#statusText');
+        if (!pill || !txt) return;
         if (consultorDisponible()) {
-            eyebrow.classList.remove('no-disponible');
-            eyebrow.textContent = 'Consultor BI disponible';
+            pill.classList.remove('off');
+            txt.textContent = 'Consultor disponible · Lima UTC-5';
         } else {
-            eyebrow.classList.add('no-disponible');
-            eyebrow.textContent = 'Consultor BI no disponible';
+            pill.classList.add('off');
+            txt.textContent = 'Fuera de horario · respondo pronto';
         }
     }
+    pintarDisponibilidad();
+    setInterval(pintarDisponibilidad, 60000);
 
-    // Ejecutar al cargar y cada minuto
-    document.addEventListener('DOMContentLoaded', renderizarEstado);
-    setInterval(renderizarEstado, 60000);
-})();
+    /* ── 2 · Partículas de datos (canvas del hero) ─────────────────────── */
+    function initParticles() {
+        const canvas = $('#net');
+        if (!canvas || reduceMotion) return;
 
-// ── Íconos del navbar (hover / clic) ─────────────────────────────────────
-const navIcons = {
-    'inicio': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>`,
-    'sobre': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>`,
-    'clientes': `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-handshake-icon lucide-handshake"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>`,
-    'skills': `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench-icon lucide-wrench"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg>`,
-    'servicios': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>`,
-    'proyectos': `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-icon lucide-settings"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></svg>`,
-    'contacto': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`,
-};
+        const ctx = canvas.getContext('2d');
+        const COLORS = ['#4c8dff', '#2ee6c8', '#a78bfa', '#ff5cad'];
+        let nodes = [];
+        let raf = null;
+        const mouse = { x: -9999, y: -9999 };
 
-document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
-    const sectionId = link.getAttribute('href').replace('#', '');
-    const icon = navIcons[sectionId];
-    if (!icon) return;
+        function resize() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width * devicePixelRatio;
+            canvas.height = rect.height * devicePixelRatio;
+            canvas.style.width = rect.width + 'px';
+            canvas.style.height = rect.height + 'px';
+            ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
 
-    // Envolver el texto en .nav-label
-    const label = document.createElement('span');
-    label.className = 'nav-label';
-    label.textContent = link.textContent;
-    link.textContent = '';
-    link.appendChild(label);
-
-    // Agregar el ícono
-    const iconEl = document.createElement('span');
-    iconEl.className = 'nav-icon';
-    iconEl.innerHTML = icon;
-    link.appendChild(iconEl);
-
-    // Estado de clic: activo mientras dura el scroll
-    link.addEventListener('click', () => {
-        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('nav-clicked'));
-        link.classList.add('nav-clicked');
-        setTimeout(() => link.classList.remove('nav-clicked'), 1200);
-    });
-});
-
-// Navegación responsive
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-
-// Cerrar menú al hacer click en un enlace
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-    });
-});
-
-// Navegación suave
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offset = 80;
-            const targetPosition = target.offsetTop - offset;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+            const target = Math.min(72, Math.floor(rect.width / 16));
+            nodes = Array.from({ length: target }, () => ({
+                x: Math.random() * rect.width,
+                y: Math.random() * rect.height,
+                vx: (Math.random() - .5) * .35,
+                vy: (Math.random() - .5) * .35,
+                r: Math.random() * 1.8 + .8,
+                c: COLORS[Math.floor(Math.random() * COLORS.length)]
+            }));
         }
-    });
-});
 
-// Navbar scroll effect
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+        function frame() {
+            const w = canvas.width / devicePixelRatio;
+            const h = canvas.height / devicePixelRatio;
+            ctx.clearRect(0, 0, w, h);
 
-// Tabs de servicios
-const tabButtons = document.querySelectorAll('.tab-btn');
-const tabContents = document.querySelectorAll('.tab-content');
+            // Enlaces entre nodos cercanos
+            for (let i = 0; i < nodes.length; i++) {
+                const a = nodes[i];
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const b = nodes[j];
+                    const dx = a.x - b.x, dy = a.y - b.y;
+                    const d2 = dx * dx + dy * dy;
+                    if (d2 < 130 * 130) {
+                        const alpha = (1 - Math.sqrt(d2) / 130) * .17;
+                        ctx.strokeStyle = 'rgba(139, 160, 225,' + alpha.toFixed(3) + ')';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.stroke();
+                    }
+                }
+            }
 
-tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const targetTab = button.getAttribute('data-tab');
+            // Nodos
+            for (const n of nodes) {
+                // Repulsión suave del puntero
+                const dx = n.x - mouse.x, dy = n.y - mouse.y;
+                const d2 = dx * dx + dy * dy;
+                if (d2 < 90 * 90 && d2 > 0.01) {
+                    const d = Math.sqrt(d2);
+                    n.x += (dx / d) * .55;
+                    n.y += (dy / d) * .55;
+                }
 
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabContents.forEach(content => content.classList.remove('active'));
+                n.x += n.vx;
+                n.y += n.vy;
 
-        button.classList.add('active');
-        document.getElementById(targetTab).classList.add('active');
-    });
-});
+                if (n.x < -8) n.x = w + 8; else if (n.x > w + 8) n.x = -8;
+                if (n.y < -8) n.y = h + 8; else if (n.y > h + 8) n.y = -8;
 
-// Filtrado de proyectos
-const filterButtons = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
+                ctx.fillStyle = n.c;
+                ctx.globalAlpha = .72;
+                ctx.beginPath();
+                ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.globalAlpha = 1;
+            }
 
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Actualizar botones activos
-        const filterValue = button.getAttribute('data-filter');
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
+            raf = requestAnimationFrame(frame);
+        }
 
+        canvas.parentElement.addEventListener('pointermove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        canvas.parentElement.addEventListener('pointerleave', () => {
+            mouse.x = mouse.y = -9999;
+        });
 
-        // Filtrar proyectos
-        projectCards.forEach(card => {
-            const cardDifficulty = card.getAttribute('data-difficulty');
-
-            if (filterValue === cardDifficulty) {
-                card.classList.remove('hidden');
-                card.style.opacity = '1';
-                card.style.transform = 'scale(1)';
-            } else {
-                card.style.opacity = '0';
-                card.style.transform = 'scale(0.8)';
-                setTimeout(() => {
-                    card.classList.add('hidden');
-                }, 400);
+        addEventListener('resize', resize);
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                cancelAnimationFrame(raf);
+                raf = null;
+            } else if (!raf) {
+                raf = requestAnimationFrame(frame);
             }
         });
-    });
-});
-const intermediateBtn = document.querySelector('.filter-btn[data-filter="intermedio"]');
-if (intermediateBtn) {
-    intermediateBtn.click();
-}
 
+        resize();
 
-// Formulario de contacto con EmailJS
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    // Obtener valores
-    const nombre = document.getElementById('nombre').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const asunto = document.getElementById('asunto').value.trim();
-    const mensaje = document.getElementById('mensaje').value.trim();
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-
-    // Validaciones
-    if (nombre === '' || nombre.length < 3) {
-        mostrarMensaje('Por favor, ingresa un nombre válido (mínimo 3 caracteres)', 'error');
-        document.getElementById('nombre').focus();
-        return;
+        // Dibujar solo mientras el hero está en pantalla: al hacer scroll
+        // hacia abajo el canvas deja de consumir frames (fluidez).
+        const heroIO = new IntersectionObserver((entries) => {
+            if (entries.some(e => e.isIntersecting)) {
+                if (!raf && !document.hidden) raf = requestAnimationFrame(frame);
+            } else if (raf) {
+                cancelAnimationFrame(raf);
+                raf = null;
+            }
+        }, { threshold: 0 });
+        heroIO.observe(canvas);
     }
+    initParticles();
 
-    if (!validarEmail(email)) {
-        mostrarMensaje('Por favor, ingresa un correo electrónico válido', 'error');
-        document.getElementById('email').focus();
-        return;
-    }
+    /* ── 3 · Contadores automáticos: totales leídos del propio HTML ───── */
+    /* El HTML conserva valores estáticos como respaldo sin-JS; con JS se
+       recalculan desde las tarjetas de #proyectos: total, top tecnologías
+       del stack y distribución por dificultad. Bastará con añadir una
+       project-card nueva para que todos los contadores se actualicen. */
+    (function initAutoCounts() {
+        const cards = $$('.project-card');
+        if (!cards.length) return;
 
-    if (asunto === '' || asunto.length < 5) {
-        mostrarMensaje('Por favor, ingresa un asunto válido (mínimo 5 caracteres)', 'error');
-        document.getElementById('asunto').focus();
-        return;
-    }
+        const TECH_LABEL = {
+            'POWER BI': 'Power BI', 'PYTHON': 'Python', 'EXCEL': 'Excel',
+            'DATA STUDIO': 'Data Studio', 'SQL': 'SQL', 'BIGQUERY': 'BigQuery',
+            'DAX': 'DAX', 'POWER QUERY': 'Power Query', 'STREAMLIT': 'Streamlit',
+            'MARIMO': 'Marimo', 'PLOTLY': 'Plotly', 'PARÁMETROS': 'Parámetros'
+        };
 
-    if (mensaje === '' || mensaje.length < 10) {
-        mostrarMensaje('Por favor, ingresa un mensaje válido (mínimo 10 caracteres)', 'error');
-        document.getElementById('mensaje').focus();
-        return;
-    }
+        // Total por tecnología: se toma la tecnología PRINCIPAL de cada
+        // proyecto (primer span de su .project-stack), igual que haría
+        // "GROUP BY herramienta" en la consulta SQL de la consola.
+        const techCount = {};
+        cards.forEach(card => {
+            const primary = $('.project-stack span', card);
+            if (!primary) return;
+            const t = primary.textContent.trim().toUpperCase();
+            techCount[t] = (techCount[t] || 0) + 1;
+        });
+        const ranking = Object.entries(techCount)
+            .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+        const techLabel = t => TECH_LABEL[t] || t.charAt(0) + t.slice(1).toLowerCase();
 
-    // Deshabilitar botón y mostrar estado de carga
-    submitBtn.disabled = true;
-    const textoOriginal = submitBtn.textContent;
-    submitBtn.textContent = 'Enviando...';
-
-    // Parámetros para EmailJS
-    const templateParams = {
-        nombre: nombre,
-        email: email,
-        asunto: asunto,
-        mensaje: mensaje
-    };
-
-    // Enviar email con EmailJS
-    emailjs.send('service_f8d2f3f', 'template_g45tgz8', templateParams).then(function (response) {
-        console.log('SUCCESS!', response.status, response.text);
-        mostrarMensaje('¡Mensaje enviado con éxito! Te contactaré pronto.', 'success');
-        contactForm.reset();
-
-        // Restaurar botón
-        submitBtn.disabled = false;
-        submitBtn.textContent = textoOriginal;
-    }, function (error) {
-        console.log('FAILED...', error);
-        mostrarMensaje('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.', 'error');
-
-        // Restaurar botón
-        submitBtn.disabled = false;
-        submitBtn.textContent = textoOriginal;
-    });
-});
-
-// Función para validar email
-function validarEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-}
-
-// Función para mostrar mensajes
-function mostrarMensaje(texto, tipo) {
-    // Eliminar mensaje anterior si existe
-    const mensajeAnterior = document.querySelector('.mensaje-alerta');
-    if (mensajeAnterior) {
-        mensajeAnterior.remove();
-    }
-
-    // Crear nuevo mensaje
-    const mensaje = document.createElement('div');
-    mensaje.className = `mensaje-alerta ${tipo}`;
-    mensaje.textContent = texto;
-
-    // Insertar antes del formulario
-    contactForm.parentNode.insertBefore(mensaje, contactForm);
-
-    // Eliminar después de 5 segundos
-    setTimeout(() => {
-        mensaje.style.opacity = '0';
-        setTimeout(() => mensaje.remove(), 300);
-    }, 5000);
-}
-
-// Validación en tiempo real
-document.getElementById('email').addEventListener('blur', function () {
-    if (this.value && !validarEmail(this.value)) {
-        this.style.borderColor = '#e74c3c';
-    } else {
-        this.style.borderColor = '';
-    }
-});
-
-document.getElementById('nombre').addEventListener('blur', function () {
-    if (this.value && this.value.length < 3) {
-        this.style.borderColor = '#e74c3c';
-    } else {
-        this.style.borderColor = '';
-    }
-});
-
-// Animación al hacer scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-up');
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.skill-card, .pricing-card, .project-card, .stat-card').forEach(el => {
-    observer.observe(el);
-});
-
-// Reveal suave sincronizado con scroll (rAF)
-const sections = Array.from(document.querySelectorAll('section:not(#inicio)'));
-const DIST_ENTRADA = 60;   // px de desplazamiento máximo al entrar
-const DIST_SALIDA = 30;   // px de desplazamiento máximo al salir por arriba
-
-function lerp(a, b, t) { return a + (b - a) * t; }
-
-// Valores actuales suavizados por sección
-const state = sections.map(() => ({ y: DIST_ENTRADA, o: 0 }));
-
-function updateSections() {
-    const wh = window.innerHeight;
-
-    sections.forEach((section, i) => {
-        const rect = section.getBoundingClientRect();
-        const top = rect.top;
-        const bottom = rect.bottom;
-
-        // --- calcular targets según posición relativa al viewport ---
-        let targetY, targetO;
-
-        if (top >= wh) {
-            // Aún por debajo del viewport → oculta abajo
-            targetY = DIST_ENTRADA;
-            targetO = 0;
-        } else if (bottom <= 0) {
-            // Ya pasó por encima del viewport → oculta arriba
-            targetY = -DIST_SALIDA;
-            targetO = 0;
-        } else {
-            // Dentro o parcialmente visible
-            // Progreso de entrada: 0 cuando el borde superior está en el fondo,
-            // 1 cuando el borde superior llega a 30% de la pantalla
-            const entryStart = wh;
-            const entryEnd = wh * 0.30;
-            const progress = Math.min(1, Math.max(0, (entryStart - top) / (entryStart - entryEnd)));
-
-            targetO = progress;
-            targetY = lerp(DIST_ENTRADA, 0, progress);
+        // KPI "Proyectos" del hero: total real de tarjetas
+        const kpiTotal = $('.kpi b[data-auto="total"]');
+        if (kpiTotal) {
+            kpiTotal.dataset.count = String(cards.length);
+            kpiTotal.textContent = String(cards.length);
         }
 
-        // Suavizar con lerp frame a frame (factor 0.08 = muy fluido)
-        state[i].y = lerp(state[i].y, targetY, 0.08);
-        state[i].o = lerp(state[i].o, targetO, 0.08);
+        // KPIs de tecnología: se llenan con el top 2 del ranking
+        $$('b[data-auto-tech]').forEach((b, i) => {
+            const entry = ranking[i];
+            const kpiBox = b.closest('.kpi');
+            if (!entry) {
+                if (kpiBox) kpiBox.style.display = 'none';
+                return;
+            }
+            b.dataset.count = String(entry[1]);
+            b.textContent = String(entry[1]);
+            const lbl = kpiBox && kpiBox.querySelector('span');
+            if (lbl) lbl.textContent = techLabel(entry[0]);
+        });
 
-        // Aplicar al DOM via custom properties
-        section.style.setProperty('--s-y', state[i].y + 'px');
-        section.style.setProperty('--s-opacity', state[i].o);
+        // Gráfico de barras: se regenera con el top 6 de tecnologías
+        const bars = $('#barsChart');
+        if (bars && ranking.length) {
+            const top = ranking.slice(0, 6);
+            const max = top[0][1];
+            bars.innerHTML = top.map(([t, n]) =>
+                '<div class="bar-col"><span class="bar-val">' + n + '</span>' +
+                '<span class="bar" style="--h:' + Math.max(6, Math.round(n / max * 100)) + '%"></span>' +
+                '<span class="bar-label">' + t + '</span></div>'
+            ).join('');
+            bars.setAttribute('aria-label', 'Proyectos por herramienta: ' +
+                top.map(([t, n]) => techLabel(t) + ' ' + n).join(', '));
+        }
+
+        // Contadores de los filtros de dificultad (Todos / Básico / …)
+        $$('.filter-btn').forEach(btn => {
+            const c = btn.querySelector('.count');
+            if (!c) return;
+            const f = btn.dataset.filter;
+            c.textContent = String(f === 'todos'
+                ? cards.length
+                : cards.filter(card => card.dataset.difficulty === f).length);
+        });
+    })();
+
+    /* ── 4 · Consola SQL: tipeo + barras + KPIs ────────────────────────── */
+    function initConsole() {
+        const code = $('#sqlCode');
+        const bars = $('#barsChart');
+        if (!code || !bars) return;
+
+        // El HTML estático muestra la consulta completa como respaldo sin-JS;
+        // con JS activo se limpia al inicio para tipearla desde cero.
+        if (!reduceMotion) code.textContent = '';
+
+        const TOKENS = [
+            ['SELECT ', 'kw'],
+            ['herramienta,', ''],
+            [' COUNT(*)', 'fn'],
+            [' AS ', 'kw'],
+            ['proyectos\n', ''],
+            ['FROM ', 'kw'],
+            ['portafolio.gb\n', 'str'],
+            ['GROUP BY ', 'kw'],
+            ['herramienta\n', ''],
+            ['ORDER BY ', 'kw'],
+            ['proyectos ', ''],
+            ['DESC', 'kw'],
+            [';', '']
+        ];
+
+        function renderFull() {
+            code.innerHTML = '';
+            for (const [t, c] of TOKENS) {
+                const s = document.createElement('span');
+                if (c) s.className = c;
+                s.textContent = t;
+                code.appendChild(s);
+            }
+            bars.classList.add('done');
+            animarContadores(bars.closest('.console'));
+        }
+
+        function typeLoop() {
+            if (reduceMotion) { renderFull(); return; }
+
+            let ti = 0, ci = 0;
+            let span = null;
+            bars.classList.remove('done');
+            code.innerHTML = '';
+
+            // La consola solo se re-escribe mientras está en pantalla
+            let consoleVisible = true;
+            new IntersectionObserver((entries) => {
+                consoleVisible = entries.some(e => e.isIntersecting);
+            }, { threshold: 0 }).observe(bars.closest('.console'));
+
+            function step() {
+                if (ti >= TOKENS.length) {
+                    // Consulta ejecutada: mostrar resultados
+                    setTimeout(() => {
+                        bars.classList.add('done');
+                        animarContadores(bars.closest('.console'));
+                        // Reiniciar el ciclo cuando la consola siga visible
+                        const restart = () => (consoleVisible ? typeLoop() : setTimeout(restart, 1500));
+                        setTimeout(restart, 7000);
+                    }, 500);
+                    return;
+                }
+                const [text, cls] = TOKENS[ti];
+                if (ci === 0) {
+                    span = document.createElement('span');
+                    if (cls) span.className = cls;
+                    code.appendChild(span);
+                }
+                span.textContent += text[ci];
+                ci++;
+                if (ci >= text.length) { ti++; ci = 0; }
+                setTimeout(step, 26 + Math.random() * 40);
+            }
+            step();
+        }
+        // Iniciar cuando la consola entre al viewport
+        const io = new IntersectionObserver((entries) => {
+            if (entries.some(e => e.isIntersecting)) {
+                io.disconnect();
+                typeLoop();
+            }
+        }, { threshold: .3 });
+        io.observe(bars.closest('.console'));
+    }
+    initConsole();
+
+    /* ── 5 · Contadores animados ───────────────────────────────────────── */
+    function animarContadores(scope) {
+        $$('[data-count]', scope || document).forEach(el => {
+            if (el.dataset.done) return;
+            el.dataset.done = '1';
+            const target = parseInt(el.dataset.count, 10);
+            const suffix = el.dataset.suffix || '';
+            if (reduceMotion) { el.textContent = target + suffix; return; }
+
+            const t0 = performance.now();
+            const dur = 1300;
+            (function tick(now) {
+                const p = Math.min((now - t0) / dur, 1);
+                const eased = 1 - Math.pow(1 - p, 3);
+                el.textContent = Math.round(eased * target) + suffix;
+                if (p < 1) requestAnimationFrame(tick);
+            })(t0);
+        });
+    }
+
+    const countersIO = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                animarContadores(e.target);
+                countersIO.unobserve(e.target);
+            }
+        });
+    }, { threshold: .5 });
+    $$('.b-kpi').forEach(el => countersIO.observe(el));
+
+    /* ── 6 · Reveal al hacer scroll ────────────────────────────────────── */
+    const revealIO = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('in');
+                revealIO.unobserve(e.target);
+            }
+        });
+    }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    $$('.reveal').forEach(el => revealIO.observe(el));
+
+    /* ── 7 · Navbar: scrolled, menú móvil y scrollspy ──────────────────── */
+    const nav = $('#navbar');
+    addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', scrollY > 30);
+    }, { passive: true });
+
+    const burger = $('#navBurger');
+    const navLinks = $('#navLinks');
+    burger.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        burger.classList.toggle('open', open);
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    });
+    $$('#navLinks a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Scrollspy
+    const spyIO = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            const id = e.target.id;
+            $$('#navLinks a').forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+            });
+        });
+    }, { rootMargin: '-38% 0px -55% 0px' });
+    $$('main section[id]').forEach(s => spyIO.observe(s));
+
+    /* ── 8 · Servicios: modalidad (segmented) + acordeones ─────────────── */
+    const MOD_LABEL = { excel: 'Excel', powerbi: 'Power BI', hibrida: 'Híbrida (Excel + Power BI)',python:'Python' };
+    const dashLabel = $('#dashModLabel');
+
+    $$('.seg-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            $$('.seg-btn').forEach(b => {
+                b.classList.toggle('active', b === btn);
+                b.setAttribute('aria-selected', String(b === btn));
+            });
+            const mod = btn.dataset.mod;
+            if (dashLabel) dashLabel.textContent = 'Herramienta: ' + MOD_LABEL[mod];
+            $$('.plan-card ul[data-mod]').forEach(ul => {
+                ul.hidden = ul.dataset.mod !== mod;
+            });
+        });
     });
 
-    requestAnimationFrame(updateSections);
-}
-
-requestAnimationFrame(updateSections);
-
-// Contador animado en .stat-card h3
-const statCards = document.querySelectorAll('.stat-card h3');
-
-// Parsear cada h3: extraer número y sufijo (+ o %)
-const statData = Array.from(statCards).map(h3 => {
-    const text = h3.textContent.trim();
-    const num = parseInt(text.replace(/[^0-9]/g, ''), 10);
-    const suffix = text.replace(/[0-9]/g, '');   // "+" o "%"
-    h3.textContent = '0' + suffix;               // reset visual
-    return { el: num, suffix, target: num, started: false };
-});
-
-function animateCounter(h3, target, suffix, duration) {
-    const start = performance.now();
-    function step(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        // easing: ease-out cúbica
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const current = Math.round(eased * target);
-        h3.textContent = current + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-}
-
-// Observer exclusivo para las stat-cards
-const statObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const h3 = entry.target.querySelector('h3');
-        const idx = Array.from(statCards).indexOf(h3);
-        if (idx === -1 || statData[idx].started) return;
-        statData[idx].started = true;
-        animateCounter(h3, statData[idx].target, statData[idx].suffix, 1200);
-        statObserver.unobserve(entry.target);
+    $$('.plan-toggle').forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const card = toggle.closest('.plan-card');
+            const open = card.classList.toggle('open');
+            const label = toggle.firstChild;
+            label.textContent = open ? 'Ocultar detalles ' : 'Ver detalles ';
+        });
     });
-}, { threshold: 0.5 });
 
-document.querySelectorAll('.stat-card').forEach(card => {
-    statObserver.observe(card);
-});
+    /* ── 9 · Filtro de proyectos ───────────────────────────────────────── */
+    const filterBtns = $$('.filter-btn');
+    const cards = $$('.project-card');
 
-// ── Toggle de tema oscuro / claro ────────────────────────────────────────
-const themeToggle = document.getElementById('themeToggle');
-const html = document.documentElement;
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.toggle('active', b === btn));
+            const f = btn.dataset.filter;
 
-/**
- * Devuelve el tema que corresponde según la hora de Lima (UTC-5).
- * Oscuro : 18:30 – 04:29
- * Claro  : 04:30 – 18:29
- */
-function temaSegunHora() {
-    const ahora = new Date(
-        new Date().toLocaleString('en-US', { timeZone: 'America/Lima' })
-    );
-    const mins = ahora.getHours() * 60 + ahora.getMinutes();
-    // Oscuro entre 18:30 (1110 min) y fin del día, o desde 00:00 hasta 04:29 (269 min)
-    return (mins >= 18 * 60 + 30 || mins < 4 * 60 + 30) ? 'dark' : 'light';
-}
-
-/**
- * Aplica el tema indicado y actualiza localStorage.
- * Si `porUsuario` es true se marca la preferencia manual;
- * si es false se borra la preferencia (modo automático).
- */
-function aplicarTema(tema, porUsuario = false) {
-    html.setAttribute('data-theme', tema);
-    if (porUsuario) {
-        localStorage.setItem('theme', tema);
-        localStorage.setItem('themeManual', '1');
-    } else {
-        localStorage.removeItem('theme');
-        localStorage.removeItem('themeManual');
-    }
-}
-
-// Al cargar: respetar preferencia manual si existe, si no usar hora
-(function iniciarTema() {
-    const manual = localStorage.getItem('themeManual');
-    const guardado = localStorage.getItem('theme');
-    if (manual && guardado) {
-        html.setAttribute('data-theme', guardado);
-    } else {
-        html.setAttribute('data-theme', temaSegunHora());
-    }
-})();
-
-// Revisar cada minuto si el tema automático debe cambiar
-setInterval(() => {
-    if (!localStorage.getItem('themeManual')) {
-        html.setAttribute('data-theme', temaSegunHora());
-    }
-}, 60000);
-
-// Click del usuario: alterna y marca preferencia manual
-themeToggle.addEventListener('click', () => {
-    const actual = html.getAttribute('data-theme');
-    const nuevo = actual === 'light' ? 'dark' : 'light';
-    aplicarTema(nuevo, true);
-
-    // Animación del botón
-    themeToggle.style.transform = 'rotate(360deg)';
-    setTimeout(() => {
-        themeToggle.style.transform = 'rotate(0deg)';
-    }, 300);
-});
-
-
-// Protección del logo
-document.addEventListener('contextmenu', function (e) {
-    if (e.target.closest('.logo, .footer-logo, .profile-container')) {
-        e.preventDefault();
-    }
-});
-
-
-
-// Función para mostrar mensajes
-function mostrarMensaje(texto, tipo) {
-    // Eliminar mensaje anterior si existe
-    const mensajeAnterior = document.querySelector('.mensaje-alerta');
-    if (mensajeAnterior) {
-        mensajeAnterior.remove();
-    }
-
-    // Ocultar formulario temporalmente
-    contactForm.style.opacity = '0';
-    contactForm.style.pointerEvents = 'none';
-
-    // Crear nuevo mensaje
-    const mensaje = document.createElement('div');
-    mensaje.className = `mensaje-alerta ${tipo}`;
-    mensaje.textContent = texto;
-    mensaje.style.opacity = '0';
-
-    // Insertar antes del formulario
-    contactForm.parentNode.insertBefore(mensaje, contactForm);
-
-    // Animar entrada del mensaje
-    setTimeout(() => {
-        mensaje.style.opacity = '1';
-    }, 10);
-
-    // Eliminar mensaje y mostrar formulario después de 4 segundos
-    setTimeout(() => {
-        mensaje.style.opacity = '0';
-        setTimeout(() => {
-            mensaje.remove();
-            // Volver a mostrar el formulario
-            contactForm.style.opacity = '1';
-            contactForm.style.pointerEvents = 'auto';
-        }, 300);
-    }, 4000);
-}
-
-// Acordeón de Features en Pricing Cards
-document.addEventListener('DOMContentLoaded', () => {
-    const featureToggles = document.querySelectorAll('.features-toggle');
-
-    featureToggles.forEach(toggle => {
-        toggle.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            const wrapper = toggle.nextElementSibling;
-            const isActive = toggle.classList.contains('active');
-
-            // Cerrar todos los demás acordeones
-            featureToggles.forEach(otherToggle => {
-                if (otherToggle !== toggle) {
-                    otherToggle.classList.remove('active');
-                    otherToggle.nextElementSibling.classList.remove('active');
-
-                    const otherButtonText = otherToggle.querySelector('span');
-                    otherButtonText.textContent = 'Ver detalles';
+            cards.forEach(card => {
+                const match = f === 'todos' || card.dataset.difficulty === f;
+                if (match) {
+                    card.classList.remove('hide');
+                    requestAnimationFrame(() => requestAnimationFrame(() => card.classList.remove('fading')));
+                } else {
+                    card.classList.add('fading');
+                    setTimeout(() => card.classList.add('hide'), 280);
                 }
             });
-
-            // Toggle del acordeón actual
-            toggle.classList.toggle('active');
-            wrapper.classList.toggle('active');
-
-            // Cambiar texto del botón
-            const buttonText = toggle.querySelector('span');
-            if (isActive) {
-                buttonText.textContent = 'Ver detalles';
-            } else {
-                buttonText.textContent = 'Ocultar detalles';
-            }
         });
     });
-});
 
-// Texto de footer
-let añoActual = new Date().getFullYear();
-document.querySelector('.footer-text').textContent = `© ${añoActual} Giancarlo Barrantes. Todos los derechos reservados.`;
+    /* ── 10 · Formulario de contacto (EmailJS) ──────────────────────────── */
+    const form = $('#contactForm');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function toast(tipo, titulo, msg) {
+        const zone = $('#toastZone');
+        const t = document.createElement('div');
+        t.className = 'toast ' + tipo;
+        t.setAttribute('role', 'status');
+        t.innerHTML =
+            '<span class="t-ico"><svg width="16" height="16"><use href="#ico-' +
+            (tipo === 'success' ? 'check' : 'x') + '"/></svg></span>' +
+            '<span><b></b><p></p></span>';
+        t.querySelector('b').textContent = titulo;
+        t.querySelector('p').textContent = msg;
+        zone.appendChild(t);
+        const kill = () => {
+            if (!t.isConnected) return;
+            t.classList.add('out');
+            setTimeout(() => t.remove(), 300);
+        };
+        t.addEventListener('click', kill);
+        setTimeout(kill, 5200);
+    }
+
+    function marcarCampo(input, invalido) {
+        input.closest('.field').classList.toggle('invalid', invalido);
+    }
+
+    ['nombre', 'email', 'asunto', 'mensaje'].forEach(id => {
+        const el = $('#' + id);
+        el.addEventListener('input', () => marcarCampo(el, false));
+        el.addEventListener('blur', () => {
+            const v = el.value.trim();
+            let bad = false;
+            if (id === 'nombre') bad = v.length > 0 && v.length < 3;
+            if (id === 'email') bad = v.length > 0 && !emailRegex.test(v);
+            if (id === 'asunto') bad = v.length > 0 && v.length < 5;
+            if (id === 'mensaje') bad = v.length > 0 && v.length < 10;
+            marcarCampo(el, bad);
+        });
+    });
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const nombre = $('#nombre').value.trim();
+        const email = $('#email').value.trim();
+        const asunto = $('#asunto').value.trim();
+        const mensaje = $('#mensaje').value.trim();
+
+        const fallos = [
+            [nombre.length < 3, $('#nombre'), 'Nombre válido (mínimo 3 caracteres)'],
+            [!emailRegex.test(email), $('#email'), 'Correo electrónico válido'],
+            [asunto.length < 5, $('#asunto'), 'Asunto válido (mínimo 5 caracteres)'],
+            [mensaje.length < 10, $('#mensaje'), 'Mensaje válido (mínimo 10 caracteres)']
+        ];
+
+        const primerError = fallos.find(([bad]) => bad);
+        if (primerError) {
+            fallos.forEach(([bad, el]) => marcarCampo(el, bad));
+            primerError[1].focus();
+            toast('error', 'Revisa el formulario', 'Por favor, ingresa ' + primerError[2] + '.');
+            return;
+        }
+
+        const btn = $('#submitBtn');
+        const textoOriginal = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Enviando…';
+
+        emailjs.send('service_f8d2f3f', 'template_g45tgz8', { nombre, email, asunto, mensaje })
+            .then(() => {
+                toast('success', 'Mensaje enviado', 'Gracias por escribir. Te contactaré muy pronto.');
+                form.reset();
+            })
+            .catch(() => {
+                toast('error', 'No se pudo enviar', 'Ocurrió un error. Inténtalo de nuevo o escríbeme por email.');
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.textContent = textoOriginal;
+            });
+    });
+
+    /* ── 10 · Varios: año del footer y protección del logo ─────────────── */
+    $('#year').textContent = new Date().getFullYear();
+
+    document.addEventListener('contextmenu', (e) => {
+        if (e.target.closest('.brand-logo, .b-logo')) e.preventDefault();
+    });
+})();
