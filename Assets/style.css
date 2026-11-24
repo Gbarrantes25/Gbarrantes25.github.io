@@ -36,6 +36,7 @@
 
   --glow-azul: 0 0 34px rgba(76, 141, 255, .32);
   --glow-magenta: 0 0 34px rgba(255, 92, 173, .28);
+  --glow-magentalight: 0 0 15px rgba(255, 92, 173, 0.28);
 
   --r-sm: 10px;
   --r-md: 16px;
@@ -306,8 +307,8 @@ button {
 }
 
 .nav-cta:hover {
-  border-color: rgba(255, 92, 173, .6);
-  box-shadow: var(--glow-magenta);
+  border-color: rgba(172, 32, 127, 0.6);
+  box-shadow: var(--glow-magentalight);
   background: rgba(255, 92, 173, .10);
 }
 
@@ -469,7 +470,6 @@ button {
   font-weight: 600;
   border-radius: var(--r-full);
   transition: transform var(--tr), box-shadow var(--tr), border-color var(--tr), background var(--tr);
-  will-change: transform;
 }
 
 .btn-primary {
@@ -562,8 +562,11 @@ button {
   box-shadow: 0 30px 80px rgba(0, 0, 0, .55);
 }
 
+/* flex-wrap: en pantallas muy estrechas (≤320px) la fila
+   puntos + título + etiqueta no cabía y forzaba el ancho de todo el hero. */
 .console-bar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: .45rem;
   padding: .8rem 1.1rem;
@@ -669,7 +672,7 @@ button {
 .bars-chart {
   display: flex;
   align-items: flex-end;
-  gap: .8rem;
+  gap: .2rem;
   height: 118px;
   padding-top: .4rem;
 }
@@ -717,6 +720,7 @@ button {
   font-size: .6rem;
   letter-spacing: .1em;
   color: var(--faint);
+  overflow-wrap: break-word;
   text-transform: uppercase;
 }
 
@@ -750,11 +754,14 @@ button {
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
+/* El desplazamiento del marquee lo calcula scripts.js con rAF (mismo motivo
+   que el aro del logo: en Android el sistema puede congelar las animaciones
+   CSS). Sin JS queda estático, sin romperse. */
 .ticker-track {
   display: flex;
   align-items: center;
   width: max-content;
-  animation: tick 38s linear infinite;
+  will-change: transform;
 }
 
 .ticker-half {
@@ -762,10 +769,6 @@ button {
   align-items: center;
   gap: 2.6rem;
   padding-right: 2.6rem;
-}
-
-.ticker:hover .ticker-track {
-  animation-play-state: paused;
 }
 
 .ticker-item {
@@ -783,10 +786,6 @@ button {
   border-radius: 50%;
   background: var(--grad);
   box-shadow: 0 0 8px rgba(167, 139, 250, .8);
-}
-
-@keyframes tick {
-  to { transform: translateX(-50%); }
 }
 
 /* ════════════════════════════════════════════════════════════════════════
@@ -899,6 +898,12 @@ section {
     var(--panel);
 }
 
+/* El giro del aro y del marquee NO se declaran como animaciones CSS:
+   en Android, con el ahorro de batería o con "Quitar animaciones" de
+   accesibilidad, el navegador congela las animaciones/transiciones CSS y
+   estos efectos quedaban muertos. Los mueve un bucle requestAnimationFrame
+   en scripts.js (motor por JS), que sigue funcionando en esos teléfonos,
+   se pausa fuera de pantalla y respeta el modo ligero. */
 .b-logo .ring {
   position: relative;
   width: min(200px, 60%);
@@ -906,7 +911,16 @@ section {
   border-radius: 50%;
   padding: 3px;
   background: conic-gradient(from 120deg, #4c8dff, #2ee6c8, #a78bfa, #ff5cad, #4c8dff);
-  animation: spin 14s linear infinite;
+  will-change: transform;
+}
+
+/* Respaldo para navegadores sin aspect-ratio: el aro nunca colapsa a 0px */
+@supports not (aspect-ratio: 1) {
+  .b-logo .ring {
+    width: 60%;
+    height: 200px;
+    max-width: 200px;
+  }
 }
 
 .b-logo .ring::before {
@@ -924,11 +938,6 @@ section {
   height: 100%;
   object-fit: contain;
   padding: 14px;
-  animation: spin 14s linear infinite reverse;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
 }
 
 .b-kpi {
@@ -1001,7 +1010,7 @@ section {
 }
 
 .chip {
-  padding: .42rem .95rem;
+  padding: .42rem .6rem;
   font-size: .78rem;
   font-weight: 500;
   color: var(--muted);
@@ -1117,14 +1126,15 @@ section {
 
 .stack-more {
   margin-top: 1.6rem;
-  padding: 1.3rem 1.6rem;
+  padding: 1.3rem 1rem;
   background: var(--panel);
   border: 1px dashed var(--stroke-2);
   border-radius: var(--r-md);
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: .55rem;
+  align-items:center;
+  justify-content: space-around;
+  gap: .40rem;
 }
 
 .stack-more .lbl {
@@ -1138,15 +1148,20 @@ section {
 
 .stack-more .chip {
   font-size: .74rem;
-  padding: .34rem .8rem;
+  padding: .34rem .6rem;
   background: transparent;
 }
 
 /* ════════════════════════════════════════════════════════════════════════
    03 · SERVICIOS
    ════════════════════════════════════════════════════════════════════════ */
+/* max-width + wrap: el control segmentado nunca empuja el ancho del documento
+   (en móviles de 360px cuatro botones seguidos desbordaban el contenedor
+   general y la página quedaba descentrada ~38px). */
 .segmented {
   display: inline-flex;
+  flex-wrap: wrap;
+  max-width: 100%;
   padding: .35rem;
   gap: .25rem;
   background: var(--panel);
@@ -1302,7 +1317,7 @@ section {
 
 .plan-details ul {
   list-style: none;
-  padding: .9rem .2rem .2rem;
+  padding: .9rem .2rem .9rem;
   display: flex;
   flex-direction: column;
   gap: .42rem;
@@ -1740,10 +1755,20 @@ section {
   color: var(--faint);
 }
 
+/* El email es un token larguísimo sin espacios: sin esto, su min-content
+   (~250px) forzaba la tarjeta a ~316px y desbordaba el contenedor general
+   en pantallas pequeñas. El <wbr> del HTML crea puntos de ruptura (y reduce
+   el min-content al segmento más largo); min-width: 0 deja la columna
+   encoger y break-word parte el token solo como último recurso. */
+.c-method > div {
+  min-width: 0;
+}
+
 .c-method a,
 .c-method p {
   font-size: .92rem;
   font-weight: 500;
+  overflow-wrap: break-word;
 }
 
 .c-method a:hover {
@@ -2035,18 +2060,50 @@ footer {
 }
 
 /* ════════════════════════════════════════════════════════════════════════
-   REVEAL (animación de aparición al hacer scroll)
+   REVEAL (aparición al hacer scroll, en ambas direcciones)
+   ─────────────────────────────────────────────────────────────────────
+   scripts.js activa/desactiva .in cada vez que el elemento entra o sale
+   del viewport (con margen): al bajar Y al subir los elementos se vuelven
+   a revelar. Se usa CSS animation en vez de transition porque:
+   · solo mueve opacity + transform → trabajo 100% del compositor (fluido);
+   · no pisa la propiedad "transition" de tarjetas y tiles, cuyos hovers
+     conservan así su velocidad propia (.28s);
+   · al salir de pantalla el corte es instantáneo pero invisible (ocurre
+     fuera del viewport ampliado), sin animaciones de salida pagadas.
+   El --d (delay) permite el efecto escalonado entre elementos del lote.
    ════════════════════════════════════════════════════════════════════════ */
 .reveal {
   opacity: 0;
   transform: translateY(26px);
-  transition: opacity .7s cubic-bezier(.22, 1, .36, 1), transform .7s cubic-bezier(.22, 1, .36, 1);
-  transition-delay: var(--d, 0s);
 }
 
 .reveal.in {
   opacity: 1;
   transform: none;
+  animation: reveal-rise .55s cubic-bezier(.22, 1, .36, 1) both;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes reveal-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* Sin JavaScript: contenido siempre visible */
@@ -2083,12 +2140,26 @@ footer {
    RESPONSIVE
    ════════════════════════════════════════════════════════════════════════ */
 @media (max-width: 1080px) {
+  .nav-links{
+    gap:0.15rem
+  }
+
+  .nav-links a{
+    padding: 0.4rem 0.4rem;
+  }
+
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .stack-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+
+  .stack-more{
+    justify-content: flex-start;
+    gap:0.3rem
   }
 
   .plans-grid,
@@ -2103,9 +2174,30 @@ footer {
   .step::after {
     display: none;
   }
+
+  .contact-info .social-row{
+    justify-content: space-around;
+  }
+
+  .f-meta .social-row{
+    justify-content: space-around;
+  }
 }
 
 @media (max-width: 940px) {
+  .nav-inner {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-cta {
+    margin-left: auto;
+    /*margin-right: auto;*/
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .nav-links {
     position: fixed;
     top: 76px;
@@ -2133,7 +2225,7 @@ footer {
 
   .nav-links a {
     padding: .85rem 1rem;
-    font-size: .95rem;
+    font-size: .8rem;
     border-radius: var(--r-sm);
   }
 
@@ -2149,9 +2241,9 @@ footer {
     display: flex;
   }
 
-  .nav-cta .cta-label {
+  /*.nav-cta .cta-label {
     display: none;
-  }
+  }*/
 
   .hero-inner {
     grid-template-columns: 1fr;
@@ -2173,12 +2265,32 @@ footer {
       "social social";
   }
 
+  .stack-more {
+    justify-content:flex-start;
+    gap: 0.1rem;
+    padding: 1.3rem 0.5rem;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
   }
 
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .footer-grid .reveal a{
+    font-size: 0.7rem;
+  }
+  
+  .f-brand :is(p){
+    font-size: 0.75rem;
+  }
+
+
+  .footer-grid .f-meta :is(a,span){
+    font-size: 0.7rem;
   }
 
   .partner-banner {
@@ -2187,14 +2299,59 @@ footer {
   }
 
   .partner-banner .btn {
-    width: 100%;
+    width: 50%;
+    justify-self: center;
   }
+
+  .contact-info .social-row{
+    justify-content: center;
+    gap:1.5rem;
+  }
+
+  .sec-head {
+    margin-bottom: 2rem;
+  }
+
+  .f-meta .social-row{
+    justify-content: flex-start;
+    gap: 0.2rem;
+  }
+
+  .f-links {
+    gap:.2rem
+  }
+
 }
 
 /* ── PROYECTOS: previsualización SOLO en dispositivos > 600px ────────── */
 @media (max-width: 600px) {
+  .nav-inner{
+    gap:0.8rem;
+  }
+
+  .nav-cta {
+    font-size: 0.6rem;
+    padding: 0.8rem;
+  }
+
+  .brand-name strong{
+    font-size: 1rem;
+  }
+
+  .brand-name > span{
+    display: flex;
+    font-size: .60rem;
+  }
+  
   .project-media {
     display: none;
+  }
+
+  /* ── Proceso en 1 columna ──
+     A 320-360px dos pasos en paralelo dejaban columnas de ~130px y el
+     contenido mínimo de cada paso (134px) desbordaba 1-25px el track. */
+  .process-track {
+    grid-template-columns: 1fr;
   }
 
   /* Banda de acento superior para conservar identidad sin la imagen */
@@ -2232,29 +2389,173 @@ footer {
     padding: 1.5rem 1.25rem;
   }
 
+  /* ── Control de modalidad: 2×2 en vez de una fila de 4 botones ──
+     En ≤600px la fila "Excel / Power BI / Híbrida / Python" no cabía
+     en el contenedor (374px dentro de 312px) y desbordaba la página. */
+  .segmented {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: var(--r-md);
+  }
+
+  .seg-btn {
+    padding: .58rem .5rem;
+    text-align: center;
+  }
+
   .hero h1 {
     font-size: 2.15rem;
   }
 
   .footer-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-grid .reveal{
+    width: 100%;
+  }
+
+  .f-title{
+    justify-self: center;
+  }
+
+  .f-links{
+    flex-direction: row;
+    justify-content:space-around;
+  }
+
+  .f-brand{
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+  }
+
+  .f-brand p{
+    margin: 0;
+  }
+
+  .f-meta{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
   }
 
   .footer-bottom {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
+
+  .stack-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stack-more .chip {
+    font-size: 0.7rem;
+  }
+
+  .process-track{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filters{
+    justify-content: flex-start;
+    gap:0.5rem
+  }
+
+  .filter-btn{
+    padding: .55rem 0.8rem;
+  }
+
 }
 
 @media (max-width: 480px) {
   /* En móviles muy pequeños solo se muestra el nombre; el subtítulo
      evita que la marca se apile en tres líneas dentro del navbar. */
-  .brand-name span {
+  .nav-inner .brand-name span {
     display: none;
+  }
+
+  .hero-actions{
+    justify-content: center;
+  }
+
+  .bento-card .social-row{
+    gap:0.3rem
+  }
+
+  .contact-info .social-row{
+    gap: 0.8rem;
+  }
+
+  .f-meta{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .f-meta .social-row{
+    gap: 1rem;
+  }
+
+  .f-brand{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .f-brand .brand .brand-name strong{
+    font-size: 1.2rem;
+  }
+
+  .f-brand .brand .brand-name span{
+    font-size: .8rem;
   }
 }
 
 @media (max-width: 400px) {
+  /* Navbar compacto: a 320px logo + nombre + CTA + burger sumaba ~299px
+     de contenido mínimo y no cabía en el ancho útil (272px), con la
+     hamburguesa pisando el borde. Se ensancha el ancho útil y se aprietan
+     huecos/tipos para que todo quepa centrado. */
+  .nav-inner {
+    width: min(1240px, 100% - 1.5rem);
+    gap: .8rem;
+  }
+
+  .nav-inner .brand-logo{
+    padding: 2px;
+  }
+
+  .brand {
+    gap: .6rem;
+  }
+
+
+  .brand-name strong {
+    font-size: .95rem;
+  }
+
+  .nav-cta {
+    padding: .58rem .9rem;
+  }
+
+  .status-pill{
+    width: 100%;
+    font-size: 0.65rem;
+    justify-content:space-around;
+  }
+
+  .console-bar .console-title{
+    font-size: 0.5rem;
+  }
+
+   .console-bar .console-tag{
+    font-size: 0.5rem;
+  }
+
   .bento {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -2267,46 +2568,112 @@ footer {
       "sectors"
       "social";
   }
+  
+  .bento-card .social-row{
+    justify-content: center;
+    gap: 0.7rem 1.3rem;
+  }
+
+  .bento-card .chips{
+    justify-content: center;
+  }
+
+  .b-kpi{
+    padding: 0.5rem 1.4rem;
+  }
+
+  .stack-more{
+    justify-content: center;
+  }
 
   .stack-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .process-track{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .c-methods .c-method {
+    padding: 0.5rem 1.15rem;
+  }
+
+  .process-track .step{
+    padding: 0.7rem 1.5rem;
+  }
+
+  .contact-info .social-row{
+    gap: 0.5rem
+  }
+
+  .f-brand .brand .brand-name span{
+    font-size: 0.7rem;
+  }
+
   .hero-trust {
     flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-bottom span:not(#year){
+    display: block;
+    max-width: 200px;
+  }
+
+  .brand-name strong{
+    font-size: 0.8rem;
   }
 }
 
-/* ── FLUIDEZ: el navegador salta el render de las secciones fuera de
-   pantalla (menos trabajo por frame al hacer scroll). contain-intrinsic
-   reserva un alto estimado para que la barra de scroll no salte. ─────── */
-main section[id]:not(.hero) {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 900px;
-}
+/* ── FLUIDEZ ─────────────────────────────────────────────────────────────
+   NOTA: aquí había un "content-visibility: auto" con contain-intrinsic-size
+   de 900px por sección. Se quitó a propósito: con valores estimados, el
+   navegador lleva el ancla a una posición equivocada (solo conoce la altura
+   real cuando la sección se renderiza) y el documento "salta" al hacer
+   scroll cuando la estimación no coincide, justo lo contrario de fluidez.
+   El trabajo fuera de pantalla ya se limita en scripts.js (el canvas del
+   hero y la consola se detienen al salir del viewport). ───────────────── */
 
 /* ════════════════════════════════════════════════════════════════════════
-   MOVIMIENTO REDUCIDO (accesibilidad)
+   MOVIMIENTO REDUCIDO → MODO LIGERO (no apagado)
+   Chrome en Android reporta prefers-reduced-motion con el ahorro de
+   batería, con "Quitar animaciones" de accesibilidad o con la escala de
+   animación del sistema en OFF. Antes este bloque apagaba TODO el
+   movimiento (ticker parado, sin scroll suave, sin fundidos, sin
+   partículas) y en esos teléfonos la web parecía estar rota. Ahora la
+   preferencia se respeta de forma graduada: desaparecen los
+   desplazamientos grandes pero se conservan los fundidos y el ambiente
+   lento del ticker. El scroll suave también se mantiene.
    ════════════════════════════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-  }
-
   .reveal {
-    opacity: 1;
-    transform: none;
+    transform: none;            /* sin desplazamiento: solo fundido suave */
   }
 
-  .ticker-track {
-    animation: none;
+  .reveal.in {
+    animation-name: reveal-fade; /* fundido en lugar de subida */
+    animation-duration: .45s;
+  }
+
+  /* La velocidad lenta del ticker y del aro la aplica scripts.js en modo
+     ligero (liteMotion); ya no depende de animation-duration. */
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   MÓVIL: VIDRIO ESPEJADO MÁS LIGERO
+   El blur del navbar y de la consola se repinta en cada frame al hacer
+   scroll y es lo más caro de dibujar en teléfonos gama baja. Se reduce el
+   radio (el efecto visual casi no cambia) para ganar fluidez.
+   ═════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .nav.scrolled {
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+  }
+
+  .console {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 }

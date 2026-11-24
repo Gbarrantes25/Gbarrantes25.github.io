@@ -36,10 +36,6 @@
         rel="stylesheet" />
     <link href="Assets/style.css" rel="stylesheet" />
     <script>document.documentElement.classList.remove('no-js');</script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        (function () { emailjs.init("0hVsecDal2VpJNCxz"); })();
-    </script>
     <script defer src="Assets/scripts.js"></script>
 </head>
 
@@ -120,7 +116,7 @@
     <header class="nav" id="navbar">
         <div class="nav-inner">
             <a class="brand" href="#inicio" aria-label="Giancarlo Barrantes — inicio">
-                <span class="brand-logo"><img src="./Assets/Img/Vector-logo.svg" alt="Logo de Giancarlo Barrantes" /></span>
+                <span class="brand-logo"><img src="./Assets/Img/Vector-logo.svg" alt="Logo de Giancarlo Barrantes" decoding="async" /></span>
                 <span class="brand-name">
                     <strong>Giancarlo Barrantes</strong>
                     <span>BI &amp; Data Consulting</span>
@@ -158,7 +154,7 @@
             <canvas id="net" aria-hidden="true"></canvas>
 
             <div class="container hero-inner">
-                <div class="hero-copy">
+                <div class="hero-copy reveal">
                     <span class="status-pill" id="statusPill"><span class="dot" aria-hidden="true"></span><span
                             id="statusText">Consultor disponible</span></span>
 
@@ -179,16 +175,16 @@
                     <div class="hero-trust">
                         <span>Stack diario</span>
                         <span class="tools" aria-label="Herramientas principales">
-                            <span class="tool-ico"><img src="./Assets/Img/powerbi-icon.svg" alt="Power BI" /></span>
-                            <span class="tool-ico"><img src="./Assets/Img/Excel.svg" alt="Excel" /></span>
-                            <span class="tool-ico"><img src="./Assets/Img/sql.png" alt="SQL" /></span>
-                            <span class="tool-ico"><img src="./Assets/Img/python.png" alt="Python" /></span>
+                            <span class="tool-ico"><img src="./Assets/Img/powerbi-icon.svg" alt="Power BI" decoding="async" /></span>
+                            <span class="tool-ico"><img src="./Assets/Img/Excel.svg" alt="Excel" decoding="async" /></span>
+                            <span class="tool-ico"><img src="./Assets/Img/sql.png" alt="SQL" decoding="async" /></span>
+                            <span class="tool-ico"><img src="./Assets/Img/python.svg" alt="Python" decoding="async" /></span>
                         </span>
                     </div>
                 </div>
 
                 <!-- Consola: consulta en vivo sobre el portafolio -->
-                <div class="console-wrap">
+                <div class="console-wrap reveal" style="--d:.14s">
                     <div class="console" aria-label="Demostración interactiva: consulta SQL sobre el portafolio">
                         <div class="console-bar">
                             <span class="cd r" aria-hidden="true"></span>
@@ -285,7 +281,7 @@
                     </div>
 
                     <div class="bento-card b-logo reveal" style="--d:.1s">
-                        <div class="ring"><img src="./Assets/Img/Vector-logo.svg" alt="Logo de Giancarlo Barrantes" /></div>
+                        <div class="ring"><img src="./Assets/Img/Vector-logo.svg" alt="Logo de Giancarlo Barrantes" decoding="async" /></div>
                     </div>
 
                     <div class="bento-card b-kpi reveal" style="--d:.05s">
@@ -357,23 +353,23 @@
 
                 <div class="stack-grid">
                     <div class="stack-tile reveal">
-                        <img src="./Assets/Img/powerbi-icon.svg" alt="Power BI" height="52" />
+                        <img src="./Assets/Img/powerbi-icon.svg" alt="Power BI" height="52" decoding="async" />
                         <b>Power BI</b>
                     </div>
                     <div class="stack-tile reveal" style="--d:.06s">
-                        <img src="./Assets/Img/Excel.svg" alt="Excel" height="52" />
+                        <img src="./Assets/Img/Excel.svg" alt="Excel" height="52" decoding="async" />
                         <b>Excel</b>
                     </div>
                     <div class="stack-tile reveal" style="--d:.12s">
-                        <img src="./Assets/Img/sql.png" alt="SQL" height="52" />
+                        <img src="./Assets/Img/sql.png" alt="SQL" height="52" decoding="async" />
                         <b>SQL</b>
                     </div>
                     <div class="stack-tile reveal" style="--d:.18s">
-                        <img src="./Assets/Img/python.png" alt="Python" height="52" />
+                        <img src="./Assets/Img/python.svg" alt="Python" height="52" decoding="async" />
                         <b>Python</b>
                     </div>
                     <div class="stack-tile reveal" style="--d:.24s">
-                        <img src="./Assets/Img/DataStudio.svg" alt="Data Studio" height="52" />
+                        <img src="./Assets/Img/DataStudio.svg" alt="Data Studio" height="52" decoding="async" />
                         <b>Data Studio</b>
                     </div>
                 </div>
@@ -411,13 +407,13 @@
                     <button class="seg-btn" data-mod="python" role="tab" aria-selected="false">Python</button>
                 </div>
 
-                <div class="plans-group reveal">
-                    <div class="plans-group-title">
+                <div class="plans-group">
+                    <div class="plans-group-title reveal">
                         <h3>Soporte &amp; packs de horas</h3>
                         <span>para un proyecto en marcha · aplica a cualquier modalidad</span>
                     </div>
                     <div class="plans-grid">
-                        <article class="plan-card">
+                        <article class="plan-card reveal">
                             <span class="plan-num">PLAN/01</span>
                             <h4>Hora</h4>
                             <p class="plan-sub">Consultoría puntual</p>
@@ -437,7 +433,7 @@
                             <a class="btn btn-ghost plan-cta" href="#contacto">Contactar</a>
                         </article>
 
-                        <article class="plan-card">
+                        <article class="plan-card reveal">
                             <span class="plan-num">PLAN/02</span>
                             <h4>Pack Express</h4>
                             <p class="plan-sub">10 horas de soporte</p>
@@ -459,7 +455,7 @@
                             <a class="btn btn-ghost plan-cta" href="#contacto">Contactar</a>
                         </article>
 
-                        <article class="plan-card">
+                        <article class="plan-card reveal">
                             <span class="plan-num">PLAN/03</span>
                             <h4>Pack Pro</h4>
                             <p class="plan-sub">20 horas de soporte</p>
@@ -482,7 +478,7 @@
                             <a class="btn btn-ghost plan-cta" href="#contacto">Contactar</a>
                         </article>
 
-                        <article class="plan-card">
+                        <article class="plan-card reveal">
                             <span class="plan-num">PLAN/04</span>
                             <h4>Pack Premium</h4>
                             <p class="plan-sub">30 horas de soporte</p>
@@ -507,13 +503,13 @@
                     </div>
                 </div>
 
-                <div class="plans-group reveal">
-                    <div class="plans-group-title">
+                <div class="plans-group">
+                    <div class="plans-group-title reveal">
                         <h3>Dashboards desde cero</h3>
                         <span id="dashModLabel">Herramienta: Excel</span>
                     </div>
                     <div class="plans-grid dash">
-                        <article class="plan-card">
+                        <article class="plan-card reveal">
                             <span class="plan-num">DASH/EXPRESS</span>
                             <h4>Dashboard Express</h4>
                             <p class="plan-sub">Proyecto estándar desde 0</p>
@@ -569,7 +565,7 @@
                             <a class="btn btn-ghost plan-cta" href="#contacto">Contactar</a>
                         </article>
 
-                        <article class="plan-card">
+                        <article class="plan-card reveal">
                             <span class="plan-num">DASH/CUSTOM</span>
                             <h4>Dashboard Custom</h4>
                             <p class="plan-sub">Proyecto personalizado desde 0</p>
@@ -630,7 +626,7 @@
                             <a class="btn btn-ghost plan-cta" href="#contacto">Contactar</a>
                         </article>
 
-                        <article class="plan-card">
+                        <article class="plan-card reveal">
                             <span class="plan-num">DASH/ENTERPRISE</span>
                             <h4>Dashboard Enterprise</h4>
                             <p class="plan-sub">Proyecto corporativo desde 0</p>
@@ -798,7 +794,7 @@
 
                     <article class="project-card reveal" data-difficulty="basico">
                         <div class="project-media"><img src="./Assets/Img/Simple Sales.PNG"
-                                alt="Dashboard Simple Sales en Power BI" loading="lazy" /></div>
+                                alt="Dashboard Simple Sales en Power BI" loading="lazy" decoding="async" /></div>
                         <div class="project-body">
                             <div class="project-top">
                                 <span class="diff-badge basico">Básico</span>
@@ -819,7 +815,7 @@
 
                     <article class="project-card reveal" data-difficulty="intermedio">
                         <div class="project-media"><img src="./Assets/Img/Employee.PNG"
-                                alt="Dashboard de gestión de empleados en Power BI" loading="lazy" /></div>
+                                alt="Dashboard de gestión de empleados en Power BI" loading="lazy" decoding="async" /></div>
                         <div class="project-body">
                             <div class="project-top">
                                 <span class="diff-badge intermedio">Intermedio</span>
@@ -840,7 +836,7 @@
 
                     <article class="project-card reveal" data-difficulty="intermedio">
                         <div class="project-media"><img src="./Assets/Img/Revenue Management.PNG"
-                                alt="Dashboard de revenue management hotelero en Power BI" loading="lazy" /></div>
+                                alt="Dashboard de revenue management hotelero en Power BI" loading="lazy" decoding="async" /></div>
                         <div class="project-body">
                             <div class="project-top">
                                 <span class="diff-badge intermedio">Intermedio</span>
@@ -860,7 +856,7 @@
 
                     <article class="project-card reveal" data-difficulty="intermedio">
                         <div class="project-media"><img src="./Assets/Img/Shipping Market Analysis.PNG"
-                                alt="Dashboard del mercado naviero en Data Studio" loading="lazy" /></div>
+                                alt="Dashboard del mercado naviero en Data Studio" loading="lazy" decoding="async" /></div>
                         <div class="project-body">
                             <div class="project-top">
                                 <span class="diff-badge intermedio">Intermedio</span>
@@ -881,7 +877,7 @@
 
                     <article class="project-card reveal" data-difficulty="intermedio">
                         <div class="project-media"><img src="./Assets/Img/AcademicPerformance.PNG"
-                                alt="Dashboard de rendimiento académico en Python y Streamlit" loading="lazy" /></div>
+                                alt="Dashboard de rendimiento académico en Python y Streamlit" loading="lazy" decoding="async" /></div>
                         <div class="project-body">
                             <div class="project-top">
                                 <span class="diff-badge intermedio">Intermedio</span>
@@ -901,7 +897,7 @@
 
                     <article class="project-card reveal" data-difficulty="intermedio">
                         <div class="project-media"><img src="./Assets/Img/RealStateDubaiPNG.PNG"
-                                alt="Análisis del mercado inmobiliario de Dubái en Python y Marimo" loading="lazy" /></div>
+                                alt="Análisis del mercado inmobiliario de Dubái en Python y Marimo" loading="lazy" decoding="async" /></div>
                         <div class="project-body">
                             <div class="project-top">
                                 <span class="diff-badge intermedio">Intermedio</span>
@@ -921,7 +917,7 @@
 
                     <article class="project-card reveal" data-difficulty="avanzado">
                         <div class="project-media"><img src="./Assets/Img/SupermarketSales.png"
-                                alt="Dashboard de ventas de supermercado en Power BI" loading="lazy" /></div>
+                                alt="Dashboard de ventas de supermercado en Power BI" loading="lazy" decoding="async" /></div>
                         <div class="project-body">
                             <div class="project-top">
                                 <span class="diff-badge avanzado">Avanzado</span>
@@ -941,7 +937,7 @@
 
                     <article class="project-card reveal" data-difficulty="avanzado">
                         <div class="project-media"><img src="./Assets/Img/Chief Financial Officer.PNG"
-                                alt="Dashboard ejecutivo para CFO en Power BI" loading="lazy" /></div>
+                                alt="Dashboard ejecutivo para CFO en Power BI" loading="lazy" decoding="async" /></div>
                         <div class="project-body">
                             <div class="project-top">
                                 <span class="diff-badge avanzado">Avanzado</span>
@@ -961,7 +957,7 @@
 
                     <article class="project-card reveal" data-difficulty="avanzado">
                         <div class="project-media"><img src="./Assets/Img/Construction Project.PNG"
-                                alt="Dashboard de control de proyectos de construcción en Excel" loading="lazy" /></div>
+                                alt="Dashboard de control de proyectos de construcción en Excel" loading="lazy" decoding="async" /></div>
                         <div class="project-body">
                             <div class="project-top">
                                 <span class="diff-badge avanzado">Avanzado</span>
@@ -981,7 +977,7 @@
 
                     <article class="project-card reveal" data-difficulty="avanzado">
                         <div class="project-media"><img src="./Assets/Img/RainforestHotel.PNG"
-                                alt="Dashboard de ingresos del hotel Rainforest en Excel" loading="lazy" /></div>
+                                alt="Dashboard de ingresos del hotel Rainforest en Excel" loading="lazy" decoding="async" /></div>
                         <div class="project-body">
                             <div class="project-top">
                                 <span class="diff-badge avanzado">Avanzado</span>
@@ -1001,7 +997,7 @@
 
                     <article class="project-card reveal" data-difficulty="avanzado">
                         <div class="project-media"><img src="./Assets/Img/ProjectManagement.PNG"
-                                alt="Dashboard de gestión de proyectos en Power BI" loading="lazy" /></div>
+                                alt="Dashboard de gestión de proyectos en Power BI" loading="lazy" decoding="async" /></div>
                         <div class="project-body">
                             <div class="project-top">
                                 <span class="diff-badge avanzado">Avanzado</span>
@@ -1021,7 +1017,7 @@
 
                     <article class="project-card reveal" data-difficulty="avanzado">
                         <div class="project-media"><img src="./Assets/Img/ClimateWaterBalance.PNG"
-                                alt="Dashboard climatológico de la India en Python y Streamlit" loading="lazy" /></div>
+                                alt="Dashboard climatológico de la India en Python y Streamlit" loading="lazy" decoding="async" /></div>
                         <div class="project-body">
                             <div class="project-top">
                                 <span class="diff-badge avanzado">Avanzado</span>
@@ -1041,7 +1037,7 @@
 
                     <article class="project-card reveal" data-difficulty="avanzado">
                         <div class="project-media"><img src="./Assets/Img/EarthquakeAnalysis.PNG"
-                                alt="Análisis global de sismos en Python y Marimo" loading="lazy" /></div>
+                                alt="Análisis global de sismos en Python y Marimo" loading="lazy" decoding="async" /></div>
                         <div class="project-body">
                             <div class="project-top">
                                 <span class="diff-badge avanzado">Avanzado</span>
@@ -1078,7 +1074,7 @@
                                 <span class="cm-ico"><svg width="20" height="20"><use href="#ico-mail" /></svg></span>
                                 <div>
                                     <small>Email</small>
-                                    <a href="mailto:gbarrantes250689@gmail.com">gbarrantes250689@gmail.com</a>
+                                    <a href="mailto:gbarrantes250689@gmail.com">gbarrantes250689<wbr>@gmail.com</a>
                                 </div>
                             </div>
                             <div class="c-method">
@@ -1166,10 +1162,10 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="f-brand">
+                <div class="f-brand reveal">
                     <a class="brand" href="#inicio">
                         <span class="brand-logo"><img src="./Assets/Img/Vector-logo.svg"
-                                alt="Logo de Giancarlo Barrantes" /></span>
+                                alt="Logo de Giancarlo Barrantes" decoding="async" /></span>
                         <span class="brand-name">
                             <strong>Giancarlo Barrantes</strong>
                             <span>BI &amp; Data Consulting</span>
@@ -1179,7 +1175,7 @@
                         datos para empresas que deciden con evidencia.</p>
                 </div>
 
-                <div>
+                <div class="reveal" style="--d:.08s">
                     <p class="f-title">Navegación</p>
                     <ul class="f-links">
                         <li><a href="#sobre">Sobre mí</a></li>
@@ -1191,10 +1187,10 @@
                     </ul>
                 </div>
 
-                <div>
+                <div class="reveal" style="--d:.16s">
                     <p class="f-title">Contacto</p>
                     <div class="f-meta">
-                        <a href="mailto:gbarrantes250689@gmail.com">gbarrantes250689@gmail.com</a>
+                        <a href="mailto:gbarrantes250689@gmail.com">gbarrantes250689<wbr>@gmail.com</a>
                         <span>Lima, Perú · UTC-5</span>
                         <span>Lun - Vie · 9:00 - 18:00 h</span>
                         <div class="social-row">
@@ -1217,7 +1213,7 @@
                 </div>
             </div>
 
-            <div class="footer-bottom">
+            <div class="footer-bottom reveal" style="--d:.1s">
                 <span>© <span id="year">2026</span> Giancarlo Barrantes. Todos los derechos reservados.</span>
                 <div class="f-legal">
                     <a href="terminos.html">Términos y Condiciones</a>
