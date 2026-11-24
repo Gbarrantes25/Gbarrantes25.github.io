@@ -17,6 +17,9 @@
     <link href="Assets/style.css" rel="stylesheet" />
     <script>document.documentElement.classList.remove('no-js');</script>
     <style>
+        .brand-name span {
+            padding-top: 0.3rem;
+        }
         /* ── Estilos específicos de la página legal ── */
         .tc-hero {
             position: relative;
@@ -322,6 +325,10 @@
             border-radius: var(--r-lg);
         }
 
+        .f-derechos {
+            display: flex;
+        }
+
         /* ── Responsive ── */
         @media (max-width: 940px) {
             .nav-cta{
@@ -396,7 +403,6 @@
                 íntegramente este documento.</p>
             <div class="tc-meta">
                 <span></span>
-                <span>Lima, Perú</span>
                 <span>24 cláusulas</span>
             </div>
         </div>
@@ -1043,7 +1049,10 @@
     <footer>
         <div class="container">
             <div class="footer-bottom reveal" style="border-top:none">
-                <span>© <span id="year">2026</span> Giancarlo Barrantes. Todos los derechos reservados.</span>
+                <div class="f-derechos">
+                    <p>© <span id="year">2026</span> Giancarlo Barrantes</p>
+                    <p>Todos los derechos reservados.</p>
+                </div>
                 <div class="f-legal">
                     <a href="index.html">Inicio</a>
                     <!--<span class="made">HTML · CSS · JS — sin frameworks</span>-->
