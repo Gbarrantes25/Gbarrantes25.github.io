@@ -53,32 +53,29 @@
 /* ── Base ──────────────────────────────────────────────────────────────── */
 
 /*Scrollbar*/
-/* Firefox */
+/* Firefox (Windows, macOS, Android) y navegadores modernos con soporte estándar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--turq) transparent;
+  scrollbar-color: #40E0D0 transparent; /* thumb (barra desplazable) | track (fondo) */
 }
 
-/* WebKit (Chrome, Safari, Edge…) */
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+/* Chrome, Edge, Safari, Opera y navegadores basados en WebKit/Blink */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
-::-webkit-scrollbar-track {
-  background: #f0f0f0;
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #40E0D0; /* turquesa */
   border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--turq);
-  border-radius: 10px;
-  border: 3px solid #f0f0f0;   /* crea el efecto de padding */
-  background-clip: padding-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #2ec4b6;
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #30c9b9; /* turquesa un poco más oscuro al pasar el cursor */
 }
 
 /*Cierre scrollbar*/
