@@ -24,7 +24,7 @@
     const hasIO = 'IntersectionObserver' in window;
 
     /* ── 1 · Disponibilidad (hora de Lima) ─────────────────────────────── */
-    const FERIADOS = ['01-01', '05-01', '06-29', '07-28', '07-29', '08-30', '11-01', '12-08', '12-25'];
+    const FERIADOS = ['01-01', '05-01', '06-29', '07-28', '07-29', '08-30', '11-01','12-08', '12-25'];
 
     function horaLima() {
         return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Lima' }));
@@ -44,7 +44,7 @@
         if (!pill || !txt) return;
         if (consultorDisponible()) {
             pill.classList.remove('off');
-            txt.textContent = 'Consultor disponible · Lima UTC-5';
+            txt.textContent = 'Consultor disponible';
         } else {
             pill.classList.add('off');
             txt.textContent = 'Fuera de horario · respondo pronto';

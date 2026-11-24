@@ -51,6 +51,38 @@
 }
 
 /* ── Base ──────────────────────────────────────────────────────────────── */
+
+/*Scrollbar*/
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--turq) transparent;
+}
+
+/* WebKit (Chrome, Safari, Edge…) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--turq);
+  border-radius: 10px;
+  border: 3px solid #f0f0f0;   /* crea el efecto de padding */
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2ec4b6;
+}
+
+/*Cierre scrollbar*/
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
