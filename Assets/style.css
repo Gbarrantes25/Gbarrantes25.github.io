@@ -1926,6 +1926,29 @@ section {
   gap: 1rem;
 }
 
+.form-card .field:has(#politicas) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-card .field:has(#politicas) input[type="checkbox"] {
+    width: auto;
+    height: auto;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.form-card .field:has(#politicas) label {
+    margin: 0;
+    display: inline;
+}
+
+.form-card a{
+  text-decoration-line: underline;
+}
+
 /* Toasts */
 .toast-zone {
   position: fixed;
@@ -2498,6 +2521,7 @@ footer {
   .form-card {
     padding: 1.5rem 1.25rem;
   }
+
 
   /* ── Control de modalidad: 2×2 en vez de una fila de 4 botones ──
      En ≤600px la fila "Excel / Power BI / Híbrida / Python" no cabía

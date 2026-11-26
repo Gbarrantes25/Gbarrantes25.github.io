@@ -716,12 +716,16 @@
         input.closest('.field').classList.toggle('invalid', invalido);
     }
 
-    ['nombre', 'email', 'asunto', 'mensaje'].forEach(id => {
+    ['nombre', 'email', 'asunto', 'mensaje', 'politicas'].forEach(id => {
         const el = $('#' + id);
-        // En páginas sin formulario (terminos.html) no existen estos campos
         if (!el) return;
-        el.addEventListener('input', () => marcarCampo(el, false));
+
+        // 'change' funciona mejor para checkboxes, 'input' para textos
+        const eventoLimpiar = el.type === 'checkbox' ? 'change' : 'input';
+        el.addEventListener(eventoLimpiar, () => marcarCampo(el, false));
+
         el.addEventListener('blur', () => {
+            if (id === 'politicas') return; // El checkbox se valida al enviar
             const v = el.value.trim();
             let bad = false;
             if (id === 'nombre') bad = v.length > 0 && v.length < 3;
@@ -739,12 +743,14 @@
         const email = $('#email').value.trim();
         const asunto = $('#asunto').value.trim();
         const mensaje = $('#mensaje').value.trim();
+        const politicasAceptadas = $('#politicas').checked;
 
         const fallos = [
-            [nombre.length < 3, $('#nombre'), 'Nombre válido (mínimo 3 caracteres)'],
-            [!emailRegex.test(email), $('#email'), 'Correo electrónico válido'],
-            [asunto.length < 5, $('#asunto'), 'Asunto válido (mínimo 5 caracteres)'],
-            [mensaje.length < 10, $('#mensaje'), 'Mensaje válido (mínimo 10 caracteres)']
+            [nombre.length < 3, $('#nombre'), 'un nombre válido (mínimo 3 caracteres)'],
+            [!emailRegex.test(email), $('#email'), 'un correo electrónico válido'],
+            [asunto.length < 5, $('#asunto'), 'un asunto válido (mínimo 5 caracteres)'],
+            [mensaje.length < 10, $('#mensaje'), 'un mensaje válido (mínimo 10 caracteres)'],
+            [!politicasAceptadas, $('#politicas'), 'que aceptas las políticas de privacidad']
         ];
 
         const primerError = fallos.find(([bad]) => bad);

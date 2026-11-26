@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Política de Privacidad — Giancarlo Barrantes</title>
+    <link href="./Assets/Img/Vector-logo.svg" rel="icon" type="image/svg+xml" />
+    <meta name="description"
+        content="Política de Privacidad de Giancarlo Barrantes: qué datos personales se recopilan, para qué se usan y cómo ejercer tus derechos conforme a la Ley N.° 29733." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link href="Assets/style.css" rel="stylesheet" />
+    <script>document.documentElement.classList.remove('no-js');</script>
+    <style>
+        .brand-name span {
+            padding-top: 0.3rem;
+        }
+        /* ── Estilos específicos de la página legal ── */
+        .tc-hero {
+            position: relative;
+            padding: 9.5rem 0 4rem;
+            border-bottom: 1px solid var(--stroke);
+            background:
+                radial-gradient(600px 300px at 15% 0%, rgba(76, 141, 255, .14), transparent 65%),
+                radial-gradient(600px 300px at 85% 10%, rgba(255, 92, 173, .10), transparent 65%),
+                var(--bg-1);
+            overflow: hidden;
+        }
+
+        .tc-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .tc-hero h1 {
+            margin-top: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -.015em;
+        }
+
+        .tc-hero .lead {
+            margin-top: 1.1rem;
+            max-width: 62ch;
+            color: var(--muted);
+        }
+
+        .tc-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .6rem;
+            margin-top: 1.6rem;
+        }
+
+        .tc-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .42rem 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .68rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            background: var(--panel);
+            border: 1px solid var(--stroke);
+            border-radius: var(--r-full);
+        }
+
+        .tc-meta span:first-child { color: var(--turq); border-color: rgba(46, 230, 200, .35); }
+        .tc-meta span:nth-child(3) { color: var(--purp); border-color: rgba(167, 139, 250, .35); }
+
+        /* ── Layout principal: índice + contenido ── */
+        .tc-layout {
+            display: grid;
+            grid-template-columns: 290px 1fr;
+            gap: 2.4rem;
+            padding: 3.2rem 0 5rem;
+        }
+
+        /* Sin esto, el ancho mínimo del contenido (p. ej. una tabla) obliga
+           al track del grid a crecer y distorsiona la página en móvil. */
+        .tc-layout > * {
+            min-width: 0;
+        }
+
+        .tc-index {
+            position: sticky;
+            top: 108px;
+            align-self: start;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+            padding: 1.2rem;
+            background: var(--panel);
+            border: 1px solid var(--stroke);
+            border-radius: var(--r-lg);
+            scrollbar-width: thin;
+        }
+
+        .tc-index-title {
+            display: flex;
+            align-items: center;
+            gap: .55rem;
+            margin-bottom: .8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .66rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--faint);
+        }
+
+        .tc-index-title::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--grad);
+        }
+
+        .tc-index ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .15rem;
+        }
+
+        .tc-index a {
+            display: flex;
+            align-items: baseline;
+            gap: .6rem;
+            padding: .42rem .6rem;
+            font-size: .8rem;
+            color: var(--muted);
+            border-radius: var(--r-sm);
+            border-left: 2px solid transparent;
+            transition: color var(--tr), background var(--tr), border-color var(--tr);
+        }
+
+        .tc-index a:hover {
+            color: var(--text);
+            background: var(--panel-2);
+        }
+
+        .tc-index a.active {
+            color: var(--text);
+            background: var(--panel-2);
+            border-left-color: var(--magenta);
+        }
+
+        .tc-index .ix-num {
+            flex-shrink: 0;
+            width: 1.6em;
+            font-size: .64rem;
+            color: var(--faint);
+        }
+
+        .tc-index a.active .ix-num { color: var(--magenta); }
+
+        .tc-index li[data-general="1"] {
+            margin-top: .8rem;
+            padding-top: .8rem;
+            border-top: 1px dashed var(--stroke-2);
+        }
+
+        /* ── Cláusulas ── */
+        .tc-clause {
+            position: relative;
+            margin-bottom: 1.1rem;
+            padding: 1.8rem 1.9rem;
+            background: var(--panel);
+            border: 1px solid var(--stroke);
+            border-radius: var(--r-lg);
+            scroll-margin-top: 110px;
+            transition: border-color var(--tr);
+        }
+
+        .tc-clause:hover { border-color: var(--stroke-2); }
+
+        .clause-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.1rem;
+        }
+
+        .clause-num {
+            display: grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--turq);
+            background: rgba(46, 230, 200, .08);
+            border: 1px solid rgba(46, 230, 200, .35);
+            border-radius: 13px;
+        }
+
+        .clause-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.22rem;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .tc-clause p,
+        .tc-clause li {
+            font-size: .88rem;
+            color: var(--muted);
+        }
+
+        .clause-intro {
+            margin-bottom: .85rem;
+        }
+
+        .tc-clause ul {
+            margin: .5rem 0 .9rem 1.1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .35rem;
+        }
+
+        .tc-clause li { margin-bottom: .1rem; }
+
+        .sub-title {
+            margin: 1.2rem 0 .6rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: .98rem;
+            font-weight: 600;
+            color: var(--text) !important;
+        }
+
+        .sub-title::before {
+            content: '// ';
+            color: var(--purp);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .85em;
+        }
+
+        .sub-clause { margin: .9rem 0; }
+
+        .tc-note {
+            margin-top: 1rem;
+            padding: .9rem 1.1rem;
+            font-size: .8rem !important;
+            color: var(--muted);
+            background: rgba(76, 141, 255, .06);
+            border: 1px dashed rgba(76, 141, 255, .35);
+            border-radius: var(--r-md);
+        }
+
+        /* Tabla de modalidades: legible en desktop y con scroll horizontal
+           PROPIO en móvil (no distorsiona el layout de la página). */
+        .table-wrap {
+            overflow-x: auto;
+            margin: .8rem 0;
+            border: 1px solid var(--stroke);
+            border-radius: var(--r-md);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tc-table {
+            width: 100%;
+            min-width: 560px;
+            border-collapse: collapse;
+            font-size: .82rem;
+        }
+
+        .tc-table th {
+            padding: .6rem .9rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text);
+            background: var(--panel-2);
+            border: 1px solid var(--stroke);
+            white-space: nowrap;
+        }
+
+        .tc-table td {
+            padding: .55rem .9rem;
+            color: var(--muted);
+            border: 1px solid var(--stroke);
+            vertical-align: top;
+        }
+
+        .tc-table tbody tr:nth-child(even) {
+            background: rgba(255, 255, 255, .025);
+        }
+
+        .tc-general-sep {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            margin: 2.2rem 0 1.4rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .7rem;
+            letter-spacing: .24em;
+            text-transform: uppercase;
+            color: var(--purp);
+        }
+
+        .tc-general-sep::before,
+        .tc-general-sep::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(167, 139, 250, .4), transparent);
+        }
+
+        .tc-accept {
+            margin-top: 1.6rem;
+            padding: 1.5rem 1.8rem;
+            font-size: .9rem;
+            color: var(--text);
+            background: linear-gradient(120deg, rgba(76, 141, 255, .10), rgba(255, 92, 173, .10));
+            border: 1px solid rgba(167, 139, 250, .35);
+            border-radius: var(--r-lg);
+        }
+
+        .f-derechos {
+            display: flex;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 940px) {
+            .nav-cta{
+                margin-right: 0;
+            }
+
+            .tc-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .tc-index {
+                position: static;
+                max-height: 260px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+
+            .nav-inner .nav-cta{
+                font-size: 0.55rem;
+                display: flex;
+            }
+
+            .tc-clause {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .clause-header {
+                gap: .8rem;
+            }
+
+            .clause-num {
+                width: 38px;
+                height: 38px;
+                font-size: .78rem;
+            }
+
+            .clause-title {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#tc-main">Saltar al contenido</a>
+
+    <div class="bg-decor" aria-hidden="true"></div>
+
+    <header class="nav scrolled" id="navbar">
+        <div class="nav-inner">
+            <a class="brand" href="index.html" aria-label="Volver al inicio">
+                <span class="brand-logo"><img src="./Assets/Img/Vector-logo.svg" alt="Logo de Giancarlo Barrantes" /></span>
+                <span class="brand-name">
+                    <strong>Giancarlo Barrantes</strong>
+                    <span>BI &amp; Data Consulting</span>
+                </span>
+            </a>
+
+            <a class="nav-cta" href="index.html">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="15 18 9 12 15 6" />
+                </svg>
+                <span class="cta-label">Volver al inicio</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="tc-hero">
+        <div class="container reveal">
+            <span class="sec-kicker">Legal</span>
+            <h1>Política de <span class="grad-text">Privacidad</span></h1>
+            <p class="lead">Aquí se explica qué datos personales se recopilan cuando usas este sitio o me escribes por el formulario, para qué se usan, quién más interviene y cómo puedes ejercer tus derechos.</p>
+            <div class="tc-meta">
+                <span></span>
+                <span>12 cláusulas</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container tc-layout">
+        <nav class="tc-index reveal" aria-label="Índice de cláusulas">
+            <p class="tc-index-title">Índice</p>
+            <ul id="tcIndexList">
+                <li><a href="#cl1"><span class="ix-num mono">1</span><span>Responsable del tratamiento</span></a></li>
+                <li><a href="#cl2"><span class="ix-num mono">2</span><span>Datos personales que se recopilan</span></a></li>
+                <li><a href="#cl3"><span class="ix-num mono">3</span><span>Finalidad del tratamiento</span></a></li>
+                <li><a href="#cl4"><span class="ix-num mono">4</span><span>Consentimiento</span></a></li>
+                <li><a href="#cl5"><span class="ix-num mono">5</span><span>Terceros que intervienen</span></a></li>
+                <li><a href="#cl6"><span class="ix-num mono">6</span><span>Transferencia internacional de datos</span></a></li>
+                <li><a href="#cl7"><span class="ix-num mono">7</span><span>Plazo de conservación</span></a></li>
+                <li><a href="#cl8"><span class="ix-num mono">8</span><span>Tus derechos y cómo ejercerlos</span></a></li>
+                <li><a href="#cl9"><span class="ix-num mono">9</span><span>Seguridad</span></a></li>
+                <li><a href="#cl10"><span class="ix-num mono">10</span><span>Cookies y enlaces externos</span></a></li>
+                <li><a href="#cl11"><span class="ix-num mono">11</span><span>Cambios a esta política</span></a></li>
+                <li><a href="#cl12"><span class="ix-num mono">12</span><span>Contacto</span></a></li>
+            </ul>
+        </nav>
+
+        <main class="tc-content" id="tc-main">
+            <div class="tc-clause reveal" id="cl1">
+                <div class="clause-header">
+                    <div class="clause-num">1</div>
+                    <h2 class="clause-title">Responsable del tratamiento</h2>
+                </div>
+ <p class="clause-intro">El responsable del tratamiento de los datos personales recopilados a través de este sitio web es:</p>
+ <ul class="tc-list">
+   <li><strong>Titular:</strong> Giancarlo Barrantes, consultor independiente.</li>
+   <li><strong>Domicilio de referencia:</strong> Lima, Perú.</li>
+   <li><strong>Correo de contacto:</strong> <a href="mailto:gbarrantes250689@gmail.com">gbarrantes250689@gmail.com</a></li>
+ </ul>
+ <p class="clause-intro" style="margin-bottom:0">Esta política se emite en cumplimiento de la Ley N.° 29733, Ley de Protección de Datos Personales, y su Reglamento (D.S. N.° 016-2024-JUS).</p>
+            </div>
+
+            <div class="tc-clause reveal" id="cl2">
+                <div class="clause-header">
+                    <div class="clause-num">2</div>
+                    <h2 class="clause-title">Datos personales que se recopilan</h2>
+                </div>
+ <p class="clause-intro">Solo se recopilan los datos que tú mismo escribes en el formulario de contacto, además de los datos técnicos que genera cualquier visita web.</p>
+ <div class="table-wrap"><table class="tc-table">
+   <thead><tr><th>Dato</th><th>Cómo se obtiene</th><th>Para qué se usa</th></tr></thead>
+   <tbody>
+     <tr><td>Nombre</td><td>Formulario de contacto</td><td>Dirigirme a ti en la respuesta</td></tr>
+     <tr><td>Correo electrónico</td><td>Formulario de contacto</td><td>Responder tu consulta o enviarte una propuesta</td></tr>
+     <tr><td>Asunto y mensaje</td><td>Formulario de contacto</td><td>Entender tu requerimiento</td></tr>
+     <tr><td>Dirección IP y datos del navegador</td><td>Automática, al visitar el sitio</td><td>Funcionamiento y seguridad del servicio de alojamiento y de las fuentes tipográficas</td></tr>
+   </tbody></table></div>
+ <div class="tc-note">No se solicitan datos sensibles. Te pedimos no incluir en el mensaje información confidencial de tu empresa, contraseñas ni datos de terceros; esos temas se coordinan una vez iniciado el servicio.</div>
+            </div>
+
+            <div class="tc-clause reveal" id="cl3">
+                <div class="clause-header">
+                    <div class="clause-num">3</div>
+                    <h2 class="clause-title">Finalidad del tratamiento</h2>
+                </div>
+ <p class="clause-intro">Tus datos se usan exclusivamente para:</p>
+ <ul class="tc-list">
+   <li>Atender y responder la consulta que enviaste.</li>
+   <li>Elaborar y enviarte una cotización o propuesta de servicios, si la solicitas.</li>
+   <li>Mantener el historial de comunicación necesario si finalmente contratas un servicio.</li>
+ </ul>
+ <p class="clause-intro" style="margin-bottom:0">No se utilizan para publicidad, no se venden ni se ceden a terceros con fines comerciales, ni se usan para elaborar perfiles.</p>
+            </div>
+
+            <div class="tc-clause reveal" id="cl4">
+                <div class="clause-header">
+                    <div class="clause-num">4</div>
+                    <h2 class="clause-title">Consentimiento</h2>
+                </div>
+ <ul class="tc-list">
+   <li>Antes de enviar el formulario debes marcar la casilla que confirma que leíste esta política y aceptas el tratamiento de tus datos para las finalidades descritas. Sin ese consentimiento el mensaje no se envía.</li>
+   <li>Puedes retirar tu consentimiento en cualquier momento escribiendo al correo de contacto. El retiro no afecta el tratamiento realizado antes de él.</li>
+   <li>Si tus datos llegan por otro medio (por ejemplo, un correo directo), se usarán únicamente para responderte.</li>
+ </ul>
+            </div>
+
+            <div class="tc-clause reveal" id="cl5">
+                <div class="clause-header">
+                    <div class="clause-num">5</div>
+                    <h2 class="clause-title">Terceros que intervienen</h2>
+                </div>
+ <p class="clause-intro">Para que el sitio funcione participan los siguientes proveedores, que tratan datos por encargo y solo para prestar su servicio:</p>
+ <div class="table-wrap"><table class="tc-table">
+   <thead><tr><th>Proveedor</th><th>Servicio</th><th>Datos involucrados</th></tr></thead>
+   <tbody>
+     <tr><td>EmailJS</td><td>Envío del formulario de contacto a mi correo</td><td>Nombre, correo, asunto y mensaje</td></tr>
+     <tr><td>GitHub Pages (GitHub, Inc.)</td><td>Alojamiento del sitio</td><td>Dirección IP y datos técnicos de la visita</td></tr>
+     <tr><td>Google Fonts (Google LLC)</td><td>Carga de las fuentes tipográficas</td><td>Dirección IP y datos técnicos de la visita</td></tr>
+     <tr><td>Gmail (Google LLC)</td><td>Recepción y respuesta de tus mensajes</td><td>Nombre, correo, asunto y mensaje</td></tr>
+   </tbody></table></div>
+ <p class="clause-intro" style="margin-bottom:0">Fuera de estos proveedores, tus datos no se comparten con nadie, salvo que una autoridad competente lo exija conforme a ley.</p>
+            </div>
+
+            <div class="tc-clause reveal" id="cl6">
+                <div class="clause-header">
+                    <div class="clause-num">6</div>
+                    <h2 class="clause-title">Transferencia internacional de datos</h2>
+                </div>
+ <p class="clause-intro">Los proveedores indicados en la cláusula 5 pueden almacenar o procesar datos en servidores ubicados fuera del Perú, incluido Estados Unidos. Al aceptar esta política, consientes esa transferencia, que se limita a lo necesario para que el formulario y el sitio funcionen.</p>
+ <p class="clause-intro" style="margin-bottom:0">Cada proveedor aplica sus propias políticas de privacidad y medidas de seguridad, que puedes consultar en sus sitios web oficiales.</p>
+            </div>
+
+            <div class="tc-clause reveal" id="cl7">
+                <div class="clause-header">
+                    <div class="clause-num">7</div>
+                    <h2 class="clause-title">Plazo de conservación</h2>
+                </div>
+ <ul class="tc-list">
+   <li>Si tu consulta no deriva en un servicio, tus datos se conservan hasta 24 meses desde el último contacto y luego se eliminan.</li>
+   <li>Si contratas un servicio, los datos necesarios se conservan durante la relación y el plazo exigido por las normas tributarias y contractuales aplicables.</li>
+   <li>Puedes pedir la eliminación anticipada de tus datos en cualquier momento (cláusula 8).</li>
+ </ul>
+            </div>
+
+            <div class="tc-clause reveal" id="cl8">
+                <div class="clause-header">
+                    <div class="clause-num">8</div>
+                    <h2 class="clause-title">Tus derechos y cómo ejercerlos</h2>
+                </div>
+ <p class="clause-intro">Como titular de tus datos personales puedes ejercer los siguientes derechos:</p>
+ <ul class="tc-list">
+   <li><strong>Acceso:</strong> saber qué datos tuyos se tratan y cómo se obtuvieron.</li>
+   <li><strong>Rectificación:</strong> corregir datos inexactos o incompletos.</li>
+   <li><strong>Cancelación:</strong> solicitar la eliminación de tus datos.</li>
+   <li><strong>Oposición:</strong> oponerte al tratamiento para una finalidad determinada.</li>
+   <li><strong>Revocación:</strong> retirar el consentimiento que diste.</li>
+ </ul>
+ <div class="sub-clause">
+   <p class="sub-title">Cómo ejercerlos</p>
+   <ul class="tc-list">
+     <li>Escribe a <a href="mailto:gbarrantes250689@gmail.com">gbarrantes250689@gmail.com</a> indicando tu nombre, el derecho que deseas ejercer y el correo con el que escribiste.</li>
+     <li>Para proteger tus datos, podré pedirte que acredites tu identidad.</li>
+     <li>La solicitud se atiende dentro de los plazos que fija la normativa de protección de datos personales.</li>
+   </ul>
+ </div>
+ <p class="clause-intro" style="margin-bottom:0">Si consideras que tus derechos no fueron atendidos, puedes presentar un reclamo ante la Autoridad Nacional de Protección de Datos Personales del Ministerio de Justicia y Derechos Humanos (MINJUSDH).</p>
+            </div>
+
+            <div class="tc-clause reveal" id="cl9">
+                <div class="clause-header">
+                    <div class="clause-num">9</div>
+                    <h2 class="clause-title">Seguridad</h2>
+                </div>
+ <p class="clause-intro">Se aplican medidas técnicas y organizativas razonables para proteger tus datos: conexión cifrada (HTTPS), acceso restringido a la cuenta de correo donde se reciben los mensajes y uso de proveedores reconocidos. Ningún sistema en internet es completamente invulnerable; si ocurriera una incidencia de seguridad que te afecte, se te notificará conforme a la normativa vigente.</p>
+            </div>
+
+            <div class="tc-clause reveal" id="cl10">
+                <div class="clause-header">
+                    <div class="clause-num">10</div>
+                    <h2 class="clause-title">Cookies y enlaces externos</h2>
+                </div>
+ <ul class="tc-list">
+   <li>Este sitio no utiliza cookies propias de analítica, publicidad ni seguimiento.</li>
+   <li>El sitio enlaza a servicios de terceros (GitHub, LinkedIn, YouTube, TikTok, Instagram, Data Studio, Streamlit y Marimo). Al abrirlos, cada plataforma aplica su propia política de privacidad y cookies, sobre las que no tengo control.</li>
+ </ul>
+            </div>
+
+            <div class="tc-clause reveal" id="cl11">
+                <div class="clause-header">
+                    <div class="clause-num">11</div>
+                    <h2 class="clause-title">Cambios a esta política</h2>
+                </div>
+ <p class="clause-intro" style="margin-bottom:0">Esta política puede actualizarse, por ejemplo si se incorporan nuevas herramientas al sitio o cambia la normativa. La versión vigente es siempre la publicada en esta página, con su fecha de actualización. Si el cambio altera de forma importante el uso de tus datos, se te informará antes de aplicarlo.</p>
+            </div>
+
+            <div class="tc-clause reveal" id="cl12">
+                <div class="clause-header">
+                    <div class="clause-num">12</div>
+                    <h2 class="clause-title">Contacto</h2>
+                </div>
+ <p class="clause-intro">Para consultas sobre esta política o sobre el tratamiento de tus datos:</p>
+ <ul class="tc-list">
+   <li>Correo: <a href="mailto:gbarrantes250689@gmail.com">gbarrantes250689@gmail.com</a></li>
+   <li>Horario de atención: lunes a viernes, de 9:00 a 18:00 h (hora de Lima).</li>
+ </ul>
+ <div class="tc-accept">Al marcar la casilla de consentimiento y enviar el formulario, declaras haber leído y comprendido esta Política de Privacidad.</div>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom reveal" style="border-top:none">
+                <div class="f-derechos">
+                    <p>© <span id="year">2026</span> Giancarlo Barrantes</p>
+                    <p>Todos los derechos reservados.</p>
+                </div>
+                <div class="f-legal">
+                    <a href="index.html">Inicio</a>
+                    <a href="terminos.html">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.querySelector('.tc-meta span:first-of-type').textContent = `Versión ${new Date().getFullYear()}`;
+
+        (function () {
+            var links = Array.from(document.querySelectorAll('#tcIndexList a'));
+            if (!links.length || !('IntersectionObserver' in window)) return;
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (!e.isIntersecting) return;
+                    var id = '#' + e.target.id;
+                    links.forEach(function (a) {
+                        a.classList.toggle('active', a.getAttribute('href') === id);
+                    });
+                });
+            }, { rootMargin: '-30% 0px -60% 0px' });
+            document.querySelectorAll('.tc-clause[id]').forEach(function (c) { io.observe(c); });
+        })();
+    </script>
+<script defer src="Assets/scripts.js"></script>
+</body>
+
+</html>
