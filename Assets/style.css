@@ -2656,6 +2656,10 @@ footer {
     justify-content: center;
   }
 
+  .partner-banner h4{
+    justify-self: center;
+  }
+
   .f-meta{
     display: flex;
     flex-direction: column;
