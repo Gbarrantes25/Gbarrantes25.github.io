@@ -99,6 +99,7 @@ con la página descentrada y el contenido cortado en móviles de 360px:
 Gbarrantes25.github.io/
 ├── index.html                # Página principal
 ├── terminos.html             # Términos y Condiciones (24 cláusulas + índice)
+├── privacidad.html           # Políticas de Privacidad
 ├── sitemap.xml               # Mapa del sitio
 ├── README.md
 └── Assets/
