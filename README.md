@@ -23,9 +23,16 @@ frameworks ni librerías de UI).
 - Contadores animados, **reveal reversible al hacer scroll** (los elementos se
   revelan cada vez que entran en pantalla, bajando o subiendo, y se ocultan
   al salir) y scrollspy en la navegación.
-- Servicios con selector de modalidad (Excel / Power BI / Híbrida) que
-  intercambia los alcances de los planes dashboard.
-- Filtros de proyectos por dificultad (Básico / Intermedio / Avanzado).
+- Servicios con **selector de modalidad `<select>` nativo** (Excel / Power BI /
+  Híbrida / Python) que intercambia los alcances de los planes dashboard.
+- **Filtro de proyectos por dificultad en `<select>` nativo** (Básico /
+  Intermedio / Avanzado), con el total real de cada nivel en su `<option>`.
+- Ambos selectores llevan **palabra guía delante** («Modalidad», «Filtrar»)
+  en el lenguaje visual de los kickers y su **ancho sigue al contenido**:
+  scripts.js mide el texto de la opción activa con la misma tipografía y
+  ajusta el control al cambiarla (se estrecha o se ensancha, también en
+  móvil, donde antes se estiraba a todo el ancho), con tope en el
+  contenedor y recorte «…» como red de seguridad.
 - Formulario de contacto con **EmailJS cargado bajo demanda** (validación y
   notificaciones toast): el SDK se descarga con el primer foco en el
   formulario, no en la carga inicial de la página.
@@ -74,9 +81,11 @@ Varios elementos tenían un *min-content* mayor que el contenedor general
 (`min(1160px, 100% - 3rem)`) y empujaban el documento ~38px hacia la derecha,
 con la página descentrada y el contenido cortado en móviles de 360px:
 
-- **Selector de modalidad**: la fila de 4 botones (374px) no cabía en el
-  contenedor de 312px. Ahora es una cuadrícula 2×2 en ≤600px y nunca supera
-  el ancho disponible (`max-width: 100%` + `flex-wrap` como respaldo).
+- **Selector de modalidad y filtro de proyectos**: son `<select>` nativos
+  (chevron del sprite, desplegable oscuro vía `color-scheme: dark`) con
+  palabra guía («Modalidad» / «Filtrar») y **ancho a la medida de la opción
+  activa** en cualquier tamaño de pantalla; nunca desbordan y, si el hueco
+  no alcanzara, la guía salta de línea y el texto se recorta con «…».
 - **Barra de la consola del hero** (puntos + título + etiqueta): ahora
   admite `flex-wrap`, y la pista `dataset: github.com/...` parte si no cabe.
 - **Email de contacto** (`gbarrantes250689@gmail.com`): token sin espacios

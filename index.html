@@ -404,12 +404,19 @@
                         bajo cotización según alcance.</p>
                 </div>
 
-                <div class="segmented reveal" role="tablist" aria-label="Modalidad de consultoría">
-                    <button class="seg-btn active" data-mod="excel" role="tab" aria-selected="true">Excel</button>
-                    <button class="seg-btn" data-mod="powerbi" role="tab" aria-selected="false">Power BI</button>
-                    <button class="seg-btn" data-mod="hibrida" role="tab" aria-selected="false">Híbrida</button>
-                    <button class="seg-btn" data-mod="python" role="tab" aria-selected="false">Python</button>
+                <div class="select-shell reveal">
+                    <span class="sel-label">Filtrar</span>
+                    <div class="sel-field">
+                        <select class="segmented" id="modSelect" aria-label="Modalidad de consultoría">
+                            <option value="excel" selected>Excel</option>
+                            <option value="powerbi">Power BI</option>
+                            <option value="hibrida">Híbrida</option>
+                            <option value="python">Python</option>
+                        </select>
+                        <svg class="sel-chevron" width="14" height="14" aria-hidden="true"><use href="#ico-chevron" /></svg>
+                    </div>
                 </div>
+
 
                 <div class="plans-group">
                     <div class="plans-group-title reveal">
@@ -787,12 +794,19 @@
                         complejidad.</p>
                 </div>
 
-                <div class="filters reveal" role="group" aria-label="Filtrar proyectos por dificultad">
-                    <button class="filter-btn active" data-filter="todos">Todos <span class="count">13</span></button>
-                    <button class="filter-btn" data-filter="basico">Básico <span class="count">1</span></button>
-                    <button class="filter-btn" data-filter="intermedio">Intermedio <span class="count">5</span></button>
-                    <button class="filter-btn" data-filter="avanzado">Avanzado <span class="count">7</span></button>
+                <div class="select-shell reveal">
+                    <span class="sel-label">Filtrar</span>
+                    <div class="sel-field">
+                        <select class="filters" id="filterSelect" aria-label="Filtrar proyectos por dificultad">
+                            <option value="todos" selected>Todos · 13</option>
+                            <option value="basico">Básico · 1</option>
+                            <option value="intermedio">Intermedio · 5</option>
+                            <option value="avanzado">Avanzado · 7</option>
+                        </select>
+                        <svg class="sel-chevron" width="14" height="14" aria-hidden="true"><use href="#ico-chevron" /></svg>
+                    </div>
                 </div>
+
 
                 <div class="projects-grid" id="projectsGrid">
 
@@ -1046,6 +1060,27 @@
                             <div class="project-top">
                                 <span class="diff-badge avanzado">Avanzado</span>
                                 <span class="project-stack"><span>PYTHON</span><span>MARIMO</span><span>PLOTLY</span><span>PANDAS</span><span>NUMPY</span></span>
+                            </div>
+                            <h3>Global Earthquake Analysis</h3>
+                            <p>Sismos mundiales de 1970 a 2026: distribución geográfica, magnitud (Mw), profundidad
+                                y evolución histórica de eventos de 5 Mw o más.</p>
+                            <div class="project-links">
+                                <a class="p-link repo" target="_blank" rel="noopener"
+                                    href="https://github.com/Gbarrantes25/GlobalEarthquakeAnalysis-Dashboards">Repositorio</a>
+                                <a class="p-link demo" target="_blank" rel="noopener"
+                                    href="https://molab.marimo.io/notebooks/nb_gqPiCKyE1Hk1MfY8UgJP6a/app">Ver demo</a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <article class="project-card reveal" data-difficulty="basico">
+                        <div class="project-media"><img src="./Assets/Img/EarthquakeAnalysis.PNG"
+                                alt="Análisis global de sismos en Python y Marimo" loading="lazy" decoding="async" /></div>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="diff-badge avanzado">Básico</span>
+                                <span class="project-stack"><span>Modjo</span><span>MARIMO</span><span>PLOTLY</span><span>PANDAS</span><span>NUMPY</span></span>
                             </div>
                             <h3>Global Earthquake Analysis</h3>
                             <p>Sismos mundiales de 1970 a 2026: distribución geográfica, magnitud (Mw), profundidad

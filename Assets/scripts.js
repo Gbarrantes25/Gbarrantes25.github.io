@@ -23,6 +23,65 @@
     const liteMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const hasIO = 'IntersectionObserver' in window;
 
+    /* ── 0 · Selectores <select> a la medida de su contenido ─────────────
+       Un <select> nativo ocupa por defecto el ancho de su opción MÁS
+       LARGA (y en móvil solía además estirarse a todo el ancho): en
+       pantallas pequeñas sobraba mucho hueco vacío alrededor del texto.
+       fitSelect() mide el texto de la opción ACTIVA con la misma
+       tipografía del control (canvas invisible) y le da ese ancho justo:
+       el selector se estrecha o se ensancha al cambiar de opción, con
+       tope en el ancho interior del contenedor y recorte «…» si hiciera
+       falta. Se reajusta al cambiar opción, al redimensionar la ventana
+       y cuando termina de cargar la webfont. */
+    function fitSelect(sel) {
+        if (!sel || !sel.options.length) return;
+        const shell = sel.closest('.select-shell');
+        const label = shell ? shell.querySelector('.sel-label') : null;
+        const opt = sel.options[sel.selectedIndex];
+        const cs = getComputedStyle(sel);
+
+        const cvs = fitSelect._c || (fitSelect._c = document.createElement('canvas'));
+        const ctx = cvs.getContext('2d');
+        ctx.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+        let w = ctx.measureText(opt.textContent).width;
+
+        /* canvas no aplica letter-spacing: se suma a mano + holgura por
+           redondeo del rasterizado de la fuente. */
+        const ls = parseFloat(cs.letterSpacing);
+        if (ls) w += ls * Math.max(0, opt.textContent.length - 1);
+        w += parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight) +
+             parseFloat(cs.borderLeftWidth) + parseFloat(cs.borderRightWidth) + 5;
+
+        /* Tope: ancho interior del bloque contenedor; se descuenta la
+           palabra guía solo si cabe en la misma línea (si no, flex-wrap
+           la sube de fila y el selector hereda todo el ancho). */
+        const zone = (shell || sel).parentElement;
+        if (zone) {
+            const zc = getComputedStyle(zone);
+            let avail = zone.clientWidth - parseFloat(zc.paddingLeft) - parseFloat(zc.paddingRight);
+            if (avail > 0) {
+                if (label) {
+                    const lw = label.getBoundingClientRect().width;
+                    const gap = parseFloat(getComputedStyle(shell).columnGap) || 0;
+                    if (w + lw + gap <= avail) avail -= lw + gap;
+                }
+                w = Math.min(w, avail);
+            }
+        }
+        /* 96px de suelo: área de toque cómoda aunque la opción sea corta. */
+        sel.style.width = Math.max(w, 96) + 'px';
+    }
+
+    const selects = $$('.select-shell select');
+    const fitAllSelects = () => selects.forEach(fitSelect);
+    selects.forEach(sel => sel.addEventListener('change', () => fitSelect(sel)));
+    addEventListener('resize', () => {
+        cancelAnimationFrame(fitAllSelects._raf);
+        fitAllSelects._raf = requestAnimationFrame(fitAllSelects);
+    }, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitAllSelects);
+    fitAllSelects();
+
     /* ── 1 · Disponibilidad (hora de Lima) ─────────────────────────────── */
     const FERIADOS = ['01-01', '05-01', '06-29', '07-28', '07-29', '08-30', '11-01','12-08', '12-25'];
 
@@ -327,15 +386,26 @@
                 top.map(([t, n]) => techLabel(t) + ' ' + n).join(', '));
         }
 
-        // Contadores de los filtros de dificultad (Todos / Básico / …)
-        $$('.filter-btn').forEach(btn => {
-            const c = btn.querySelector('.count');
-            if (!c) return;
-            const f = btn.dataset.filter;
-            c.textContent = String(f === 'todos'
-                ? cards.length
-                : cards.filter(card => card.dataset.difficulty === f).length);
-        });
+                // Etiquetas del selector de dificultad (Todos · 13 / Básico · 1 …):
+        // cada <option> muestra el total real calculado desde las tarjetas
+        // del portafolio, igual que cuando eran botones con .count.
+        const filterSel = $('#filterSelect');
+        if (filterSel) {
+            const FILTER_LABEL = {
+                todos: 'Todos', basico: 'Básico',
+                intermedio: 'Intermedio', avanzado: 'Avanzado'
+            };
+            Array.from(filterSel.options).forEach(opt => {
+                const f = opt.value;
+                const n = f === 'todos'
+                    ? cards.length
+                    : cards.filter(card => card.dataset.difficulty === f).length;
+                opt.textContent = (FILTER_LABEL[f] || f) + ' · ' + n;
+            });
+            /* El texto de la opción activa acaba de cambiar: se vuelve a
+               medir el ancho del selector con el total real. */
+            fitSelect(filterSel);
+        }
     })();
 
     /* ── 4 · Consola SQL: tipeo + barras + KPIs ────────────────────────── */
@@ -608,21 +678,21 @@
     const MOD_LABEL = { excel: 'Excel', powerbi: 'Power BI', hibrida: 'Híbrida (Excel + Power BI)',python:'Python' };
     const dashLabel = $('#dashModLabel');
 
-    $$('.seg-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            $$('.seg-btn').forEach(b => {
-                b.classList.toggle('active', b === btn);
-                b.setAttribute('aria-selected', String(b === btn));
-            });
-            const mod = btn.dataset.mod;
+        /* Select de modalidad: un <select> nativo en una sola línea (sin
+       pestañas que desbordar). Al cambiar la opción se actualiza la
+       etiqueta del grupo de dashboards y sus listas de alcance. */
+    const modSelect = $('#modSelect');
+    if (modSelect) {
+        modSelect.addEventListener('change', () => {
+            const mod = modSelect.value;
             if (dashLabel) dashLabel.textContent = 'Herramienta: ' + MOD_LABEL[mod];
             $$('.plan-card ul[data-mod]').forEach(ul => {
                 ul.hidden = ul.dataset.mod !== mod;
             });
         });
-    });
+    }
 
-    $$('.plan-toggle').forEach(toggle => {
+$$('.plan-toggle').forEach(toggle => {
         toggle.addEventListener('click', () => {
             const card = toggle.closest('.plan-card');
             const open = card.classList.toggle('open');
@@ -631,15 +701,13 @@
         });
     });
 
-    /* ── 9 · Filtro de proyectos ───────────────────────────────────────── */
-    const filterBtns = $$('.filter-btn');
+    /* ── 9 · Filtro de proyectos (selector <select> nativo) ───────── */
     const cards = $$('.project-card');
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.toggle('active', b === btn));
-            const f = btn.dataset.filter;
-
+    const filterSel = $('#filterSelect');
+    if (filterSel) {
+        filterSel.addEventListener('change', () => {
+            const f = filterSel.value;
             cards.forEach(card => {
                 const match = f === 'todos' || card.dataset.difficulty === f;
                 if (match) {
@@ -651,7 +719,7 @@
                 }
             });
         });
-    });
+    }
 
     /* ── 10 · Formulario de contacto (EmailJS) ──────────────────────────── */
     const form = $('#contactForm');

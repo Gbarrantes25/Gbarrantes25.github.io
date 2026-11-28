@@ -342,8 +342,12 @@ button {
 
 .nav-cta:hover {
   border-color: rgba(172, 32, 127, 0.6);
-  box-shadow: var(--glow-magentalight);
-  background: rgba(255, 92, 173, .10);
+  /*box-shadow: var(--glow-magentalight);
+  background: rgba(255, 92, 173, .10);*/
+  transform: translateY(-2px);
+  color: rgba(250, 230, 240, 0.9);
+  box-shadow: rgba(255, 92, 173, 0.42) 0px 5px 44px;
+  background-position: 100% 50%;
 }
 
 .nav-cta .pulse-dot {
@@ -1190,37 +1194,120 @@ section {
 /* ════════════════════════════════════════════════════════════════════════
    03 · SERVICIOS
    ════════════════════════════════════════════════════════════════════════ */
-/* max-width + wrap: el control segmentado nunca empuja el ancho del documento
-   (en móviles de 360px cuatro botones seguidos desbordaban el contenedor
-   general y la página quedaba descentrada ~38px). */
-.segmented {
+/* ── Selectores nativos <select> (modalidad de servicios y filtro de
+   proyectos): un solo control precedido de su palabra guía («Modalidad»,
+   «Filtrar»), imposible de desbordar y con área de toque generosa. El
+   caret nativo se sustituye por el chevron del sprite y color-scheme:
+   dark hace que el desplegable del sistema salga con el tema oscuro.
+   El ANCHO del control sigue a la opción seleccionada: scripts.js lo
+   mide con la misma tipografía y lo ajusta al cambiar —en móvil también—
+   para que nunca quede más ancho que su propio contenido. */
+.select-shell {
   display: inline-flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;            /* en pantallas estrechas la guía salta de línea */
+  align-items: center;
+  column-gap: .75rem;
+  row-gap: .5rem;
   max-width: 100%;
-  padding: .35rem;
-  gap: .25rem;
+}
+
+/* Envoltorio del control: el chevron se ancla AQUÍ (y no al conjunto) para
+   quedar centrado sobre el select aunque la palabra guía salte de línea. */
+.sel-field {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+}
+
+/* Palabra guía delante del selector, en el mismo lenguaje visual que los
+   kickers de sección: monoespaciada, versalitas y con su hairline. */
+.sel-label {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color var(--tr);
+}
+
+.sel-label::before {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background: var(--grad);
+}
+
+.select-shell:focus-within .sel-label {
+  color: var(--turq);
+}
+
+.segmented,
+.filters {
+  appearance: none;
+  -webkit-appearance: none;
+  color-scheme: dark;
+  width: auto;
+  max-width: 100%;
+  padding: .58rem 2.45rem .58rem 1.4rem;
+  font-family: 'Inter', sans-serif;
+  font-size: .84rem;
+  font-weight: 600;
+  color: var(--text);
   background: var(--panel);
   border: 1px solid var(--stroke);
   border-radius: var(--r-full);
+  cursor: pointer;
+  text-overflow: ellipsis;     /* si el hueco disponible no alcanza, recorta con «…» */
+  transition: color var(--tr), background var(--tr), border-color var(--tr), box-shadow var(--tr),
+    width .3s cubic-bezier(.22, 1, .36, 1);
 }
 
-.seg-btn {
-  padding: .58rem 1.4rem;
-  font-size: .84rem;
-  font-weight: 600;
-  color: var(--muted);
-  border-radius: var(--r-full);
-  transition: color var(--tr), background var(--tr), box-shadow var(--tr);
+.segmented:hover,
+.filters:hover {
+  color: #d6fff6;
+  background: var(--panel-2);
+  border-color: var(--stroke-2);
 }
 
-.seg-btn:hover {
+.segmented:focus,
+.filters:focus {
+  outline: none;
+  color: #d6fff6;
+  background: rgba(46, 230, 200, .13);
+  border-color: rgba(46, 230, 200, .38);
+  box-shadow: inset 0 0 0 1px rgba(46, 230, 200, .38);
+}
+
+.segmented option,
+.filters option {
+  background: var(--bg-1);
   color: var(--text);
 }
 
-.seg-btn.active {
-  color: #d6fff6;
-  background: rgba(46, 230, 200, .13);
-  box-shadow: inset 0 0 0 1px rgba(46, 230, 200, .38);
+.sel-chevron {
+  position: absolute;
+  right: .95rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--faint);
+  pointer-events: none;
+  transition: color var(--tr), transform var(--tr);
+}
+
+.sel-field:focus-within .sel-chevron {
+  color: var(--turq);
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* El espaciado antes del grid de proyectos va en el envoltorio (no en el
+   select) para no hinchar su altura y descentrar el chevron. */
+.filters-field {
+  margin-bottom: 2rem;
 }
 
 .plans-group {
@@ -1503,48 +1590,16 @@ section {
    05 · PROYECTOS
    ════════════════════════════════════════════════════════════════════════ */
 
-.filters {
-  display: inline-flex;
-  flex-wrap: wrap;
-  max-width: 100%;
-  padding: .35rem;
-  gap: .25rem;
-  background: var(--panel);
-  border: 1px solid var(--stroke);
-  border-radius: 20px;
-  margin-bottom: 2rem;
-}
+/* (El filtro de proyectos es ahora un <select> nativo: sus estilos,
+   compartidos con .segmented, viven en la sección 03 · Servicios.) */
 
-.filter-btn {
-  padding: .58rem 1.4rem;
-  font-size: .84rem;
-  font-weight: 600;
-  color: var(--muted);
-  border-radius: var(--r-full);
-  transition: color var(--tr), background var(--tr), box-shadow var(--tr);
-}
 
-.filter-btn:hover {
-  color: var(--text);
-}
-
-.filter-btn.active {
-  color: #d6fff6;
-  background: rgba(46, 230, 200, .13);
-  box-shadow: inset 0 0 0 1px rgba(46, 230, 200, .38);
-}
-
-.filter-btn .count {
-  margin-left: .35rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .64rem;
-  opacity: .75;
-}
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
+  margin-top: 2.6rem;
 }
 
 .project-card {
@@ -2445,12 +2500,15 @@ footer {
     background-color: rgba(13, 121, 103, 0.13);
     box-shadow: inset 0 0 0 1px rgba(18, 146, 125, 0.38);
     color: #d6fff6;
+
   }
 
   .nav-inner nav .nav-links .nav-cta:hover{
     border-color: rgba(52, 187, 218, 0.6);
-    box-shadow: 0 0 20px rgba(117, 234, 240, 0.28);
-    background: rgba(92, 225, 255, 0.1);
+    transform: translateY(-2px);
+    color: rgba(250, 230, 240, 0.9);
+    box-shadow: rgba(117, 234, 240, 0.28) 0px 5px 44px;
+    background-position: 100% 50%;
   }
 
   .nav-inner .nav-links{
@@ -2523,21 +2581,15 @@ footer {
   }
 
 
-  /* ── Control de modalidad: 2×2 en vez de una fila de 4 botones ──
-     En ≤600px la fila "Excel / Power BI / Híbrida / Python" no cabía
-     en el contenedor (374px dentro de 312px) y desbordaba la página. */
-  .segmented {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    border-radius: var(--r-md);
+    /* ── Selectores a la medida de su contenido también en móvil: el ancho
+     lo marca la opción activa (scripts.js mide su texto y ajusta el
+     control), no filas de ancho fijo —así el control nunca queda más
+     ancho que su contenido ni desborda el contenedor general ── */
+  .filters-field {
+    margin-bottom: 1.6rem;
   }
 
-  .seg-btn {
-    padding: .58rem .5rem;
-    text-align: center;
-  }
-
-  .hero h1 {
+.hero h1 {
     font-size: 2.15rem;
   }
 
@@ -2623,15 +2675,6 @@ footer {
 
   .process-track{
     grid-template-columns: 1fr 1fr;
-  }
-
-  .filters{
-    justify-content: flex-start;
-    gap:0.5rem
-  }
-
-  .filter-btn{
-    padding: .55rem 0.8rem;
   }
 
   .f-derechos{
